@@ -3,6 +3,114 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { getServiceBySlug } from "@/constants/services";
 
+
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+
+function ServiceHero({ service }) {
+  const images = service.images || [service.heroImage]; // support multiple images
+
+  const [index, setIndex] = useState(0);
+
+  // Auto-slide every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((i) => (i + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <section className="grid gap-8 md:grid-cols-2 md:items-center">
+      {/* LEFT CONTENT */}
+      <div>
+        {service.badge && (
+          <span className="inline-flex items-center gap-2 rounded-full bg-[#FFE7E6] px-3 py-1 text-xs font-semibold text-[#E53935]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#E53935]" />
+            {service.badge}
+          </span>
+        )}
+
+        <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          {service.name}
+        </h1>
+
+        {service.shortDescription && (
+          <p className="mt-3 text-sm sm:text-base text-slate-600">
+            {service.shortDescription}
+          </p>
+        )}
+
+        <div className="mt-5 flex flex-wrap gap-3">
+          {service.category && (
+            <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
+              {service.category}
+            </span>
+          )}
+
+          {service.idealFor?.length > 0 && (
+            <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
+              Ideal for {service.idealFor.length}+ use cases
+            </span>
+          )}
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link
+            to={`/contact-us?service=${service.slug}`}
+            className="inline-flex items-center rounded-full bg-[#E53935] px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-[#E53935]/30 hover:bg-[#c92f2b]"
+          >
+            Request a quote
+          </Link>
+
+          <Link
+            to="/contact-us"
+            className="inline-flex items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+          >
+            Talk to our team
+          </Link>
+        </div>
+      </div>
+
+      {/* RIGHT — Animated Image Carousel */}
+      <div className="order-first md:order-last">
+        <div className="relative overflow-hidden rounded border border-slate-200 bg-slate-100 shadow-sm h-[400px]">
+
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={images[index]} // crucial for animation
+              src={images[index].url}
+              alt={service.name}
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+              initial={{ opacity: 0, scale: 1.05, x: 20 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              exit={{ opacity: 0, scale: 0.95, x: -20 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+            />
+          </AnimatePresence>
+
+          {/* Dots Indicator */}
+          {images.length > 1 && (
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIndex(i)}
+                  className={`h-2.5 w-2.5 rounded-full transition ${
+                    i === index ? "bg-red-600" : "bg-white/70"
+                  }`}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 export default function ServiceDetailsPage() {
   const { slug } = useParams();
   const service = getServiceBySlug(slug);
@@ -52,7 +160,7 @@ export default function ServiceDetailsPage() {
 
       <main className="mx-auto max-w-7xl px-4 pt-8 ">
         {/* HERO SECTION */}
-        <section className="grid gap-8 md:grid-cols-2 md:items-center">
+        {/* <section className="grid gap-8 md:grid-cols-2 md:items-center">
           <div>
             {service.badge && (
               <span className="inline-flex items-center gap-2 rounded-full bg-[#FFE7E6] px-3 py-1 text-xs font-semibold tracking-wide text-[#E53935]">
@@ -112,7 +220,8 @@ export default function ServiceDetailsPage() {
               </div>
             </div>
           )}
-        </section>
+        </section> */}
+        <ServiceHero service={service} />
 
         {/* OVERVIEW */}
         {service.overview && (
@@ -254,3 +363,4 @@ export default function ServiceDetailsPage() {
     </div>
   );
 }
+
