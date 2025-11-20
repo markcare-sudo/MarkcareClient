@@ -1,3 +1,4 @@
+import { LIFT_IMAGES, LOGOS } from "@/constants/branding";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 
@@ -56,7 +57,8 @@ export const AboutMarkCare = ({stats}) => {
                 <div className="aspect-[16/11] w-full overflow-hidden rounded-2xl border border-gray-100 shadow">
                     {/* Background hero image (replace with local path or imported image) */}
                     <img
-                        src="/assets/about-hero.jpg"
+                        // src={LOGOS.Mark_Care_Logo}
+                        src={LIFT_IMAGES.Lift2} 
                         alt="MarkCare technicians at work"
                         className="h-full w-full object-cover"
                     />
@@ -74,9 +76,9 @@ export const AboutMarkCare = ({stats}) => {
 
                 {/* small gallery */}
                 <div className="mt-4 grid grid-cols-3 gap-3">
-                    <img src="/assets/service-ac.jpg" alt="AC service" className="h-20 w-full rounded-md object-cover" />
-                    <img src="/assets/service-ro.jpg" alt="RO plant" className="h-20 w-full rounded-md object-cover" />
-                    <img src="/assets/service-solar.jpg" alt="Solar install" className="h-20 w-full rounded-md object-cover" />
+                    <img src={LIFT_IMAGES.Lift1} alt="AC service" className="h-20 w-full rounded-md object-cover" />
+                    <img src={LIFT_IMAGES.Lift2} alt="RO plant" className="h-20 w-full rounded-md object-cover" />
+                    <img src={LIFT_IMAGES.Lift3} alt="Solar install" className="h-20 w-full rounded-md object-cover" />
                 </div>
             </div>
         </div>
