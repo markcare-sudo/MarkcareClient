@@ -1,4 +1,4 @@
-import { LIFT_IMAGES, LOGOS } from "@/constants/branding";
+import { LIFT_IMAGES } from "@/constants/branding";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 
