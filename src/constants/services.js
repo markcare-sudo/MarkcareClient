@@ -658,6 +658,28 @@ export const SERVICES = [
             description:
                 'Restore efficiency of chillers, exchangers, and pipelines with professional chemical cleaning and descaling solutions.',
         },
+        images: [
+            { id: 1, url: LIFT_IMAGES.Lift1 },
+            { id: 2, url: LIFT_IMAGES.Lift2 },
+            { id: 3, url: LIFT_IMAGES.Lift3 },
+            { id: 4, url: LIFT_IMAGES.Lift4 },
+            { id: 5, url: LIFT_IMAGES.Lift5 },
+            { id: 6, url: LIFT_IMAGES.Lift6 },
+            { id: 7, url: LIFT_IMAGES.Lift7 },
+            { id: 8, url: LIFT_IMAGES.Lift8 },
+            { id: 9, url: LIFT_IMAGES.Lift9 },
+            { id: 10, url: LIFT_IMAGES.Lift10 },
+            { id: 11, url: LIFT_IMAGES.Lift11 },
+            { id: 12, url: LIFT_IMAGES.Lift12 },
+            { id: 13, url: LIFT_IMAGES.Lift13 },
+            { id: 14, url: LIFT_IMAGES.Lift14 },
+            { id: 15, url: LIFT_IMAGES.Lift15 },
+            { id: 16, url: LIFT_IMAGES.Lift16 },
+            { id: 17, url: LIFT_IMAGES.Lift17 },
+            { id: 18, url: LIFT_IMAGES.Lift18 },
+            { id: 19, url: LIFT_IMAGES.Lift19 },
+            { id: 20, url: LIFT_IMAGES.Lift20 },
+        ]
     },
 ];
 

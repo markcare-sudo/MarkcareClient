@@ -18,7 +18,7 @@ export default function ProjectsSection({ clients = CLIENTS }) {
     return (
         <section id="projects" className="min-h-screen bg-white text-slate-900">
 
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10">
+            <div className="mx-auto max-w-7xl px-4 py-10">
                 
                 <div className="mx-auto max-w-3xl text-center">
                     <span className="inline-flex items-center gap-2 rounded-full border border-[#E53935]/30 bg-[#E53935]/10 px-3 py-1 text-xs text-[#E53935] font-medium">

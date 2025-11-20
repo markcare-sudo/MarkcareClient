@@ -30,7 +30,7 @@ export default function Services() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-[#FFF5F4] via-slate-50 to-[#F3F7FF]" />
       <div className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-1/2 bg-[radial-gradient(circle_at_top,_rgba(229,57,53,0.08),_transparent_55%)]" />
 
-      <div className="mx-auto max-w-7xl px-4 pb-16 pt-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pb-16 pt-10 ">
         {/* Heading */}
         <ServiceHero />
 

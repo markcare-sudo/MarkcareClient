@@ -7,7 +7,7 @@ export const CTA = () => {
                     <p className="mt-1 text-sm text-gray-600">Interested in partnering, hiring, or requesting a case-study? We’d love to hear from you.</p>
                 </div>
                 <div className="flex gap-3">
-                    <a href="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#E53935] px-4 py-2 text-sm font-semibold text-white">Contact Us</a>
+                    <a href="/contact-us" className="inline-flex items-center gap-2 rounded-full bg-[#E53935] px-4 py-2 text-sm font-semibold text-white">Contact Us</a>
                     <a href="/careers" className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold">Join Our Team</a>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import { LIFT_IMAGES } from "@/constants/branding";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const AboutMarkCare = ({stats}) => {
     return (
@@ -20,12 +21,12 @@ export const AboutMarkCare = ({stats}) => {
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                    <a
-                        href="#contact"
+                    <Link
+                        to="/contact-us"
                         className="inline-flex items-center gap-2 rounded-full bg-[#E53935] px-4 py-2 text-sm font-semibold text-white shadow hover:bg-[#C62828]"
                     >
                         Get a Service
-                    </a>
+                    </Link>
                     <a
                         href="/services"
                         className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-800"

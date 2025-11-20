@@ -160,67 +160,6 @@ export default function ServiceDetailsPage() {
 
       <main className="mx-auto max-w-7xl px-4 pt-8 ">
         {/* HERO SECTION */}
-        {/* <section className="grid gap-8 md:grid-cols-2 md:items-center">
-          <div>
-            {service.badge && (
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#FFE7E6] px-3 py-1 text-xs font-semibold tracking-wide text-[#E53935]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#E53935]" />
-                {service.badge}
-              </span>
-            )}
-
-            <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              {service.name}
-            </h1>
-
-            {service.shortDescription && (
-              <p className="mt-3 text-sm sm:text-base text-slate-600">
-                {service.shortDescription}
-              </p>
-            )}
-
-            <div className="mt-5 flex flex-wrap gap-3">
-              {service.category && (
-                <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
-                  {service.category}
-                </span>
-              )}
-              {service.idealFor && service.idealFor.length > 0 && (
-                <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
-                  Ideal for {service.idealFor.length}+ use cases
-                </span>
-              )}
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                to={`/contact-us?service=${service.slug}`}
-                className="inline-flex items-center rounded-full bg-[#E53935] px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-[#E53935]/30 hover:bg-[#c92f2b]"
-              >
-                Request a quote
-              </Link>
-              <Link
-                to="/contact-us"
-                className="inline-flex items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-              >
-                Talk to our team
-              </Link>
-            </div>
-          </div>
-
-          {service.heroImage && (
-            <div className="order-first md:order-last">
-              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
-                <img
-                  src={service.heroImage}
-                  alt={service.name}
-                  className="h-full w-full max-h-[320px] object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          )}
-        </section> */}
         <ServiceHero service={service} />
 
         {/* OVERVIEW */}

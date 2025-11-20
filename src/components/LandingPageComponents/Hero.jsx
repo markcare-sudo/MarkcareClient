@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from "framer-motion";
 import { Phone, ShieldCheck, Wrench } from 'lucide-react'
 import Button from '../ReusableComponents/Button';
+import { Link } from 'react-router-dom';
 
 const Hero = ({ services, classNames }) => {
     return (
@@ -18,7 +19,7 @@ const Hero = ({ services, classNames }) => {
                     </p>
                     <div className="mt-6 flex flex-wrap gap-3">
                         <a href="tel:+919884927676"><Button className="rounded-2xl">Call Now</Button></a>
-                        <a href="#services"><Button variant="outline" className="rounded-2xl">Explore Services</Button></a>
+                        <Link to="/services"><Button variant="outline" className="rounded-2xl">Explore Services</Button></Link>
                     </div>
                     <div className="mt-6 flex items-center gap-4 text-sm text-slate-600">
                         <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> Trained & Insured</div>

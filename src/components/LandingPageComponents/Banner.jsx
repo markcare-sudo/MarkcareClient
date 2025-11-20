@@ -156,7 +156,7 @@ const DEFAULT_SLIDES = [
     emphasis: "Lift & Elevator Maintenance",
     subtitle:
       "Preventive and breakdown maintenance for residential, commercial, and industrial lifts with strict safety compliance and timely support.",
-    cta: { label: "View Lift Services", href: "/our-services" },
+    cta: { label: "View Lift Services", href: "/services" },
     video: VIDEO_CLIPS.Bottle1, // update to your actual key
     muted: true,
     loop: true,
@@ -180,7 +180,7 @@ const DEFAULT_SLIDES = [
     emphasis: "Solar & Hybrid Solutions",
     subtitle:
       "Rooftop solar, hybrid systems, and energy optimisation solutions for factories, complexes, and commercial buildings.",
-    cta: { label: "Explore Solar Options", href: "/our-services" },
+    cta: { label: "Explore Solar Options", href: "/services" },
     video: VIDEO_CLIPS.Ro_Plant, // update to your actual key
     muted: true,
     loop: true,

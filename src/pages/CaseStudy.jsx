@@ -24,10 +24,6 @@ export default function CaseStudy() {
 
     return (
         <section id="case-studies" className="min-h-screen bg-white text-slate-900">
-
-            {/* Navbar */}
-            <Header open={open} setOpen={setOpen} />
-
             <div className="mx-auto max-w-7xl px-4 lg:px-8 py-10">
                 {/* Header */}
                 <div className="mx-auto max-w-3xl text-center">
