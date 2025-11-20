@@ -1,13 +1,14 @@
-import WhyUs from "@/components/WhyUs";
+
 import AboutUs from "@/components/AboutUs";
 import Clients from "@/components/Clients";
-import WorkShowcase from "@/components/WorkShowcase";
-import InAction from "@/components/VideosSection";
 import Banner from "@/components/LandingPageComponents/Banner";
 import Hero from "@/components/LandingPageComponents/Hero";
 import QualityServices from "@/components/LandingPageComponents/QualityServices";
-import { CITIES, FEATURES, SERVICES } from "@/utils/data";
+import Videos from "@/components/LandingPageComponents/VideosSection";
+import WhyUs from "@/components/LandingPageComponents/WhyUs";
+import WorkShowcase from "@/components/LandingPageComponents/WorkShowcase";
 
+import { CITIES, FEATURES, SERVICES } from "@/utils/data";
 
 const installs = 5000;
 const citiesCount = 15;
@@ -40,7 +41,7 @@ export default function MarkCareSite() {
       <WorkShowcase />
 
       {/* Video Section */}
-      <InAction />
+      <Videos />
 
       {/* Clients strip */}
       <Clients />

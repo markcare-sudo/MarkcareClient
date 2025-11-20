@@ -13,7 +13,7 @@ const clips = [
     { id: "v5", title: "RO Plant – Clip 3", caption: "Full plant overview.", type: "file", src: VIDEO_CLIPS.Ro_Plant2, poster: "/images/fallback-ro3.jpg" },
 ];
 
-export default function InActionVideos() {
+export default function Videos() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const [openClip, setOpenClip] = useState(null);
