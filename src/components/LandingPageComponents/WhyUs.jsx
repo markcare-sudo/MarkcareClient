@@ -6,8 +6,6 @@ import {
   Factory,
 } from "lucide-react";
 
-
-
 const CountUp = ({ end, duration = 1500, suffix = "" }) => {
   const [value, setValue] = useState(0);
   const ref = useRef(null);
