@@ -16,8 +16,7 @@ const Header = ({ open, setOpen, cities = CITIES }) => {
     { name: "Contact Us", path: "/contact-us" },
   ];
 
-  const isActive = (path) =>
-    path === "/" ? pathname === "/" : pathname.startsWith(path);
+  const isActive = (path) => path === "/" ? pathname === "/" : pathname.startsWith(path);
 
   return (
     <>
@@ -128,5 +127,6 @@ const Header = ({ open, setOpen, cities = CITIES }) => {
     </>
   );
 };
+
 
 export default Header;
