@@ -10,6 +10,7 @@ import Contact from "@/pages/ContactUs";
 import LiftBrochure from "@/pages/LiftSection";
 import CaseStudy from "@/pages/CaseStudy";
 import ServiceDetailsPage from "@/pages/ServiceDetails";
+import BlogsListPage from "@/pages/Blogs";
 
 // Lazy-loaded pages
 const Home = lazy(() => import("../pages/Home"));
@@ -59,7 +60,7 @@ const AppRoutes = () => {
           }
         />
 
-         <Route
+        <Route
           path="/services/:slug"
           element={
             <ErrorBoundary>
@@ -104,6 +105,16 @@ const AppRoutes = () => {
             </ErrorBoundary>
           }
         />
+
+        <Route
+          path="/admin-upload-blogs"
+          element={
+            <ErrorBoundary>
+              <BlogsListPage />
+            </ErrorBoundary>
+          }
+        />
+
       </Route>
     </Routes>
   );
