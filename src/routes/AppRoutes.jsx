@@ -11,6 +11,8 @@ import LiftBrochure from "@/pages/LiftSection";
 import CaseStudy from "@/pages/CaseStudy";
 import ServiceDetailsPage from "@/pages/ServiceDetails";
 import BlogsListPage from "@/pages/Blogs";
+import PublicBlogs from "@/pages/PublicBlogs";
+import BlogDetails from "@/pages/BlogDetails";
 
 // Lazy-loaded pages
 const Home = lazy(() => import("../pages/Home"));
@@ -114,6 +116,25 @@ const AppRoutes = () => {
             </ErrorBoundary>
           }
         />
+
+        <Route
+          path="/blogs"
+          element={
+            <ErrorBoundary>
+              <PublicBlogs />
+            </ErrorBoundary>
+          }
+        />
+
+        <Route
+          path="/blogs/:slug"
+          element={
+            <ErrorBoundary>
+              <BlogDetails />
+            </ErrorBoundary>
+          }
+        />
+
 
       </Route>
     </Routes>
