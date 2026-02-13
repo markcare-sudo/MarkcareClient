@@ -23,8 +23,8 @@ export default function BlogDetails() {
     );
   }
 
-  //   const image = blog.featured_image || DUMMY_IMAGE;
-  const image = getImageUrl(blog.featured_media) || DUMMY_IMAGE;
+  //   const image = blog?.featured_image || DUMMY_IMAGE;
+  const image = getImageUrl(blog?.featured_media) || DUMMY_IMAGE;
 
   return (
     <div className="bg-gray-50 min-h-screen text-black">
@@ -32,7 +32,7 @@ export default function BlogDetails() {
       <section className="relative w-full h-[400px] md:h-[520px] overflow-hidden">
         <img
           src={image}
-          alt={blog.title}
+          alt={blog?.title}
           className="w-full h-full object-cover"
         />
 
@@ -42,16 +42,16 @@ export default function BlogDetails() {
         {/* Hero Content */}
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-6">
           <span className="mb-4 px-4 py-1 bg-white/20 backdrop-blur-md rounded-full text-sm">
-            {blog.category}
+            {blog?.category}
           </span>
 
           <h1 className="text-3xl md:text-5xl font-bold max-w-4xl leading-tight mb-6">
-            {blog.title}
+            {blog?.title}
           </h1>
 
           <div className="flex items-center gap-2 text-sm text-gray-200">
             <Calendar size={16} />
-            {new Date(blog.created_at).toLocaleDateString()}
+            {new Date(blog?.published_at).toLocaleDateString()}
           </div>
         </div>
       </section>
@@ -69,9 +69,9 @@ export default function BlogDetails() {
         </Link>
 
         {/* Excerpt */}
-        {blog.excerpt && (
+        {blog?.excerpt && (
           <p className="text-xl text-gray-600 leading-relaxed mb-10 border-l-4 border-black pl-6 italic">
-            {blog.excerpt}
+            {blog?.excerpt}
           </p>
         )}
 
@@ -84,7 +84,7 @@ export default function BlogDetails() {
                      prose-a:text-black
                      prose-blockquote:border-black
                      prose-blockquote:text-gray-600"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
+          dangerouslySetInnerHTML={{ __html: blog?.content }}
         />
       </article>
 

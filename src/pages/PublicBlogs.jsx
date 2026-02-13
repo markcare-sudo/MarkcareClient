@@ -7,7 +7,7 @@ import { useGlobalContext } from "@/context/GlobalContext";
    Reusable Blog Card
 ================================ */
 const BlogCard = ({ blog }) => {
-  const { getImageUrl} = useGlobalContext()
+  const { getImageUrl } = useGlobalContext()
 
   return (
     <Link
@@ -18,7 +18,7 @@ const BlogCard = ({ blog }) => {
         <img
           src={getImageUrl(blog?.featured_media)}
           alt={blog?.title}
-          className="w-full h-56 object-cover group-hover:scale-105 transition duration-500"
+          className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
         />
       </div>
 

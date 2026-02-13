@@ -189,6 +189,8 @@ export default function BlogForm({ open, onClose, initialData }) {
           />
 
           {/* Media Preview */}
+
+          <lable className="font-bold mb-2">Featured Media</lable>
           {imagePreview ? (
             imagePreview.type === "video" ? (
               <video
@@ -209,7 +211,6 @@ export default function BlogForm({ open, onClose, initialData }) {
             </div>
           )}
 
-<lable className="font-bold mb-2">Featured Media</lable>
           {/* File Input */}
           <input
             type="file"
@@ -227,7 +228,7 @@ export default function BlogForm({ open, onClose, initialData }) {
             <Upload size={16} /> Upload Image / Video
           </button>
 
-<lable className="font-bold mb-2">Publishing</lable>
+          <lable className="font-bold mb-2">Publishing</lable>
           {/* Category */}
           <input
             name="category"
