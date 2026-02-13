@@ -9,7 +9,7 @@ const DUMMY_IMAGE =
 
 export default function BlogDetails() {
   const { slug } = useParams();
-  const { blogs } = useGlobalContext()
+  const { blogs, getImageUrl } = useGlobalContext()
 
   const blog = blogs.find(
     (b) => b.slug === slug || String(b.id) === slug
@@ -23,11 +23,11 @@ export default function BlogDetails() {
     );
   }
 
-//   const image = blog.featured_image || DUMMY_IMAGE;
-    const image =  DUMMY_IMAGE;
+  //   const image = blog.featured_image || DUMMY_IMAGE;
+  const image = getImageUrl(blog.featured_media) || DUMMY_IMAGE;
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 min-h-screen text-black">
       {/* ================= HERO SECTION ================= */}
       <section className="relative w-full h-[400px] md:h-[520px] overflow-hidden">
         <img
@@ -57,8 +57,8 @@ export default function BlogDetails() {
       </section>
 
       {/* ================= ARTICLE CONTENT ================= */}
-      <article className="max-w-3xl mx-auto px-6 py-16 bg-white -mt-16 relative z-10 rounded-3xl shadow-xl">
-        
+      <article className="max-w-6xl mx-auto px-6 py-16 bg-white -mt-16 relative z-10 rounded-3xl shadow-xl">
+
         {/* Back Button */}
         <Link
           to="/blogs"

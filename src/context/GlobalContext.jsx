@@ -5,8 +5,9 @@ import { successHandler } from '@/components/SuccessHandler';
 import { createBlog, deleteBlogById, getBlogs, updateBlogById } from '@/services/blogsService';
 import { createContext, useContext, useEffect, useState } from 'react';
 
+const CLOUD_URL = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+
 const GlobalContext = createContext();
-const awsImageDomain = import.meta.env.VITE_AWS_IMAGE_DOMAIN
 
 export const GlobalProvider = ({ children }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -17,22 +18,12 @@ export const GlobalProvider = ({ children }) => {
 
   const toggleMobileMenu = () => setMobileMenuOpen(prev => !prev);
 
-  const getFullImageUrl = (image) => {
-    if (!image) return "";
-    if (/^https?:\/\//i.test(image)) return image;
-    return `${awsImageDomain}/uploads${image.startsWith("/") ? "" : "/"}${image}`;
-  };
 
-  const getFullImageUrl2 = (image) => {
-    if (!image) return "";
+  const getImageUrl = (publicId) => {
+  if (!publicId) return "/placeholder.jpg";
 
-    // If already absolute URL (http/https), return as-is
-    if (/^https?:\/\//i.test(image)) return image;
-
-    // Local uploads
-    return `${awsImageDomain}/uploads${image.startsWith("/") ? "" : "/"}${image}`;
-  };
-
+  return `${CLOUD_URL}${publicId}`;
+};
 
   const fetchBlogs = async () => {
     try {
@@ -82,8 +73,7 @@ export const GlobalProvider = ({ children }) => {
   return (
     <GlobalContext.Provider
       value={{
-        getFullImageUrl,
-        getFullImageUrl2,
+        getImageUrl,
         openDropdown,
         setOpenDropdown,
         mobileMenuOpen,

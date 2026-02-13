@@ -49,33 +49,33 @@ const StatusBadge = ({ status }) => {
 const BlogCard = ({ blog, onEdit, onDelete }) => (
   <div className="bg-white rounded-2xl shadow-sm border p-5 hover:shadow-md transition">
     <div className="flex justify-between items-start mb-3">
-      <h3 className="text-lg font-semibold">{blog.title}</h3>
-      <StatusBadge status={blog.status} />
+      <h3 className="text-lg font-semibold">{blog?.title}</h3>
+      <StatusBadge status={blog?.status} />
     </div>
 
     <p className="text-sm text-gray-600 line-clamp-2 mb-3">
-      {blog.excerpt}
+      {blog?.excerpt}
     </p>
 
     <div className="flex justify-between items-center text-xs text-gray-500">
-      <span>{blog.category}</span>
+      <span>{blog?.category}</span>
       <span>
-        {blog.created_at
-          ? new Date(blog.created_at).toLocaleDateString()
+        {blog?.created_at
+          ? new Date(blog?.created_at).toLocaleDateString()
           : "-"}
       </span>
     </div>
 
     <div className="flex gap-4 mt-4">
       <button
-        onClick={() => onEdit(blog.id)}
+        onClick={() => onEdit(blog?.id)}
         className="text-sm text-black font-medium underline"
       >
         Edit
       </button>
 
       <button
-        onClick={() => onDelete(blog.id)}
+        onClick={() => onDelete(blog?.id)}
         className="text-sm text-red-600 font-medium underline"
       >
         Delete
@@ -111,9 +111,9 @@ export default function BlogsListPage() {
   const filteredBlogs = Array.isArray(blogs)
     ? blogs.filter((blog) => {
         const matchesStatus =
-          filter === "all" || blog.status === filter;
+          filter === "all" || blog?.status === filter;
 
-        const matchesSearch = blog.title
+        const matchesSearch = blog?.title
           ?.toLowerCase()
           .includes(search.toLowerCase());
 
@@ -191,7 +191,7 @@ export default function BlogsListPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredBlogs.map((blog) => (
               <BlogCard
-                key={blog.id}
+                key={blog?.id}
                 blog={blog}
                 onEdit={(id) => setSearchParams({ edit: id })}
                 onDelete={(id) => deleteBlog(id)}

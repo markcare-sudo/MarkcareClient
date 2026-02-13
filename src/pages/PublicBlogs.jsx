@@ -7,15 +7,17 @@ import { useGlobalContext } from "@/context/GlobalContext";
    Reusable Blog Card
 ================================ */
 const BlogCard = ({ blog }) => {
+  const { getImageUrl} = useGlobalContext()
+
   return (
     <Link
-      to={`/blogs/${blog.slug || blog.id}`}
+      to={`/blogs/${blog?.slug || blog?.id}`}
       className="group bg-white rounded-3xl overflow-hidden shadow-sm border hover:shadow-xl transition-all duration-300"
     >
       <div className="overflow-hidden">
         <img
-          src={blog.featured_image}
-          alt={blog.title}
+          src={getImageUrl(blog?.featured_media)}
+          alt={blog?.title}
           className="w-full h-56 object-cover group-hover:scale-105 transition duration-500"
         />
       </div>
@@ -23,19 +25,19 @@ const BlogCard = ({ blog }) => {
       <div className="p-6">
         <div className="flex items-center justify-between mb-3">
           <span className="text-xs font-medium px-3 py-1 bg-black text-white rounded-full">
-            {blog.category}
+            {blog?.category}
           </span>
           <span className="text-xs text-gray-500">
-            {new Date(blog.created_at).toLocaleDateString()}
+            {new Date(blog?.created_at).toLocaleDateString()}
           </span>
         </div>
 
         <h3 className="text-xl font-semibold mb-3 group-hover:text-gray-700 transition">
-          {blog.title}
+          {blog?.title}
         </h3>
 
         <p className="text-gray-600 text-sm line-clamp-3">
-          {blog.excerpt}
+          {blog?.excerpt}
         </p>
 
         <div className="mt-5 text-sm font-medium text-black">
@@ -53,12 +55,12 @@ export default function PublicBlogs() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
 
-  const { blogs } = useGlobalContext()
+  const { blogs, getImageUrl } = useGlobalContext()
 
   // Only show published blogs
   const publishedBlogs = useMemo(() => {
     return Array.isArray(blogs)
-      ? blogs.filter((blog) => blog.status === "published")
+      ? blogs.filter((blog) => blog?.status === "published")
       : [];
   }, [blogs]);
 
@@ -70,10 +72,10 @@ export default function PublicBlogs() {
   const filteredBlogs = useMemo(() => {
     return publishedBlogs.filter((blog) => {
       const matchesCategory =
-        category === "all" || blog.category === category;
+        category === "all" || blog?.category === category;
 
       const matchesSearch =
-        blog.title.toLowerCase().includes(search.toLowerCase());
+        blog?.title.toLowerCase().includes(search.toLowerCase());
 
       return matchesCategory && matchesSearch;
     });
@@ -133,14 +135,16 @@ export default function PublicBlogs() {
         {featuredBlog && (
           <div className="mb-16">
             <Link
-              to={`/blogs/${featuredBlog.slug || featuredBlog.id}`}
+              to={`/blogs/${featuredBlog?.slug || featuredBlog?.id}`}
               className="grid md:grid-cols-2 gap-10 bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition"
             >
               <img
-                src={featuredBlog.featured_image}
-                alt={featuredBlog.title}
+                src={getImageUrl(featuredBlog?.featured_media)}
+                alt={featuredBlog?.title}
                 className="w-full h-80 object-cover"
               />
+
+              {console.log(getImageUrl(featuredBlog?.featured_media))}
 
               <div className="p-10 flex flex-col justify-center">
                 <span className="text-sm text-gray-500 mb-3">
@@ -148,11 +152,11 @@ export default function PublicBlogs() {
                 </span>
 
                 <h2 className="text-3xl font-bold mb-4">
-                  {featuredBlog.title}
+                  {featuredBlog?.title}
                 </h2>
 
                 <p className="text-gray-600 mb-6">
-                  {featuredBlog.excerpt}
+                  {featuredBlog?.excerpt}
                 </p>
 
                 <span className="text-black font-semibold">
@@ -171,7 +175,7 @@ export default function PublicBlogs() {
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {filteredBlogs.slice(1).map((blog) => (
-              <BlogCard key={blog.id} blog={blog} />
+              <BlogCard key={blog?.id} blog={blog} />
             ))}
           </div>
         )}
