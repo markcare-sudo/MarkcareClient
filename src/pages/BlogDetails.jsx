@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import { useGlobalContext } from "@/context/GlobalContext";
 
 /* Dummy Image */
@@ -9,7 +9,7 @@ const DUMMY_IMAGE =
 
 export default function BlogDetails() {
   const { slug } = useParams();
-  const { blogs, getImageUrl } = useGlobalContext()
+  const { blogs, getImageUrl } = useGlobalContext();
 
   const blog = blogs.find(
     (b) => b.slug === slug || String(b.id) === slug
@@ -23,8 +23,19 @@ export default function BlogDetails() {
     );
   }
 
-  //   const image = blog?.featured_image || DUMMY_IMAGE;
   const image = getImageUrl(blog?.featured_media) || DUMMY_IMAGE;
+
+  /* ✅ Safely Parse Tags */
+  let parsedTags = [];
+  try {
+    if (typeof blog?.tags === "string") {
+      parsedTags = JSON.parse(blog.tags);
+    } else if (Array.isArray(blog?.tags)) {
+      parsedTags = blog.tags;
+    }
+  } catch (error) {
+    parsedTags = [];
+  }
 
   return (
     <div className="bg-gray-50 min-h-screen text-black">
@@ -36,10 +47,8 @@ export default function BlogDetails() {
           className="w-full h-full object-cover"
         />
 
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/50" />
 
-        {/* Hero Content */}
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-6">
           <span className="mb-4 px-4 py-1 bg-white/20 backdrop-blur-md rounded-full text-sm">
             {blog?.category}
@@ -58,15 +67,32 @@ export default function BlogDetails() {
 
       {/* ================= ARTICLE CONTENT ================= */}
       <article className="max-w-6xl mx-auto px-6 py-16 bg-white -mt-16 relative z-10 rounded-3xl shadow-xl">
-
+        
         {/* Back Button */}
         <Link
           to="/blogs"
-          className="flex items-center gap-2 text-sm text-gray-500 hover:text-black transition mb-8"
+          className="flex items-center gap-2 text-sm text-gray-500 hover:text-black transition mb-6"
         >
           <ArrowLeft size={16} />
           Back to Blogs
         </Link>
+
+        {/* ✅ TAGS SECTION */}
+        {parsedTags.length > 0 && (
+          <div className="flex flex-wrap items-center gap-3 mb-8">
+            <Tag size={16} className="text-gray-500" />
+            {parsedTags.map((tag, index) => (
+              <Link
+                key={index}
+                to={`/blogs?tag=${encodeURIComponent(tag)}`}
+                className="px-4 py-1.5 text-sm bg-gray-100 hover:bg-black hover:text-white 
+                           transition rounded-full border border-gray-200"
+              >
+                #{tag}
+              </Link>
+            ))}
+          </div>
+        )}
 
         {/* Excerpt */}
         {blog?.excerpt && (
@@ -88,7 +114,6 @@ export default function BlogDetails() {
         />
       </article>
 
-      {/* ================= BOTTOM SPACING ================= */}
       <div className="h-20" />
     </div>
   );
