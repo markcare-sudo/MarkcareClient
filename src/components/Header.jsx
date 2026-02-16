@@ -66,12 +66,29 @@ const Header = ({ cities = CITIES }) => {
       <header className="sticky top-0 z-50 bg-black/90 text-white shadow-md">
         <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
 
-          <Link to="/">
+          {/* <Link to="/">
             <img
               src={LOGOS.Mark_Care_Logo}
               alt="Logo"
               className="w-12 rounded-md"
             />
+            
+          </Link> */}
+
+          <Link to="/" className="flex items-center gap-3">
+            <img
+              src={LOGOS.Mark_Care_Logo}
+              alt="Mark Care Logo"
+              className="w-12 h-auto rounded-md object-cover"
+            />
+            <div className="leading-tight">
+              <div className="font-semibold text-white">
+                Mark Care Pvt. Ltd.
+              </div>
+              <div className="text-xs text-slate-400">
+                Services at Residential • Industrial Solutions
+              </div>
+            </div>
           </Link>
 
           {/* Desktop Menu */}
