@@ -142,7 +142,7 @@ const Header = ({ cities = CITIES }) => {
               onMouseLeave={() => setServicesOpen(false)}
             >
               <button className="flex items-center gap-1 hover:text-red-500">
-                Services <ChevronDown size={16} />
+                Product & Services <ChevronDown size={16} />
               </button>
 
               <AnimatePresence>
