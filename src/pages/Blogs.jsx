@@ -5,14 +5,25 @@ import BlogForm from "@/components/BlogEditor";
 import { useSearchParams } from "react-router-dom";
 
 /* =========================
-   Reusable Button
+   Reusable Button (Red Theme)
 ========================= */
-const Button = ({ children, onClick, variant = "primary", className = "", ...props }) => {
-  const base = "px-4 py-2 rounded-xl font-medium transition-all duration-200";
+const Button = ({
+  children,
+  onClick,
+  variant = "primary",
+  className = "",
+  ...props
+}) => {
+  const base =
+    "px-4 py-2 rounded-xl font-medium transition-all duration-300";
+
   const styles = {
-    primary: "bg-black text-white hover:opacity-90",
-    outline: "border border-gray-300 hover:bg-gray-100",
-    success: "bg-green-600 text-white hover:opacity-90",
+    primary:
+      "bg-red-600 text-white hover:bg-red-700 shadow-md shadow-red-600/20",
+    outline:
+      "border border-red-500/40 text-white hover:bg-red-600/10",
+    success:
+      "bg-green-600 text-white hover:opacity-90",
   };
 
   return (
@@ -27,33 +38,40 @@ const Button = ({ children, onClick, variant = "primary", className = "", ...pro
 };
 
 /* =========================
-   Status Badge
+   Status Badge (Dark)
 ========================= */
 const StatusBadge = ({ status }) => {
   const styles = {
-    published: "bg-green-100 text-green-700",
-    draft: "bg-yellow-100 text-yellow-700",
-    archived: "bg-gray-200 text-gray-700",
+    published: "bg-green-500/20 text-green-400",
+    draft: "bg-yellow-500/20 text-yellow-400",
+    archived: "bg-gray-500/20 text-gray-300",
   };
 
   return (
-    <span className={`px-3 py-1 text-xs rounded-full font-medium ${styles[status] || styles.draft}`}>
+    <span
+      className={`px-3 py-1 text-xs rounded-full font-medium ${styles[status]}`}
+    >
       {status}
     </span>
   );
 };
 
 /* =========================
-   Blog Card
+   Blog Card (Glass Dark)
 ========================= */
 const BlogCard = ({ blog, onEdit, onDelete }) => (
-  <div className="bg-white rounded-2xl shadow-sm border p-5 hover:shadow-md transition">
+  <div className="bg-white/5 backdrop-blur-xl border border-white/10 
+                  rounded-2xl p-5 hover:border-red-500/40 
+                  transition-all duration-300 hover:-translate-y-1">
+
     <div className="flex justify-between items-start mb-3">
-      <h3 className="text-lg font-semibold">{blog?.title}</h3>
+      <h3 className="text-lg font-semibold text-white">
+        {blog?.title}
+      </h3>
       <StatusBadge status={blog?.status} />
     </div>
 
-    <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+    <p className="text-sm text-gray-400 line-clamp-2 mb-3">
       {blog?.excerpt}
     </p>
 
@@ -69,14 +87,14 @@ const BlogCard = ({ blog, onEdit, onDelete }) => (
     <div className="flex gap-4 mt-4">
       <button
         onClick={() => onEdit(blog?.id)}
-        className="text-sm text-black font-medium underline"
+        className="text-sm text-red-400 font-medium hover:text-red-500 transition"
       >
         Edit
       </button>
 
       <button
         onClick={() => onDelete(blog?.id)}
-        className="text-sm text-red-600 font-medium underline"
+        className="text-sm text-red-600 font-medium hover:text-red-500 transition"
       >
         Delete
       </button>
@@ -92,22 +110,17 @@ export default function BlogsListPage() {
   const [search, setSearch] = useState("");
 
   const { blogs = [], deleteBlog } = useGlobalContext();
-
   const [searchParams, setSearchParams] = useSearchParams();
 
   const createMode = searchParams.get("create");
   const editId = searchParams.get("edit");
 
-  // ✅ Safe find (prevents crash if blogs is not array)
   const selectedBlog = Array.isArray(blogs)
     ? blogs.find((b) => String(b.id) === String(editId))
     : null;
 
-  const closeForm = () => {
-    setSearchParams({});
-  };
+  const closeForm = () => setSearchParams({});
 
-  // ✅ Safe filtering
   const filteredBlogs = Array.isArray(blogs)
     ? blogs.filter((blog) => {
         const matchesStatus =
@@ -122,20 +135,28 @@ export default function BlogsListPage() {
     : [];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-4 text-black">
-      <div className="max-w-7xl mx-auto px-4">
+    <div className="min-h-screen bg-black text-white py-10 relative overflow-hidden">
+
+      {/* Subtle Dotted Background */}
+      <div className="absolute inset-0 opacity-10 
+        bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] 
+        bg-[size:24px_24px]" />
+
+      <div className="relative max-w-7xl mx-auto px-4">
+
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
           <div>
-            <h1 className="text-3xl font-bold">Blogs</h1>
-            <p className="text-gray-600 text-sm">
+            <h1 className="text-3xl md:text-4xl font-bold">
+              Blogs
+            </h1>
+            <p className="text-gray-400 text-sm mt-2">
               Manage and publish your blog posts
             </p>
           </div>
 
           <Button
-            variant="primary"
-            className="flex items-center text-center justify-center gap-2"
+            className="flex items-center justify-center gap-2"
             onClick={() => setSearchParams({ create: "true" })}
           >
             <Plus size={18} /> Create Blog
@@ -143,8 +164,11 @@ export default function BlogsListPage() {
         </div>
 
         {/* Filters */}
-        <div className="bg-white p-4 rounded-2xl shadow-sm border mb-6 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
-          <div className="flex gap-2">
+        <div className="bg-white/5 backdrop-blur-xl border border-white/10
+                        p-5 rounded-2xl mb-8 flex flex-col md:flex-row 
+                        gap-4 md:items-center md:justify-between">
+
+          <div className="flex gap-2 flex-wrap">
             <Button
               variant={filter === "all" ? "primary" : "outline"}
               onClick={() => setFilter("all")}
@@ -153,7 +177,7 @@ export default function BlogsListPage() {
             </Button>
 
             <Button
-              variant={filter === "published" ? "success" : "outline"}
+              variant={filter === "published" ? "primary" : "outline"}
               onClick={() => setFilter("published")}
             >
               Published
@@ -169,7 +193,7 @@ export default function BlogsListPage() {
 
           <div className="relative w-full md:w-64">
             <Search
-              className="absolute left-3 top-2.5 text-gray-400"
+              className="absolute left-3 top-2.5 text-gray-500"
               size={16}
             />
             <input
@@ -177,7 +201,10 @@ export default function BlogsListPage() {
               placeholder="Search blogs..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-full pl-9 pr-3 py-2 rounded-xl 
+                         bg-black border border-white/10
+                         focus:outline-none focus:ring-2 
+                         focus:ring-red-600 text-white"
             />
           </div>
         </div>
