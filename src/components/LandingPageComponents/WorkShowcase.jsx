@@ -54,7 +54,7 @@ export default function WorkShowcase() {
           animate={{ x: ["0%", "-50%"] }}
           transition={{
             repeat: Infinity,
-            duration: 25,
+            duration: 5,
             ease: "linear",
           }}
           whileHover={{ animationPlayState: "paused" }}

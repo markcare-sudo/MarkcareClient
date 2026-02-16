@@ -54,10 +54,10 @@ const ClientCard = ({ logo, name, subtitle }) => (
 
 export default function Clients() {
   const marquee = [...CLIENTS, ...CLIENTS]; // duplicate for seamless loop
-  const speed = 25;
+  const speed = 5;
 
   return (
-    <section
+   <section
       id="clients"
       className="relative py-20 lg:py-28 bg-black text-white overflow-hidden"
     >
