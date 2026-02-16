@@ -11,7 +11,7 @@ const ClientCard = ({ logo, name, subtitle }) => (
     }}
     transition={{ type: "spring", stiffness: 200 }}
     className="relative group w-[220px] md:w-[240px] shrink-0 
-               rounded-2xl p-6 text-center overflow-hidden
+               rounded-2xl p-3 md:p-6 text-center overflow-hidden
                bg-gradient-to-br from-gray-900 to-gray-800
                border border-gray-800
                hover:border-red-500 
@@ -64,7 +64,7 @@ export default function Clients() {
       {/* Background subtle dots */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] [background-size:28px_28px]" />
 
-      <div className="relative max-w-7xl mx-auto px-4">
+      <div className="relative max-w-7xl mx-auto ">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -98,8 +98,8 @@ export default function Clients() {
           </motion.div>
 
           {/* Gradient fade edges */}
-          <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-black to-transparent z-10" />
-          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-black to-transparent z-10" />
+          <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-black to-transparent z-20" />
+          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-black to-transparent z-20" />
         </div>
       </div>
     </section>
