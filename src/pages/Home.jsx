@@ -1,11 +1,10 @@
 import AboutUs from "@/components/AboutUs";
 import Clients from "@/components/Clients";
 import Banner from "@/components/LandingPageComponents/Banner";
-import Hero from "@/components/LandingPageComponents/Hero";
 import QualityServices from "@/components/LandingPageComponents/QualityServices";
-import Videos from "@/components/LandingPageComponents/VideosSection";
 import WhyUs from "@/components/LandingPageComponents/WhyUs";
 import WorkShowcase from "@/components/LandingPageComponents/WorkShowcase";
+import WhoWeAre from "@/components/WhoWeAre";
 
 import { CITIES, FEATURES, SERVICES } from "@/utils/data";
 import { Helmet } from "react-helmet-async";
@@ -72,12 +71,12 @@ export default function MarkCareSite() {
 
       <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
         <Banner />
-        <Hero services={SERVICES} classNames={classNames} />
+        {/* <Hero services={SERVICES} classNames={classNames} /> */}
+        <WhoWeAre />
         <QualityServices services={SERVICES} />
         <AboutUs features={FEATURES} cities={CITIES} />
         <WhyUs installs={installs} citiesCount={citiesCount} />
         <WorkShowcase />
-        <Videos />
         <Clients />
       </div>
     </>

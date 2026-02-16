@@ -5,34 +5,32 @@ import {
   BadgeCheck,
   Factory,
 } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+
+/* ================= COUNT UP ================= */
 
 const CountUp = ({ end, duration = 1500, suffix = "" }) => {
   const [value, setValue] = useState(0);
   const ref = useRef(null);
-  const started = useRef(false);
+  const isInView = useInView(ref, { amount: 0.4 });
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const startTime = performance.now();
+    if (!isInView) {
+      setValue(0); // reset when out of view
+      return;
+    }
 
-          const animate = (now) => {
-            const progress = Math.min((now - startTime) / duration, 1);
-            setValue(Math.floor(progress * end));
-            if (progress < 1) requestAnimationFrame(animate);
-          };
+    let startTime = null;
 
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.4 }
-    );
+    const animate = (time) => {
+      if (!startTime) startTime = time;
+      const progress = Math.min((time - startTime) / duration, 1);
+      setValue(Math.floor(progress * end));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
 
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [end, duration]);
+    requestAnimationFrame(animate);
+  }, [isInView, end, duration]);
 
   return (
     <span ref={ref}>
@@ -42,9 +40,9 @@ const CountUp = ({ end, duration = 1500, suffix = "" }) => {
   );
 };
 
+/* ================= COMPONENT ================= */
 
-
-const WhyUs = ({ installs, citiesCount }) => {
+const WhyUs = ({ installs = 5000, citiesCount = 15 }) => {
   const features = [
     {
       title: "Standardized SOPs",
@@ -63,7 +61,7 @@ const WhyUs = ({ installs, citiesCount }) => {
     },
     {
       title: "End-to-End Execution",
-      text: "From site survey to commissioning, AMC & retrofits.",
+      text: "From survey to commissioning, AMC & retrofits.",
       icon: CheckCircle2,
     },
   ];
@@ -71,72 +69,153 @@ const WhyUs = ({ installs, citiesCount }) => {
   return (
     <section
       id="why-us"
-      className="py-20 lg:py-28 bg-gradient-to-b from-red-50 to-white"
+      className="relative py-20 lg:py-28 bg-black text-white overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Header */}
-        <div className="max-w-2xl">
-          <h2 className="text-4xl font-extrabold tracking-tight text-slate-900">
-            Why Choose Us
+      {/* Background subtle pattern */}
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] [background-size:30px_30px]" />
+
+      <div className="relative max-w-7xl mx-auto px-4">
+        {/* ================= HEADER ================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ amount: 0.4 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-2xl"
+        >
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+            Why Choose <span className="text-red-600">Us</span>
           </h2>
-          <p className="mt-3 text-slate-600 text-lg">
+
+          <p className="mt-4 text-gray-400 text-lg leading-relaxed">
             Built on trust, measurable quality standards, and reliability —
             backed by certified teams and responsive support.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Feature Cards */}
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((f) => (
-            <div
-              key={f.title}
-              className="group relative rounded-3xl p-6 bg-white/60 backdrop-blur-xl ring-1 ring-slate-200 shadow-sm
-              hover:shadow-xl hover:bg-white transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-xl bg-red-100 grid place-items-center group-hover:scale-110 transition">
-                <f.icon className="w-6 h-6 text-red-700" />
-              </div>
+        {/* ================= FEATURE CARDS ================= */}
+       <motion.div
+  className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ amount: 0.3 }}
+  variants={{
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  }}
+>
+  {features.map((f, index) => {
+    const isAlt = index % 2 === 0;
 
-              <div className="mt-4 text-xl font-semibold text-slate-900">
-                {f.title}
-              </div>
-              <p className="mt-2 text-slate-600 text-sm leading-relaxed">
-                {f.text}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+    return (
+      <motion.div
+        key={f.title}
+        variants={{
+          hidden: { opacity: 0, y: 50 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        whileHover={{
+          y: -12,
+          scale: 1.03,
+        }}
+        className={`relative group rounded-2xl p-7 overflow-hidden
+        bg-gradient-to-br from-gray-900 to-gray-800
+        border transition-all duration-500
+        ${
+          isAlt
+            ? "border-gray-800"
+            : "border-gray-800"
+        }
+        hover:border-red-500 hover:shadow-2xl hover:shadow-red-500/10`}
+      >
+        {/* Soft Red Glow Background */}
+        <div
+          className="absolute inset-0 rounded-2xl opacity-0 
+          group-hover:opacity-100 transition duration-500 
+          bg-red-600/5 blur-xl"
+        />
 
-      {/* Stats */}
-      <div className="max-w-7xl mx-auto px-4 mt-14">
-        <div className="grid gap-6 sm:grid-cols-3">
+        {/* ICON */}
+        <motion.div
+          whileHover={{ rotate: 8, scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 250 }}
+          className={`relative w-12 h-12 rounded-xl 
+          flex items-center justify-center mb-6
+          ${
+            isAlt
+              ? "bg-red-600/20"
+              : "bg-red-600/10"
+          }`}
+        >
+          <f.icon className="w-6 h-6 text-red-500" />
+        </motion.div>
+
+        {/* TITLE */}
+        <h3 className="relative text-lg font-semibold 
+                       group-hover:text-red-500 transition">
+          {f.title}
+        </h3>
+
+        {/* TEXT */}
+        <p className="relative mt-3 text-sm text-gray-400 leading-relaxed">
+          {f.text}
+        </p>
+
+        {/* Bottom Accent Line */}
+        <div
+          className="absolute bottom-0 left-0 h-[2px] w-0 
+          bg-red-500 group-hover:w-full 
+          transition-all duration-500"
+        />
+      </motion.div>
+    );
+  })}
+</motion.div>
+
+
+        {/* ================= STATS ================= */}
+        <motion.div
+          className="mt-20 grid gap-8 sm:grid-cols-3 text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+        >
           {/* Successful Installs */}
-          <div className="rounded-3xl bg-white/70 backdrop-blur-xl p-8 text-center ring-1 ring-slate-200 shadow-sm hover:shadow-xl transition">
-            <div className="text-4xl font-extrabold text-red-700">
+          <div className="space-y-2 ">
+            <div className="text-4xl md:text-5xl font-extrabold text-red-600">
               <CountUp end={installs} suffix="+" />
             </div>
-            <div className="text-sm text-slate-600 mt-1">
+            <div className="text-gray-400 text-sm tracking-wide">
               Successful Installs
             </div>
           </div>
 
           {/* Cities Covered */}
-          <div className="rounded-3xl bg-white/70 backdrop-blur-xl p-8 text-center ring-1 ring-slate-200 shadow-sm hover:shadow-xl transition">
-            <div className="text-4xl font-extrabold text-red-700">
+          <div className="space-y-2 ">
+            <div className="text-4xl md:text-5xl font-extrabold text-red-600">
               <CountUp end={citiesCount} />
             </div>
-            <div className="text-sm text-slate-600 mt-1">
+            <div className="text-gray-400 text-sm tracking-wide">
               Cities Covered
             </div>
           </div>
 
           {/* Support */}
-          <div className="rounded-3xl bg-white/70 backdrop-blur-xl p-8 text-center ring-1 ring-slate-200 shadow-sm hover:shadow-xl transition">
-            <div className="text-4xl font-extrabold text-red-700">24×7</div>
-            <div className="text-sm text-slate-600 mt-1">Support</div>
+          <div className="space-y-2">
+            <div className="text-4xl md:text-5xl font-extrabold text-red-600">
+              24×7
+            </div>
+            <div className="text-gray-400 text-sm tracking-wide">
+              Support
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

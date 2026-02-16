@@ -1,87 +1,173 @@
-import { LIFT_IMAGES } from "@/constants/branding";
-import { motion } from "framer-motion";
-import { Play } from "lucide-react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useTransform,
+  animate,
+} from "framer-motion";
+import { Sparkles } from "lucide-react";
 
-export const AboutMarkCare = ({stats}) => {
-    return (
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div>
-                <span className="inline-flex items-center gap-2 rounded-full bg-[#FFF0F0] px-3 py-1 text-xs font-medium text-[#E53935]">
-                    About MarkCare
-                </span>
-                <h2 className="mt-6 text-3xl font-semibold leading-tight sm:text-4xl">
-                    Technology-powered services at home — trusted across cities
-                </h2>
-                <p className="mt-4 max-w-xl text-gray-600">
-                    MarkCare is a technology platform enabling reliable, standardised home and industrial
-                    services. From AC repair to RO plants, lifts, solar systems and wastewater treatment — we
-                    enable service partners with training, tools, and technology so customers receive a
-                    consistent experience every time.
-                </p>
+/* ---------------- Animated Number ---------------- */
 
-                <div className="mt-6 flex flex-wrap gap-3">
-                    <Link
-                        to="/contact-us"
-                        className="inline-flex items-center gap-2 rounded-full bg-[#E53935] px-4 py-2 text-sm font-semibold text-white shadow hover:bg-[#C62828]"
-                    >
-                        Get a Service
-                    </Link>
-                    <a
-                        href="/services"
-                        className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-800"
-                    >
-                        View All Services
-                    </a>
-                </div>
+const AnimatedNumber = ({ value, trigger }) => {
+  const numericValue = parseInt(value.replace(/[^0-9]/g, ""), 10);
+  const isK = value.toLowerCase().includes("k");
+  const hasPlus = value.includes("+");
 
-                {/* Stats */}
-                <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-                    {stats.map((s, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 8 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="rounded-lg border border-gray-100 bg-gray-50 p-4 text-center"
-                        >
-                            <s.icon className="mx-auto h-6 w-6 text-[#E53935]" />
-                            <div className="mt-2 text-xl font-semibold">{s.value}</div>
-                            <div className="mt-1 text-sm text-gray-600">{s.label}</div>
-                        </motion.div>
-                    ))}
-                </div>
+  const motionValue = useMotionValue(0);
+  const rounded = useTransform(motionValue, (latest) =>
+    Math.floor(latest)
+  );
+
+  useEffect(() => {
+    motionValue.set(0);
+
+    const controls = animate(motionValue, numericValue, {
+      duration: 1.8,
+      ease: "easeOut",
+    });
+
+    return () => controls.stop();
+  }, [trigger, numericValue, motionValue]);
+
+  return (
+    <span>
+      <motion.span>{rounded}</motion.span>
+      {isK && "k"}
+      {hasPlus && "+"}
+    </span>
+  );
+};
+
+/* ---------------- Main Component ---------------- */
+
+export default function AboutHero() {
+  const statsRef = useRef(null);
+  const isInView = useInView(statsRef, { amount: 0.4 });
+
+  const [trigger, setTrigger] = useState(0);
+
+  useEffect(() => {
+    if (isInView) {
+      setTrigger((prev) => prev + 1); // force re-trigger
+    }
+  }, [isInView]);
+
+  return (
+    <section className="relative bg-black text-white py-24 overflow-hidden">
+
+      {/* Star Background */}
+      <div
+        className="absolute inset-0 opacity-10 
+        bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] 
+        bg-[size:24px_24px]"
+      />
+
+      <div className="relative max-w-7xl mx-auto text-center">
+
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center mb-8"
+        >
+          <div className="flex items-center gap-2 bg-red-500/20 text-red-400 px-6 py-2 rounded-full text-sm font-medium">
+            <Sparkles size={16} />
+            About us
+          </div>
+        </motion.div>
+
+        {/* Heading */}
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.6 }}
+          className="text-2xl md:text-3xl font-medium mb-6"
+        >
+          About <span className="text-red-500">Mark Care</span>
+        </motion.h3>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-6xl font-semibold leading-tight max-w-4xl mx-auto"
+        >
+          Technology-powered services at home — trusted across cities
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.9 }}
+          className="mt-6 text-gray-400 max-w-3xl mx-auto leading-relaxed"
+        >
+          MarkCare is a technology platform enabling reliable, standardised
+          home and industrial services. From AC repair to RO plants, lifts,
+          solar systems and wastewater treatment — we enable service partners
+          with training, tools, and technology so customers receive a
+          consistent experience every time.
+        </motion.p>
+
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 1 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10"
+        >
+          <button className="bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-medium transition">
+            Contact us
+          </button>
+
+          <button className="border border-red-500 text-white hover:bg-red-600/10 px-8 py-3 rounded-lg font-medium transition">
+            View all services
+          </button>
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div
+          ref={statsRef}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 1 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 text-left md:text-center"
+        >
+          {[
+            { label: "Cities served", value: "15" },
+            { label: "Years of experience", value: "15" },
+            { label: "Service partners", value: "300+" },
+            { label: "Happy customers", value: "50k+" },
+          ].map((stat, i) => (
+            <div
+              key={i}
+              className="relative md:border-l border-red-500/40 pl-4 md:pl-6"
+            >
+              <div className="text-gray-300 mb-2">
+                {stat.label}
+              </div>
+
+              <div className="text-3xl md:text-4xl font-bold text-red-500">
+                <AnimatedNumber
+                  value={stat.value}
+                  trigger={trigger}
+                />
+              </div>
             </div>
+          ))}
+        </motion.div>
+      </div>
 
-            {/* Media card: image + video */}
-            <div className="relative">
-                <div className="aspect-[16/11] w-full overflow-hidden rounded-2xl border border-gray-100 shadow">
-                    {/* Background hero image (replace with local path or imported image) */}
-                    <img
-                        // src={LOGOS.Mark_Care_Logo}
-                        src={LIFT_IMAGES.Lift2} 
-                        alt="MarkCare technicians at work"
-                        className="h-full w-full object-cover"
-                    />
-                    {/* Play button overlay for video */}
-                    <a
-                        href="/assets/markcare-overview.mp4"
-                        className="absolute inset-0 grid place-items-center bg-black/30 opacity-0 transition hover:opacity-100"
-                    >
-                        <div className="inline-flex items-center gap-3 rounded-full bg-white/90 px-4 py-2 shadow">
-                            <Play className="h-5 w-5 text-[#E53935]" />
-                            <span className="text-sm font-semibold text-gray-900">Watch Overview</span>
-                        </div>
-                    </a>
-                </div>
-
-                {/* small gallery */}
-                <div className="mt-4 grid grid-cols-3 gap-3">
-                    <img src={LIFT_IMAGES.Lift1} alt="AC service" className="h-20 w-full rounded-md object-cover" />
-                    <img src={LIFT_IMAGES.Lift2} alt="RO plant" className="h-20 w-full rounded-md object-cover" />
-                    <img src={LIFT_IMAGES.Lift3} alt="Solar install" className="h-20 w-full rounded-md object-cover" />
-                </div>
-            </div>
-        </div>
-    );
+      {/* Bottom Divider */}
+      <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
+    </section>
+  );
 }

@@ -9,8 +9,8 @@ import {
   Clock,
 } from "lucide-react";
 
-import { AboutMarkCare } from "@/components/AboutComponents/AboutMarkCare";
-import { VisionAndMission } from "@/components/AboutComponents/VisionAndMission";
+import AboutHero from "@/components/AboutComponents/AboutMarkCare";
+import VisionAndMission from "@/components/AboutComponents/VisionAndMission";
 import { CTA } from "@/components/AboutComponents/CTA";
 
 export default function AboutUs() {
@@ -75,62 +75,13 @@ export default function AboutUs() {
       </Helmet>
       {/* ================================================== */}
 
-      <section id="about" className="bg-white text-gray-900">
+      <section id="about" className="bg-black text-gray-900">
         <div className="mx-auto max-w-7xl px-4 py-10">
           {/* Header / Hero */}
-          <AboutMarkCare stats={stats} />
+          <AboutHero  />
 
           <VisionAndMission />
 
-          {/* Media + Case Studies CTA */}
-          <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div>
-              <h3 className="text-xl font-semibold">Case studies & media</h3>
-              <p className="mt-2 text-sm text-gray-600">
-                See how we designed, delivered and maintained large-scale
-                installations — from RO plants to STP/ETP and HVAC projects.
-              </p>
-
-              <ul className="mt-4 space-y-3 text-sm text-gray-700">
-                <li>• Turnkey RO plant for industrial client — reduced TDS and operating cost.</li>
-                <li>• STP retrofit for commercial complex — improved capacity & efficiency.</li>
-                <li>• Solar microgrid with battery backup for manufacturing site.</li>
-              </ul>
-
-              <div className="mt-6">
-                <a
-                  href="/case-studies"
-                  className="inline-flex items-center gap-2 rounded-full border border-red-500 text-red-500 px-4 py-2 text-sm font-semibold"
-                >
-                  View Case Studies
-                </a>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <div className="rounded-2xl border border-gray-100 p-4">
-                <h4 className="text-sm font-semibold">
-                  Project highlight — Lift modernization
-                </h4>
-                <p className="mt-2 text-sm text-gray-600">
-                  Modernized 8 lifts, upgraded controllers, enhanced safety and
-                  provided 24/7 AMC support.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-gray-100 p-4">
-                <h4 className="text-sm font-semibold">
-                  Project highlight — ETP upgrade
-                </h4>
-                <p className="mt-2 text-sm text-gray-600">
-                  Improved discharge quality and reduced operating costs by 18%.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Team + Contact CTA */}
-          <CTA />
         </div>
       </section>
     </>
