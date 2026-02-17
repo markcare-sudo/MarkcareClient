@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function WhoWeAre() {
   return (
@@ -37,12 +38,17 @@ export default function WhoWeAre() {
 
         {/* CTA Button */}
        <div className="text-center">
-         <button className="group relative inline-flex items-center justify-center px-8 py-4 bg-red-600 hover:bg-red-700 transition-all duration-300 rounded-full text-white font-medium text-sm md:text-base shadow-lg hover:shadow-red-500/40 animate-fadeInUp delay-300">
-          Contact Us
-          <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
-        </button>
+        <Link
+            to="/contact-us"
+            className="mt-6 inline-flex bg-red-600 px-6 py-3 rounded-full
+             items-center gap-2
+             transition-all duration-300
+             hover:bg-red-700 hover:scale-105
+             active:scale-95 active:bg-red-800"
+          >
+            Contact Us
+            <ArrowUpRight size={16} />
+          </Link>
        </div>
       </div>
 

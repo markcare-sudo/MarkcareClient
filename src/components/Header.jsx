@@ -71,7 +71,7 @@ const Header = ({ cities = CITIES }) => {
               <Link
                 key={c}
                 to={getCityPath(c.toLowerCase())}
-                className="text-xs bg-white/10 px-2 py-0.5 rounded-full hover:bg-white/20 transition"
+                className="text-xs bg-white/10 px-2 py-0.5 rounded-full hover:bg-black/40 transition"
               >
                 {c}
               </Link>

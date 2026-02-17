@@ -19,7 +19,7 @@ const QUICK_LINKS = [
   { label: "Product & Services", path: "/services/elevators" },
   { label: "Our Projects", path: "/projects" },
   { label: "Blogs", path: "/blogs" },
-  { label: "Contact Us", path: "/contact" },
+  { label: "Contact Us", path: "/contact-us" },
 ];
 
 export default function Footer() {
@@ -142,7 +142,7 @@ export default function Footer() {
           </p>
 
           <Link
-            to="/contact"
+            to="/contact-us"
             className="mt-6 inline-flex bg-red-600 px-6 py-3 rounded-full
              items-center gap-2
              transition-all duration-300
