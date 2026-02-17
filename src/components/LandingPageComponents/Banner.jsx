@@ -4,38 +4,38 @@ import { useNavigate } from "react-router-dom";
 
 const serviceItems = [
   {
-    name: " Residential Elevators",
-    path: "/product-&-services/elevators",
+    name: "  Residential Elevators",
+    path: "/services/elevators",
     image: BANNER_IMAGES.ELEVATOR_BANNER,
   },
   {
-    name: " Water Treatment Plant",
-    path: "/product-&-services/water-treatment-plant",
+    name: "  Water Treatment Plant",
+    path: "/services/water-treatment-plant",
     image: BANNER_IMAGES.WATERTREATMENT_BANNER,
   },
   {
-    name: " Water Softening Plant",
-    path: "/product-&-services/water-softening-plant",
+    name: "  Water Softening Plant",
+    path: "/services/water-softening-plant",
     image: BANNER_IMAGES.WATERSOFTENING_BANNER,
   },
   {
-    name: " Sewage Treatment Plant",
-    path: "/product-&-services/sewage-treatment-plant",
+    name: "  Sewage Treatment Plant",
+    path: "/services/sewage-treatment-plant",
     image: BANNER_IMAGES.SEWAGEWATER_BANNER,
   },
   {
-    name: " Reverse Osmosis Plant",
-    path: "/product-&-services/reverse-osmosis-plant",
+    name: "  Reverse Osmosis Plant",
+    path: "/services/reverse-osmosis-plant",
     image: BANNER_IMAGES.REVERSEOSMOSIS_BANNER,
   },
   {
-    name: " RO Water Purifiers",
-    path: "/product-&-services/ro-water-purifiers",
+    name: "  RO Water Purifiers",
+    path: "/services/ro-water-purifiers",
     image: BANNER_IMAGES.RO_BANNER,
   },
   {
-    name: " Diesel Generators",
-    path: "/product-&-services/diesel-generators",
+    name: "  Diesel Generators",
+    path: "/services/diesel-generators",
     image: BANNER_IMAGES.DEISELGENERATE_BANNER,
   },
 ];
@@ -89,7 +89,7 @@ export default function ServiceCarousel() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
             {/* Text Content */}
-            <div className="absolute bottom-0 w-full px-6 pb-6">
+            <div className="absolute bottom-0 w-full px-4 pb-6">
               <h2 className="text-2xl font-bold text-white leading-tight">
                 {typedText}
                 <span className="border-r-2 border-yellow-400 animate-pulse ml-2"></span>
@@ -97,7 +97,7 @@ export default function ServiceCarousel() {
 
               <button
                 onClick={() => navigate(item.path)}
-                className="mt-4 px-6 py-3 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-md transition-all duration-300"
+                className="mt-4 px-6 py-3 bg-red-700 hover:bg-red-800 cursor-pointer text-white font-semibold rounded-md transition-all duration-300"
               >
                 Explore Service
               </button>
@@ -118,7 +118,7 @@ export default function ServiceCarousel() {
 
             {/* Content */}
             <div className="absolute inset-0 flex items-center">
-              <div className="w-1/2 px-16 text-left">
+              <div className="w-1/2 px-34 text-left">
                 <h2 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
                   {typedText}
                   <span className="border-r-2 border-yellow-400 animate-pulse ml-2"></span>
@@ -126,7 +126,7 @@ export default function ServiceCarousel() {
 
                 <button
                   onClick={() => navigate(item.path)}
-                  className="mt-6 px-6 py-3 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-md transition-all duration-300"
+                  className="mt-6 px-6 py-3 bg-red-700 hover:bg-red-800 text-white font-semibold rounded-md transition-all duration-300"
                 >
                   Explore Service
                 </button>
