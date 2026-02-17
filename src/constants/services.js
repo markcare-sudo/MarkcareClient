@@ -1,6 +1,6 @@
 // src/constants/services.js
 
-import { LIFT_IMAGES, LOGOS } from "./branding";
+import { LIFT_IMAGES } from "./branding";
 
 export const SERVICES = [
     {

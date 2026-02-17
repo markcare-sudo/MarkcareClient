@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { MapPin, Menu, Phone, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import Button from "./Button";
+// import Button from "./Button";
 import { Link, useLocation } from "react-router-dom";
 import { LOGOS } from "@/constants/branding";
 import { CITIES } from "@/utils/data";
+import Button from "./ReusableComponents/Button";
 
 const Header = ({ cities = CITIES }) => {
   const { pathname } = useLocation();
@@ -15,28 +16,20 @@ const Header = ({ cities = CITIES }) => {
   const isActive = (path) =>
     path === "/" ? pathname === "/" : pathname.startsWith(path);
 
-  // const productItems = [
-  //   { name: "Water Treatment", path: "/our-products/water-treatment" },
-  //   { name: "Air Purifiers", path: "/our-products/air-purifiers" },
-  //   { name: "Medical Equipments", path: "/our-products/medical-equipments" },
-  // ];
-
-  // const serviceItems = [
-  //   { name: "Installation", path: "/our-services/installation" },
-  //   { name: "Maintenance", path: "/our-services/maintenance" },
-  //   { name: "Consultation", path: "/our-services/consultation" },
-  // ];
-
-    const productItems = [
+  const productItems = [
     { name: "Water Treatment", path: "/projects/" },
     { name: "Air Purifiers", path: "/projects" },
     { name: "Medical Equipments", path: "/projects/" },
   ];
 
   const serviceItems = [
-    { name: "Installation", path: "/services" },
-    { name: "Maintenance", path: "/services" },
-    { name: "Consultation", path: "/services" },
+    { name: "Residencial Elevators", path: "/product-&-services/elevators" },
+    { name: "Water Treatment Plant", path: "/product-&-services/water-treatment-plant" },
+    { name: "Water Softening Plant", path: "/product-&-services/water-softening-plant" },
+    { name: "Sewage Treatment Plant", path: "/product-&-services/sewage-treatment-plant" },
+    { name: "Reverse Osmosis Plant", path: "/product-&-services/reverse-osmosis-plant" },
+    { name: "RO Water Purifiers", path: "/product-&-services/ro-water-purifiers" },
+    { name: "Diesel Generators", path: "/product-&-services/diesel-generators" },
   ];
 
   return (
@@ -102,40 +95,8 @@ const Header = ({ cities = CITIES }) => {
               About Us
             </Link>
 
-            {/* Products */}
-            {/* <div
-              className="relative"
-              onMouseEnter={() => setProductsOpen(true)}
-              onMouseLeave={() => setProductsOpen(false)}
-            >
-              <button className="flex items-center gap-1 hover:text-red-500">
-                Product & Services <ChevronDown size={16} />
-              </button>
 
-              <AnimatePresence>
-                {productsOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 15 }}
-                    transition={{ duration: 0.25 }}
-                    className="absolute top-full left-0 mt-4 w-56 bg-white text-black rounded-xl shadow-xl overflow-hidden"
-                  >
-                    {productItems.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className="block px-4 py-3 hover:bg-red-50 hover:text-red-600"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div> */}
-
-            {/* Services */}
+            {/* Products & Services */}
             <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}

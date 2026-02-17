@@ -47,7 +47,7 @@ export default function WhoWeAre() {
       </div>
 
       {/* Custom Animations */}
-      <style jsx>{`
+      <style>{`
         .animate-fadeInUp {
           animation: fadeInUp 0.8s ease forwards;
           opacity: 0;

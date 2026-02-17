@@ -12,45 +12,21 @@ export const LOGOS = {
   Pride_Hotel_Logo: import.meta.env.VITE_THE_PRIDE_HOTEL_LOGO,
 };
 
-export const LIFT_IMAGES = {
-  Lift1: import.meta.env.VITE_LIFT_1,
-  Lift2: import.meta.env.VITE_LIFT_2,
-  Lift3: import.meta.env.VITE_LIFT_3,
-  Lift4: import.meta.env.VITE_LIFT_4,
-  Lift5: import.meta.env.VITE_LIFT_5,
-  Lift6: import.meta.env.VITE_LIFT_6,
-  Lift7: import.meta.env.VITE_LIFT_7,
-  Lift8: import.meta.env.VITE_LIFT_8,
-  Lift9: import.meta.env.VITE_LIFT_9,
-  Lift10: import.meta.env.VITE_LIFT_10,
-  Lift11: import.meta.env.VITE_LIFT_11,
-  Lift12: import.meta.env.VITE_LIFT_12,
-  Lift13: import.meta.env.VITE_LIFT_13,
-  Lift14: import.meta.env.VITE_LIFT_14,
-  Lift15: import.meta.env.VITE_LIFT_15,
-  Lift16: import.meta.env.VITE_LIFT_16,
-  Lift17: import.meta.env.VITE_LIFT_17,
-  Lift18: import.meta.env.VITE_LIFT_18,
-  Lift19: import.meta.env.VITE_LIFT_19,
-  Lift20: import.meta.env.VITE_LIFT_20,
+export const BANNER_IMAGES = {
+  ELEVATOR_BANNER: import.meta.env.VITE_ELEVATOR_BANNER,
+  RO_BANNER: import.meta.env.VITE_ROWATER_BANNER,
+  WATERSOFTENING_BANNER: import.meta.env.VITE_WATERSOFTNING_BANNER,
+  REVERSEOSMOSIS_BANNER: import.meta.env.VITE_REVERSEOSMOSIS_BANNER,
+  SEWAGEWATER_BANNER: import.meta.env.VITE_SEWAGEWATER_BANNER,
+  WATERTREATMENT_BANNER: import.meta.env.VITE_WATERTREATMENT_BANNER,
+  DEISELGENERATE_BANNER: import.meta.env.VITE_DEISELGENERATOR_BANNER,
 }
 
-export const VIDEO_CLIPS = {
-  Bottle: import.meta.env.VITE_BOTTLE_VIDEO || "",
-  Bottle1: import.meta.env.VITE_BOTTLE_VIDEO1 || "",
-  Ro_Plant: import.meta.env.VITE_RO_PLANT_VIDEO || "",
-  Ro_Plant1: import.meta.env.VITE_RO_PLANT_VIDEO1 || "",
-  Ro_Plant2: import.meta.env.VITE_RO_PLANT_VIDEO2 || "",
-};
 
-export const BANNER_IMAGES = {
-  Markcare1: import.meta.env.VITE_INTERIOR || "",
-  Manufacturer: import.meta.env.VITE_MANUFACTURER || "",
-  Electrical: import.meta.env.VITE_ELECTRICAL || "",
-};
+
 
 export const CONTACT_IMAGES = {
-  Contact_Us: import.meta.env.VITE_CONTACT_US || "",
+  CONTACT_US: import.meta.env.VITE_CONTACT_US || "",
 };
 
 export const ABOUT_IMAGES = {

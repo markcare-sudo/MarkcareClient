@@ -367,10 +367,14 @@ export const SERVICES = [
     },
 ];
 
+
+
+
 export const FEATURES = [
     { icon: ShieldCheck, title: "Vetted Experts", text: "Hand-picked partners, trained & insured for safety and reliability." },
     { icon: Wrench, title: "Standardized Quality", text: "Documented SOPs & QA checks for consistent service delivery." },
     { icon: Phone, title: "Pan‑India Support", text: "Quick-response teams across major metros and beyond." },
 ];
+
 
 

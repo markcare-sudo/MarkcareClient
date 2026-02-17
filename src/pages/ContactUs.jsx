@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
+import { CONTACT_IMAGES } from "@/constants/branding";
 
 export default function EnquireSection() {
   return (
@@ -35,7 +36,7 @@ export default function EnquireSection() {
           >
             {/* Replace with your image */}
             <img
-              src="/assets/contact-illustration.png"
+              src={CONTACT_IMAGES.CONTACT_US}
               alt="Contact Illustration"
               className="max-w-sm w-full object-contain"
             />

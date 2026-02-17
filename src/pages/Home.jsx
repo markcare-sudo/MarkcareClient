@@ -1,5 +1,5 @@
 import AboutUs from "@/components/AboutUs";
-import Clients from "@/components/Clients";
+import Clients from "@/components/LandingPageComponents/Clients";
 import Banner from "@/components/LandingPageComponents/Banner";
 import QualityServices from "@/components/LandingPageComponents/QualityServices";
 import WhyUs from "@/components/LandingPageComponents/WhyUs";
@@ -71,7 +71,6 @@ export default function MarkCareSite() {
 
       <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
         <Banner />
-        {/* <Hero services={SERVICES} classNames={classNames} /> */}
         <WhoWeAre />
         <QualityServices services={SERVICES} />
         <AboutUs features={FEATURES} cities={CITIES} />

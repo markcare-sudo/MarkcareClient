@@ -5,18 +5,20 @@ import ErrorBoundary from "../components/ErrorBoundory";
 import NotFound from "@/pages/NotFound";
 import ProjectsSection from "@/pages/Projects";
 import AboutUs from "@/pages/AboutUs";
-import Services from "@/pages/Services";
 import Contact from "@/pages/ContactUs";
-import LiftBrochure from "@/pages/LiftSection";
-import CaseStudy from "@/pages/CaseStudy";
-import ServiceDetailsPage from "@/pages/ServiceDetails";
 import BlogsListPage from "@/pages/Blogs";
 import PublicBlogs from "@/pages/PublicBlogs";
 import BlogDetails from "@/pages/BlogDetails";
+import ElevatorsPage from "@/pages/Elevators";
+import WaterTreatmentPage from "@/pages/WaterTratementPlant";
+import SewageTreatmentPlant from "@/pages/SewageTreatmentPlant";
+import WaterSofteningPlant from "@/pages/WaterSofteningPlant";
+import ReverseOsmosisPlant from "@/pages/ReverseOsmosisPlant";
+import DieselGenerator from "@/pages/DieselGenerator";
+import ROWaterPurifiers from "@/pages/ROWaterPurifiers";
 
 // Lazy-loaded pages
 const Home = lazy(() => import("../pages/Home"));
-// const NotFound = lazy(() => import("../pages/NotFound"));
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -24,6 +26,7 @@ const AppRoutes = () => {
   return (
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={<MainLayout />}>
+
         <Route
           index
           element={
@@ -42,7 +45,6 @@ const AppRoutes = () => {
           }
         />
 
-
         <Route
           path="/about-us"
           element={
@@ -52,58 +54,74 @@ const AppRoutes = () => {
           }
         />
 
-
         <Route
-          path="/services"
+          path="/product-&-services/elevators"
           element={
             <ErrorBoundary>
-              <Services />
+              <ElevatorsPage />
             </ErrorBoundary>
           }
         />
 
         <Route
-          path="/services/:slug"
+          path="/product-&-services/water-treatment-plant"
           element={
             <ErrorBoundary>
-              <ServiceDetailsPage />
+              <WaterTreatmentPage />
             </ErrorBoundary>
           }
         />
 
         <Route
-          path="/case-studies"
+          path="/product-&-services/sewage-treatment-plant"
           element={
             <ErrorBoundary>
-              <CaseStudy />
+              <SewageTreatmentPlant />
             </ErrorBoundary>
           }
         />
 
+        <Route
+          path="/product-&-services/ro-water-purifiers"
+          element={
+            <ErrorBoundary>
+              <ROWaterPurifiers />
+            </ErrorBoundary>
+          }
+        />
+
+        <Route
+          path="/product-&-services/water-softening-plant"
+          element={
+            <ErrorBoundary>
+              <WaterSofteningPlant />
+            </ErrorBoundary>
+          }
+        />
+
+        <Route
+          path="/product-&-services/reverse-osmosis-plant"
+          element={
+            <ErrorBoundary>
+              <ReverseOsmosisPlant />
+            </ErrorBoundary>
+          }
+        />
+
+        <Route
+          path="/product-&-services/diesel-generators"
+          element={
+            <ErrorBoundary>
+              <DieselGenerator />
+            </ErrorBoundary>
+          }
+        />
+ 
         <Route
           path="/contact-us"
           element={
             <ErrorBoundary>
               <Contact />
-            </ErrorBoundary>
-          }
-        />
-
-        <Route
-          path="/our-services/lift-service"
-          element={
-            <ErrorBoundary>
-              <LiftBrochure />
-            </ErrorBoundary>
-          }
-        />
-
-
-        <Route
-          path="*"
-          element={
-            <ErrorBoundary>
-              <NotFound />
             </ErrorBoundary>
           }
         />
@@ -135,6 +153,14 @@ const AppRoutes = () => {
           }
         />
 
+        <Route
+          path="*"
+          element={
+            <ErrorBoundary>
+              <NotFound />
+            </ErrorBoundary>
+          }
+        />
 
       </Route>
     </Routes>

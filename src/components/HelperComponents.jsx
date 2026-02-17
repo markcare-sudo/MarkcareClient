@@ -8,7 +8,6 @@ export const CardTitle = ({ className = "", children }) => <h3 className={`text-
 export const CardContent = ({ className = "", children }) => <div className={`p-4 pt-3 ${className}`}>{children}</div>;
 
 
-
 export const SectionHeader = ({ kicker, title, subtitle }) => (
     <div className="max-w-2xl">
         {kicker && <Badge>{kicker}</Badge>}
