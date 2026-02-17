@@ -54,69 +54,69 @@ const AppRoutes = () => {
           }
         />
 
-<Route path="services">
-  <Route
-    path="elevators"
-    element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>}
-  />
-  <Route
-    path="water-treatment-plant"
-    element={<ErrorBoundary><WaterTreatmentPage /></ErrorBoundary>}
-  />
-  <Route
-    path="sewage-treatment-plant"
-    element={<ErrorBoundary><SewageTreatmentPlant /></ErrorBoundary>}
-  />
-  <Route
-    path="ro-water-purifiers"
-    element={<ErrorBoundary><ROWaterPurifiers /></ErrorBoundary>}
-  />
-  <Route
-    path="water-softening-plant"
-    element={<ErrorBoundary><WaterSofteningPlant /></ErrorBoundary>}
-  />
-  <Route
-    path="reverse-osmosis-plant"
-    element={<ErrorBoundary><ReverseOsmosisPlant /></ErrorBoundary>}
-  />
-  <Route
-    path="diesel-generators"
-    element={<ErrorBoundary><DieselGenerator /></ErrorBoundary>}
-  />
-</Route>
+        <Route path="services">
+          <Route
+            path="elevators"
+            element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>}
+          />
+          <Route
+            path="water-treatment-plant"
+            element={<ErrorBoundary><WaterTreatmentPage /></ErrorBoundary>}
+          />
+          <Route
+            path="sewage-treatment-plant"
+            element={<ErrorBoundary><SewageTreatmentPlant /></ErrorBoundary>}
+          />
+          <Route
+            path="ro-water-purifiers"
+            element={<ErrorBoundary><ROWaterPurifiers /></ErrorBoundary>}
+          />
+          <Route
+            path="water-softening-plant"
+            element={<ErrorBoundary><WaterSofteningPlant /></ErrorBoundary>}
+          />
+          <Route
+            path="reverse-osmosis-plant"
+            element={<ErrorBoundary><ReverseOsmosisPlant /></ErrorBoundary>}
+          />
+          <Route
+            path="diesel-generators"
+            element={<ErrorBoundary><DieselGenerator /></ErrorBoundary>}
+          />
+        </Route>
 
-<Route path=":city/services">
-  <Route
-    path="elevators"
-    element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>}
-  />
-  <Route
-    path="water-treatment-plant"
-    element={<ErrorBoundary><WaterTreatmentPage /></ErrorBoundary>}
-  />
-  <Route
-    path="sewage-treatment-plant"
-    element={<ErrorBoundary><SewageTreatmentPlant /></ErrorBoundary>}
-  />
-  <Route
-    path="ro-water-purifiers"
-    element={<ErrorBoundary><ROWaterPurifiers /></ErrorBoundary>}
-  />
-  <Route
-    path="water-softening-plant"
-    element={<ErrorBoundary><WaterSofteningPlant /></ErrorBoundary>}
-  />
-  <Route
-    path="reverse-osmosis-plant"
-    element={<ErrorBoundary><ReverseOsmosisPlant /></ErrorBoundary>}
-  />
-  <Route
-    path="diesel-generators"
-    element={<ErrorBoundary><DieselGenerator /></ErrorBoundary>}
-  />
-</Route>
+        <Route path=":city/services">
+          <Route
+            path="elevators"
+            element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>}
+          />
+          <Route
+            path="water-treatment-plant"
+            element={<ErrorBoundary><WaterTreatmentPage /></ErrorBoundary>}
+          />
+          <Route
+            path="sewage-treatment-plant"
+            element={<ErrorBoundary><SewageTreatmentPlant /></ErrorBoundary>}
+          />
+          <Route
+            path="ro-water-purifiers"
+            element={<ErrorBoundary><ROWaterPurifiers /></ErrorBoundary>}
+          />
+          <Route
+            path="water-softening-plant"
+            element={<ErrorBoundary><WaterSofteningPlant /></ErrorBoundary>}
+          />
+          <Route
+            path="reverse-osmosis-plant"
+            element={<ErrorBoundary><ReverseOsmosisPlant /></ErrorBoundary>}
+          />
+          <Route
+            path="diesel-generators"
+            element={<ErrorBoundary><DieselGenerator /></ErrorBoundary>}
+          />
+        </Route>
 
- 
+
         <Route
           path="/contact-us"
           element={

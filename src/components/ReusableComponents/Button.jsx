@@ -1,6 +1,6 @@
 const Button = ({ variant = "solid", className = "", children, ...props }) => {
     const base =
-        "inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 disabled:opacity-50";
+        "inline-flex items-center justify-center gap-2 rounded cursor-pointer px-4 py-2 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 disabled:opacity-50";
     const styles =
         variant === "outline"
             ? "bg-white ring-1 ring-red-300 text-red-700 hover:bg-red-50"
