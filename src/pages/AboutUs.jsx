@@ -75,7 +75,7 @@ export default function AboutUs() {
       </Helmet>
       {/* ================================================== */}
 
-      <section id="about" className="bg-black text-gray-900">
+      <section id="about" className="text-gray-900">
         <div className="mx-auto max-w-7xl px-4 py-10">
           {/* Header / Hero */}
           <AboutHero  />

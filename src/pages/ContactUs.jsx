@@ -5,7 +5,7 @@ import { CONTACT_IMAGES } from "@/constants/branding";
 
 export default function EnquireSection() {
   return (
-    <section className="relative min-h-screen bg-black text-white overflow-hidden flex items-center justify-center">
+    <section className="relative min-h-screen text-white overflow-hidden flex items-center justify-center">
 
       {/* Red Gradient Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,0,0,0.35),transparent_40%)]" />

@@ -55,14 +55,7 @@ export default function AboutHero() {
   }, [isInView]);
 
   return (
-    <section className="relative bg-black text-white py-24 overflow-hidden">
-
-      {/* Star Background */}
-      <div
-        className="absolute inset-0 opacity-10 
-        bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] 
-        bg-[size:24px_24px]"
-      />
+    <section className="relative text-white py-24 overflow-hidden">
 
       <div className="relative max-w-7xl mx-auto text-center">
 

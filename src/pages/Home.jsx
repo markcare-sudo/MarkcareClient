@@ -8,6 +8,7 @@ import WhoWeAre from "@/components/WhoWeAre";
 
 import { CITIES, FEATURES, SERVICES } from "@/utils/data";
 import { Helmet } from "react-helmet-async";
+import Testimonials from "@/components/LandingPageComponents/Testimonials";
 
 const installs = 5000;
 const citiesCount = 15;
@@ -69,7 +70,7 @@ export default function MarkCareSite() {
         />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
+      <div className="min-h-screen">
         <Banner />
         <WhoWeAre />
         <QualityServices services={SERVICES} />
@@ -77,6 +78,7 @@ export default function MarkCareSite() {
         <WhyUs installs={installs} citiesCount={citiesCount} />
         <WorkShowcase />
         <Clients />
+        <Testimonials />
       </div>
     </>
   );

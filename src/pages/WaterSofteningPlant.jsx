@@ -5,7 +5,7 @@ import { WATER_SOFTENING_PLANTS } from "@/constants/WaterSofteningPlant";
 
 const WaterSofteningPlant = () => {
   return (
-    <section className="bg-black min-h-screen py-4">
+    <section className="min-h-screen py-4">
       <div className="max-w-7xl mx-auto space-y-16 p-4">
         
         {/* Header */}

@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => {
     setOpen(false);
   };
   return (
-    <div className="border border-red-600 rounded-md bg-black p-4 md:p-6 md:p-10 transition hover:shadow-lg hover:shadow-red-500/20">
+    <div className="border border-red-600 rounded-md p-4 md:p-6 md:p-10 transition hover:shadow-lg hover:shadow-red-500/20">
       
       {/* Top Small Title Bar */}
       <div className="bg-zinc-800 text-white px-4 py-2 text-sm font-medium mb-6">

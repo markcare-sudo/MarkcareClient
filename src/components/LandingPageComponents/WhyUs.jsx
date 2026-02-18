@@ -69,10 +69,8 @@ const WhyUs = ({ installs = 5000, citiesCount = 15 }) => {
   return (
     <section
       id="why-us"
-      className="relative py-20 lg:py-28 bg-black text-white overflow-hidden"
+      className="relative py-20 lg:py-28 text-white overflow-hidden"
     >
-      {/* Background subtle pattern */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] [background-size:30px_30px]" />
 
       <div className="relative max-w-7xl mx-auto px-4">
         {/* ================= HEADER ================= */}
@@ -94,88 +92,86 @@ const WhyUs = ({ installs = 5000, citiesCount = 15 }) => {
         </motion.div>
 
         {/* ================= FEATURE CARDS ================= */}
-       <motion.div
-  className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ amount: 0.3 }}
-  variants={{
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  }}
->
-  {features.map((f, index) => {
-    const isAlt = index % 2 === 0;
+        <motion.div
+          className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.3 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.15,
+              },
+            },
+          }}
+        >
+          {features.map((f, index) => {
+            const isAlt = index % 2 === 0;
 
-    return (
-      <motion.div
-        key={f.title}
-        variants={{
-          hidden: { opacity: 0, y: 50 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        whileHover={{
-          y: -12,
-          scale: 1.03,
-        }}
-        className={`relative group rounded-2xl p-7 overflow-hidden
+            return (
+              <motion.div
+                key={f.title}
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                whileHover={{
+                  y: -12,
+                  scale: 1.03,
+                }}
+                className={`relative group rounded-2xl p-7 overflow-hidden
         bg-gradient-to-br from-gray-900 to-gray-800
         border transition-all duration-500
-        ${
-          isAlt
-            ? "border-gray-800"
-            : "border-gray-800"
-        }
+        ${isAlt
+                    ? "border-gray-800"
+                    : "border-gray-800"
+                  }
         hover:border-red-500 hover:shadow-2xl hover:shadow-red-500/10`}
-      >
-        {/* Soft Red Glow Background */}
-        <div
-          className="absolute inset-0 rounded-2xl opacity-0 
+              >
+                {/* Soft Red Glow Background */}
+                <div
+                  className="absolute inset-0 rounded-2xl opacity-0 
           group-hover:opacity-100 transition duration-500 
           bg-red-600/5 blur-xl"
-        />
+                />
 
-        {/* ICON */}
-        <motion.div
-          whileHover={{ rotate: 8, scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 250 }}
-          className={`relative w-12 h-12 rounded-xl 
+                {/* ICON */}
+                <motion.div
+                  whileHover={{ rotate: 8, scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 250 }}
+                  className={`relative w-12 h-12 rounded-xl 
           flex items-center justify-center mb-6
-          ${
-            isAlt
-              ? "bg-red-600/20"
-              : "bg-red-600/10"
-          }`}
-        >
-          <f.icon className="w-6 h-6 text-red-500" />
-        </motion.div>
+          ${isAlt
+                      ? "bg-red-600/20"
+                      : "bg-red-600/10"
+                    }`}
+                >
+                  <f.icon className="w-6 h-6 text-red-500" />
+                </motion.div>
 
-        {/* TITLE */}
-        <h3 className="relative text-lg font-semibold 
+                {/* TITLE */}
+                <h3 className="relative text-lg font-semibold 
                        group-hover:text-red-500 transition">
-          {f.title}
-        </h3>
+                  {f.title}
+                </h3>
 
-        {/* TEXT */}
-        <p className="relative mt-3 text-sm text-gray-400 leading-relaxed">
-          {f.text}
-        </p>
+                {/* TEXT */}
+                <p className="relative mt-3 text-sm text-gray-400 leading-relaxed">
+                  {f.text}
+                </p>
 
-        {/* Bottom Accent Line */}
-        <div
-          className="absolute bottom-0 left-0 h-[2px] w-0 
+                {/* Bottom Accent Line */}
+                <div
+                  className="absolute bottom-0 left-0 h-[2px] w-0 
           bg-red-500 group-hover:w-full 
           transition-all duration-500"
-        />
-      </motion.div>
-    );
-  })}
-</motion.div>
+                />
+              </motion.div>
+            );
+          })}
+        </motion.div>
 
 
         {/* ================= STATS ================= */}

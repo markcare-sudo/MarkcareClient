@@ -10,8 +10,8 @@ const MainLayout = () => {
   return (
     <div className="flex h-screen w-screen overflow-hidden">
       {/* Right section: header + main content */}
-      <div className="flex flex-col flex-1 h-full overflow-hidden bg-neutral-950 text-white">
-        <main className="flex-1 overflow-y-auto bg-gray-50">
+      <div className="flex flex-col flex-1 h-full overflow-hidden text-white">
+        <main className="flex-1 overflow-y-auto">
           <Header open={open} setOpen={setOpen} cities={CITIES} />
           <Outlet />
           <Footer services={SERVICES} cities={CITIES} />

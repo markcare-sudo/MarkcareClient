@@ -91,7 +91,7 @@ export default function PublicBlogs() {
   const featuredBlog = filteredBlogs[0];
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+    <div className="min-h-screen text-white relative overflow-hidden">
 
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-10 

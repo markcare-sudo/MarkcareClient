@@ -149,14 +149,14 @@ const cardVariants = {
 
 export default function OurServices() {
     return (
-        <section className="relative bg-black text-white py-24 overflow-hidden min-h-screen">
+        <section className="relative text-white py-24 overflow-hidden min-h-screen">
             {/* Animated Background */}
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 0.05 }}
                 viewport={{ amount: 0.2 }}
                 transition={{ duration: 1 }}
-                className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[size:24px_24px]"
+                className="absolute inset-0 "
             />
 
             <div className="relative max-w-7xl mx-auto px-4">

@@ -1,9 +1,9 @@
 // import React from "react";
 import ProductCard from "@/components/ProductCard";
-import { SEWAGE_TREATMENT_PLANTS } from "@/constants/SewageTreatmentPlant";
+import { UPS_SYSTEMS } from "@/constants/UPS";
 
 
-const SewageTreatmentPlant = () => {
+const UPS = () => {
   return (
     <section className="min-h-screen py-4">
       <div className="max-w-7xl mx-auto space-y-16 p-4">
@@ -11,15 +11,15 @@ const SewageTreatmentPlant = () => {
         {/* Header */}
         <div>
           <h1 className="text-3xl md:text-4xl font-bold text-white">
-            Sewage Treatment Plants
+            UPS Systems
           </h1>
           <p className="text-gray-400 mt-4 max-w-3xl">
-            Service Provider of a wide range of services which include automatic industrial sewage treatment plant, industrial sewage water treatment plant, industrial sewage treatment plant, effluent treatment plant, commercial sewage treatment plant and domestic sewage treatment plant.
+            We provide reliable UPS systems to ensure uninterrupted power supply for your critical operations. Our UPS solutions are designed to protect your equipment and data from power outages and fluctuations, keeping your business running smoothly.
           </p>
         </div>
 
         {/* All Elevators */}
-        {SEWAGE_TREATMENT_PLANTS.map((product) => (
+        {UPS_SYSTEMS.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
@@ -27,4 +27,4 @@ const SewageTreatmentPlant = () => {
   );
 };
 
-export default SewageTreatmentPlant;
+export default UPS;

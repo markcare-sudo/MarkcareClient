@@ -4,13 +4,10 @@ import { Link } from "react-router-dom";
 
 export default function WhoWeAre() {
   return (
-    <section className="relative bg-black text-white overflow-hidden">
+    <section className="relative text-white overflow-hidden">
       
           {/* Background Gradient Glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 pointer-events-none" />
-
-      {/* Noise / Texture Overlay (Optional Professional Touch) */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[size:20px_20px]" />
+      <div className="absolute inset-0 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
         

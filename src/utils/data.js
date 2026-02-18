@@ -211,7 +211,17 @@ export const CLIENTS = [
             },
         ],
     },
+    // {
+    //     name: "KK Nagara Hospital",
+    // },
+    //    {
+    //     name: "KK Nagara Hospital",
+    // }
 ];
+
+
+
+
 
 export const CITIES = ["Chennai", "Bangalore", "Delhi", "Hyderabad", "Mumbai"];
 

@@ -18,10 +18,8 @@ export default function WorkShowcase() {
   return (
     <section
       id="work"
-      className="relative py-20 lg:py-28 bg-black text-white overflow-hidden"
+      className="relative py-20 lg:py-28 text-white overflow-hidden"
     >
-      {/* Background subtle dots */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] [background-size:28px_28px]" />
 
       <div className="relative max-w-7xl mx-auto px-4">
         {/* ================= HEADER ================= */}

@@ -1,172 +1,372 @@
+// import { Routes, Route, useLocation } from "react-router-dom";
+// import { lazy } from "react";
+// import MainLayout from "../layouts/MainLayout";
+// import ErrorBoundary from "../components/ErrorBoundory";
+// import NotFound from "@/pages/NotFound";
+// import ProjectsSection from "@/pages/Projects";
+// import AboutUs from "@/pages/AboutUs";
+// import Contact from "@/pages/ContactUs";
+// import BlogsListPage from "@/pages/Blogs";
+// import PublicBlogs from "@/pages/PublicBlogs";
+// import BlogDetails from "@/pages/BlogDetails";
+// import ElevatorsPage from "@/pages/Elevators";
+// import WaterTreatmentPage from "@/pages/WaterTratementPlant";
+// import SewageTreatmentPlant from "@/pages/SewageTreatmentPlant";
+// import WaterSofteningPlant from "@/pages/WaterSofteningPlant";
+// import ReverseOsmosisPlant from "@/pages/ReverseOsmosisPlant";
+// import DieselGenerator from "@/pages/DieselGenerator";
+// import ROWaterPurifiers from "@/pages/ROWaterPurifiers";
+// import Solar from "@/pages/Solar";
+// import AC from "@/pages/AC";
+// import Refrigerators from "@/pages/Refrigerators";
+// import UPS from "@/pages/UPS";
+
+// // Lazy-loaded pages
+// const Home = lazy(() => import("../pages/Home"));
+
+// const AppRoutes = () => {
+//   const location = useLocation();
+
+//   return (
+//     <Routes location={location} key={location.pathname}>
+//       <Route path="/" element={<MainLayout />}>
+
+//         <Route
+//           index
+//           element={
+//             <ErrorBoundary>
+//               <Home />
+//             </ErrorBoundary>
+//           }
+//         />
+
+//         <Route
+//           path="/projects"
+//           element={
+//             <ErrorBoundary>
+//               <ProjectsSection />
+//             </ErrorBoundary>
+//           }
+//         />
+
+//         <Route
+//           path="/about-us"
+//           element={
+//             <ErrorBoundary>
+//               <AboutUs />
+//             </ErrorBoundary>
+//           }
+//         />
+
+//                 <Route
+//           path=":city/"
+//           element={
+//             <ErrorBoundary>
+//               <Home />
+//             </ErrorBoundary>
+//           }
+//         />
+
+//         <Route
+//           path=":city/projects"
+//           element={
+//             <ErrorBoundary>
+//               <ProjectsSection />
+//             </ErrorBoundary>
+//           }
+//         />
+
+//         <Route
+//           path=":city/about-us"
+//           element={
+//             <ErrorBoundary>
+//               <AboutUs />
+//             </ErrorBoundary>
+//           }
+//         />
+
+//         <Route path="services">
+//           <Route
+//             path="elevators"
+//             element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>}
+//           />
+//           <Route
+//             path="water-treatment-plant"
+//             element={<ErrorBoundary><WaterTreatmentPage /></ErrorBoundary>}
+//           />
+//           <Route
+//             path="sewage-treatment-plant"
+//             element={<ErrorBoundary><SewageTreatmentPlant /></ErrorBoundary>}
+//           />
+//           <Route
+//             path="ro-water-purifiers"
+//             element={<ErrorBoundary><ROWaterPurifiers /></ErrorBoundary>}
+//           />
+//           <Route
+//             path="water-softening-plant"
+//             element={<ErrorBoundary><WaterSofteningPlant /></ErrorBoundary>}
+//           />
+//           <Route
+//             path="reverse-osmosis-plant"
+//             element={<ErrorBoundary><ReverseOsmosisPlant /></ErrorBoundary>}
+//           />
+//           <Route
+//             path="diesel-generators"
+//             element={<ErrorBoundary><DieselGenerator /></ErrorBoundary>}
+//           />
+//             <Route
+//             path="solar-prower-systems"
+//             element={<ErrorBoundary><Solar /></ErrorBoundary>}
+//           />
+//            <Route
+//             path="ac-systems"
+//             element={<ErrorBoundary><AC /></ErrorBoundary>}
+//           />
+//             <Route
+//             path="refrigerators"
+//             element={<ErrorBoundary><Refrigerators /></ErrorBoundary>}
+//           />
+//             <Route
+//             path="ups-systems"
+//             element={<ErrorBoundary><UPS /></ErrorBoundary>}
+//           />
+//         </Route>
+
+//         <Route path=":city/services">
+//           <Route
+//             path="elevators"
+//             element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>}
+//           />
+//           <Route
+//             path="water-treatment-plant"
+//             element={<ErrorBoundary><WaterTreatmentPage /></ErrorBoundary>}
+//           />
+//           <Route
+//             path="sewage-treatment-plant"
+//             element={<ErrorBoundary><SewageTreatmentPlant /></ErrorBoundary>}
+//           />
+//           <Route
+//             path="ro-water-purifiers"
+//             element={<ErrorBoundary><ROWaterPurifiers /></ErrorBoundary>}
+//           />
+//           <Route
+//             path="water-softening-plant"
+//             element={<ErrorBoundary><WaterSofteningPlant /></ErrorBoundary>}
+//           />
+//           <Route
+//             path="reverse-osmosis-plant"
+//             element={<ErrorBoundary><ReverseOsmosisPlant /></ErrorBoundary>}
+//           />
+//            <Route
+//             path="solar-prower-systems"
+//             element={<ErrorBoundary><Solar /></ErrorBoundary>}
+//           />
+//            <Route
+//             path="ac-systems"
+//             element={<ErrorBoundary><AC /></ErrorBoundary>}
+//           />
+//             <Route
+//             path="refrigerators"
+//             element={<ErrorBoundary><Refrigerators /></ErrorBoundary>}
+//           />
+//             <Route
+//             path="ups-systems"
+//             element={<ErrorBoundary><UPS /></ErrorBoundary>}
+//           />
+//           <Route
+//             path="diesel-generators"
+//             element={<ErrorBoundary><DieselGenerator /></ErrorBoundary>}
+//           />
+//         </Route>
+
+
+//         <Route
+//           path=":city/contact-us"
+//           element={
+//             <ErrorBoundary>
+//               <Contact />
+//             </ErrorBoundary>
+//           }
+//         />
+
+//                 <Route
+//           path="/contact-us"
+//           element={
+//             <ErrorBoundary>
+//               <Contact />
+//             </ErrorBoundary>
+//           }
+//         />
+
+//         <Route
+//           path="/admin-upload-blogs"
+//           element={
+//             <ErrorBoundary>
+//               <BlogsListPage />
+//             </ErrorBoundary>
+//           }
+//         />
+
+
+//         <Route
+//           path="/blogs"
+//           element={
+//             <ErrorBoundary>
+//               <PublicBlogs />
+//             </ErrorBoundary>
+//           }
+//         />
+
+//         <Route
+//           path=":city/blogs"
+//           element={
+//             <ErrorBoundary>
+//               <PublicBlogs />
+//             </ErrorBoundary>
+//           }
+//         />
+
+//         <Route
+//           path="/blogs/:slug"
+//           element={
+//             <ErrorBoundary>
+//               <BlogDetails />
+//             </ErrorBoundary>
+//           }
+//         />
+
+//         <Route
+//           path="*"
+//           element={
+//             <ErrorBoundary>
+//               <NotFound />
+//             </ErrorBoundary>
+//           }
+//         />
+
+//       </Route>
+//     </Routes>
+//   );
+// };
+
+// export default AppRoutes;
+
+
+
+
+
 import { Routes, Route, useLocation } from "react-router-dom";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import MainLayout from "../layouts/MainLayout";
-import ErrorBoundary from "../components/ErrorBoundory";
+// import ErrorBoundary from "../components/ErrorBoundary";
 import NotFound from "@/pages/NotFound";
+
 import ProjectsSection from "@/pages/Projects";
 import AboutUs from "@/pages/AboutUs";
 import Contact from "@/pages/ContactUs";
 import BlogsListPage from "@/pages/Blogs";
 import PublicBlogs from "@/pages/PublicBlogs";
 import BlogDetails from "@/pages/BlogDetails";
+
 import ElevatorsPage from "@/pages/Elevators";
-import WaterTreatmentPage from "@/pages/WaterTratementPlant";
+// import WaterTreatmentPage from "@/pages/WaterTreatmentPlant";
 import SewageTreatmentPlant from "@/pages/SewageTreatmentPlant";
 import WaterSofteningPlant from "@/pages/WaterSofteningPlant";
 import ReverseOsmosisPlant from "@/pages/ReverseOsmosisPlant";
 import DieselGenerator from "@/pages/DieselGenerator";
 import ROWaterPurifiers from "@/pages/ROWaterPurifiers";
+import Solar from "@/pages/Solar";
+import AC from "@/pages/AC";
+import Refrigerators from "@/pages/Refrigerators";
+import UPS from "@/pages/UPS";
+import ErrorBoundary from "@/components/ErrorBoundory";
+import WaterTreatmentPlant from "@/pages/WaterTratementPlant";
 
-// Lazy-loaded pages
+// Lazy-loaded page
 const Home = lazy(() => import("../pages/Home"));
 
 const AppRoutes = () => {
   const location = useLocation();
 
+  const ServiceRoutes = () => (
+    <>
+      <Route path="elevators" element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>} />
+      <Route path="water-treatment-plant" element={<ErrorBoundary><WaterTreatmentPlant /></ErrorBoundary>} />
+      <Route path="sewage-treatment-plant" element={<ErrorBoundary><SewageTreatmentPlant /></ErrorBoundary>} />
+      <Route path="water-softening-plant" element={<ErrorBoundary><WaterSofteningPlant /></ErrorBoundary>} />
+      <Route path="reverse-osmosis-plant" element={<ErrorBoundary><ReverseOsmosisPlant /></ErrorBoundary>} />
+      <Route path="ro-water-purifiers" element={<ErrorBoundary><ROWaterPurifiers /></ErrorBoundary>} />
+      <Route path="diesel-generators" element={<ErrorBoundary><DieselGenerator /></ErrorBoundary>} />
+      <Route path="solar-power-systems" element={<ErrorBoundary><Solar /></ErrorBoundary>} />
+      <Route path="ac-systems" element={<ErrorBoundary><AC /></ErrorBoundary>} />
+      <Route path="refrigerators" element={<ErrorBoundary><Refrigerators /></ErrorBoundary>} />
+      <Route path="ups-systems" element={<ErrorBoundary><UPS /></ErrorBoundary>} />
+    </>
+  );
+
   return (
-    <Routes location={location} key={location.pathname}>
-      <Route path="/" element={<MainLayout />}>
+    <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<MainLayout />}>
 
-        <Route
-          index
-          element={
-            <ErrorBoundary>
-              <Home />
-            </ErrorBoundary>
-          }
-        />
+          {/* Home */}
+          <Route
+            index
+            element={
+              <ErrorBoundary>
+                <Home />
+              </ErrorBoundary>
+            }
+          />
 
-        <Route
-          path="/projects"
-          element={
-            <ErrorBoundary>
-              <ProjectsSection />
-            </ErrorBoundary>
-          }
-        />
+          {/* Static Pages */}
+          <Route path="projects" element={<ErrorBoundary><ProjectsSection /></ErrorBoundary>} />
+          <Route path="about-us" element={<ErrorBoundary><AboutUs /></ErrorBoundary>} />
+          <Route path="contact-us" element={<ErrorBoundary><Contact /></ErrorBoundary>} />
 
-        <Route
-          path="/about-us"
-          element={
-            <ErrorBoundary>
-              <AboutUs />
-            </ErrorBoundary>
-          }
-        />
+          {/* Blogs */}
+          <Route path="admin-upload-blogs" element={<ErrorBoundary><BlogsListPage /></ErrorBoundary>} />
+          <Route path="blogs" element={<ErrorBoundary><PublicBlogs /></ErrorBoundary>} />
+          <Route path="blogs/:slug" element={<ErrorBoundary><BlogDetails /></ErrorBoundary>} />
 
-        <Route path="services">
+          {/* Services (No City) */}
+          <Route path="services">
+            {ServiceRoutes()}
+          </Route>
+
+          {/* City Based Routing */}
+          <Route path=":city">
+
+            <Route
+              index
+              element={<ErrorBoundary><Home /></ErrorBoundary>}
+            />
+
+            <Route path="projects" element={<ErrorBoundary><ProjectsSection /></ErrorBoundary>} />
+            <Route path="about-us" element={<ErrorBoundary><AboutUs /></ErrorBoundary>} />
+            <Route path="contact-us" element={<ErrorBoundary><Contact /></ErrorBoundary>} />
+            <Route path="blogs" element={<ErrorBoundary><PublicBlogs /></ErrorBoundary>} />
+
+            <Route path="services">
+              {ServiceRoutes()}
+            </Route>
+
+          </Route>
+
+          {/* 404 */}
           <Route
-            path="elevators"
-            element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>}
+            path="*"
+            element={
+              <ErrorBoundary>
+                <NotFound />
+              </ErrorBoundary>
+            }
           />
-          <Route
-            path="water-treatment-plant"
-            element={<ErrorBoundary><WaterTreatmentPage /></ErrorBoundary>}
-          />
-          <Route
-            path="sewage-treatment-plant"
-            element={<ErrorBoundary><SewageTreatmentPlant /></ErrorBoundary>}
-          />
-          <Route
-            path="ro-water-purifiers"
-            element={<ErrorBoundary><ROWaterPurifiers /></ErrorBoundary>}
-          />
-          <Route
-            path="water-softening-plant"
-            element={<ErrorBoundary><WaterSofteningPlant /></ErrorBoundary>}
-          />
-          <Route
-            path="reverse-osmosis-plant"
-            element={<ErrorBoundary><ReverseOsmosisPlant /></ErrorBoundary>}
-          />
-          <Route
-            path="diesel-generators"
-            element={<ErrorBoundary><DieselGenerator /></ErrorBoundary>}
-          />
+
         </Route>
-
-        <Route path=":city/services">
-          <Route
-            path="elevators"
-            element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>}
-          />
-          <Route
-            path="water-treatment-plant"
-            element={<ErrorBoundary><WaterTreatmentPage /></ErrorBoundary>}
-          />
-          <Route
-            path="sewage-treatment-plant"
-            element={<ErrorBoundary><SewageTreatmentPlant /></ErrorBoundary>}
-          />
-          <Route
-            path="ro-water-purifiers"
-            element={<ErrorBoundary><ROWaterPurifiers /></ErrorBoundary>}
-          />
-          <Route
-            path="water-softening-plant"
-            element={<ErrorBoundary><WaterSofteningPlant /></ErrorBoundary>}
-          />
-          <Route
-            path="reverse-osmosis-plant"
-            element={<ErrorBoundary><ReverseOsmosisPlant /></ErrorBoundary>}
-          />
-          <Route
-            path="diesel-generators"
-            element={<ErrorBoundary><DieselGenerator /></ErrorBoundary>}
-          />
-        </Route>
-
-
-        <Route
-          path="/contact-us"
-          element={
-            <ErrorBoundary>
-              <Contact />
-            </ErrorBoundary>
-          }
-        />
-
-        <Route
-          path="/admin-upload-blogs"
-          element={
-            <ErrorBoundary>
-              <BlogsListPage />
-            </ErrorBoundary>
-          }
-        />
-
-        <Route
-          path="/blogs"
-          element={
-            <ErrorBoundary>
-              <PublicBlogs />
-            </ErrorBoundary>
-          }
-        />
-
-        <Route
-          path="/blogs/:slug"
-          element={
-            <ErrorBoundary>
-              <BlogDetails />
-            </ErrorBoundary>
-          }
-        />
-
-        <Route
-          path="*"
-          element={
-            <ErrorBoundary>
-              <NotFound />
-            </ErrorBoundary>
-          }
-        />
-
-      </Route>
-    </Routes>
+      </Routes>
+    </Suspense>
   );
 };
 
 export default AppRoutes;
-
-

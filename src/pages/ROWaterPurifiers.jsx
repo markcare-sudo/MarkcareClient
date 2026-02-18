@@ -6,7 +6,7 @@ import { RO_WATER_PURIFIERS } from "@/constants/ROWaterPurifier";
 
 const ROWaterPurifiers = () => {
   return (
-    <section className="bg-black min-h-screen py-4">
+    <section className="min-h-screen py-4">
       <div className="max-w-7xl mx-auto space-y-16 p-4">
         
         {/* Header */}

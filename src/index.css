@@ -1,4 +1,4 @@
-@import "@fontsource/poppins"; 
+/* @import "@fontsource/poppins"; 
 
 @import "tailwindcss"; 
 
@@ -9,6 +9,15 @@
 html, body, #root {
   font-family: 'Poppins', sans-serif;
 }
+
+body {
+  background-image: url("/assets/Particles.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -124,4 +133,29 @@ html, body, #root {
   body {
     @apply bg-background text-foreground;
   }
+} */
+
+
+
+
+
+
+
+@import "@fontsource/poppins"; 
+
+@import "tailwindcss"; 
+
+@import "tw-animate-css"; 
+
+
+html, body, #root {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-image: url("/assets/Particles.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
