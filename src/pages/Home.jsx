@@ -27,12 +27,12 @@ export default function MarkCareSite() {
 
         <meta
           name="description"
-          content="MarkCare provides RO plants, Water Treatment Plants (WTP), Sewage Treatment Plants (STP), Effluent Treatment Plants (ETP), solar power systems, AC services, DG power backup, lifts & escalator AMC across India."
+          content="MarkCare provides Elevators, Lift, Residencial Elevators, Commercial Elevators, Hospital Lift, Dumpt Lift, Kitchen Lift,RO plants, Water Treatment Plants (WTP), Sewage Treatment Plants (STP), Effluent Treatment Plants (ETP), solar power systems, AC services, DG power backup, lifts & escalator AMC across India."
         />
 
         <meta
           name="keywords"
-          content="MarkCare, RO Plants, WTP Services, STP O&M, ETP Services, Solar Power Systems, AC AMC, DG Power Backup, Lift AMC, Facility Engineering Services India"
+          content="MarkCare, Elevators, Lift, Residencial Elevators, Commercial Elevators, Hospital Lift, Dumpt Lift, Kitchen Lift, RO Plants, WTP Services, STP O&M, ETP Services, Solar Power Systems, AC AMC, DG Power Backup, Lift AMC, Facility Engineering Services India"
         />
 
         <meta name="robots" content="index, follow" />
@@ -45,7 +45,7 @@ export default function MarkCareSite() {
         />
         <meta
           property="og:description"
-          content="Trusted experts in RO, WTP, STP, ETP, solar energy, HVAC, DG power, lifts & facility engineering services."
+          content="Trusted experts in Elevators, Lift, Residencial Elevators, Commercial Elevators, Hospital Lift, Dumpt Lift, Kitchen Lift, RO plants, WTP, STP, ETP, solar energy, HVAC, DG power, lifts & facility engineering services."
         />
         <meta property="og:url" content="https://markcare.co.in" />
         <meta property="og:type" content="website" />
@@ -58,11 +58,11 @@ export default function MarkCareSite() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="MarkCare | RO, WTP, STP, ETP & Facility Services"
+          content="MarkCare | Elevators, Lift, RO, WTP, STP, ETP & Facility Services"
         />
         <meta
           name="twitter:description"
-          content="Professional RO plants, STP, ETP, solar, AC AMC, DG power & lift services across India."
+          content="Professional Elevators, Lift, RO plants, STP, ETP, solar, AC AMC, DG power & lift services across India."
         />
         <meta
           name="twitter:image"

@@ -13,6 +13,10 @@ const BLOG_CATEGORIES = [
   "Diesel Generator",
   "Water Softening Plant",
   "AC Service",
+  "Solar Power System",
+  "Refrigerator Service",
+  "UPS System",
+  "Geyser Service",
 ];
 
 export default function BlogForm({ open, onClose, initialData }) {

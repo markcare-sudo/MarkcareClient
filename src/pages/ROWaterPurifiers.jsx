@@ -12,12 +12,10 @@ const ROWaterPurifiers = () => {
         {/* Header */}
         <div>
           <h1 className="text-3xl md:text-4xl font-bold text-white">
-            Water Treatment Plants
+            RO Water Purifiers
           </h1>
           <p className="text-gray-400 mt-4 max-w-3xl">
-             Offering a complete range of industrial water treatment solutions including
-            RO plants, waste water treatment plants, desalination systems,
-            iron removal plants, repair & maintenance services and media replacement services.
+            We provide reliable RO water purifiers to ensure clean and safe drinking water for your home or business. Our RO systems are designed to effectively remove impurities and contaminants, delivering pure and refreshing water for your daily needs.
           </p>
         </div>
 
