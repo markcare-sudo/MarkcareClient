@@ -14,9 +14,9 @@ const BLOG_CATEGORIES = [
   "Water Softening Plant",
   "AC Service",
   "Solar Power System",
-  "Refrigerator Service",
+  "Refrigerators",
   "UPS System",
-  "Geyser Service",
+  "Geysers",
 ];
 
 export default function BlogForm({ open, onClose, initialData }) {
