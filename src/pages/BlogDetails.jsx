@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import { useGlobalContext } from "@/context/GlobalContext";
@@ -9,12 +9,53 @@ const DUMMY_IMAGE =
 
 export default function BlogDetails() {
   const { slug } = useParams();
-  const { blogs, getImageUrl } = useGlobalContext();
+  const { fetchBlog, getImageUrl } = useGlobalContext();
 
-  const blog = blogs.find(
-    (b) => b.slug === slug || String(b.id) === slug
-  );
+  const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadBlog = async () => {
+      try {
+        setLoading(true);
+
+        const response = await fetchBlog(slug);
+        // 👇 adjust based on what your fetchBlog returns
+        const blogData = response?.data?.data || response?.data || response;
+
+        if (isMounted) {
+          setBlog(blogData);
+        }
+      } catch (err) {
+        console.error("Error fetching blog:", err);
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    if (slug) {
+      loadBlog();
+    }
+
+    return () => {
+      isMounted = false;
+    };
+  }, [slug]); // ✅ only slug
+
+  /* ================= LOADING ================= */
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-gray-500">
+        Loading blog...
+      </div>
+    );
+  }
+
+  /* ================= NOT FOUND ================= */
   if (!blog) {
     return (
       <div className="min-h-screen flex items-center justify-center text-gray-500">
@@ -23,36 +64,35 @@ export default function BlogDetails() {
     );
   }
 
-  const image = getImageUrl(blog?.featured_media) || DUMMY_IMAGE;
+  const image = getImageUrl?.(blog?.featured_media) || DUMMY_IMAGE;
+  const tags = blog?.Tags || [];
+  const keywords = blog?.Keywords || [];
 
-  /* ✅ Safely Parse Tags */
-  let parsedTags = [];
-  try {
-    if (typeof blog?.tags === "string") {
-      parsedTags = JSON.parse(blog.tags);
-    } else if (Array.isArray(blog?.tags)) {
-      parsedTags = blog.tags;
-    }
-  } catch (error) {
-    parsedTags = [];
-  }
+  const formattedDate = blog?.published_at
+    ? new Date(blog.published_at).toLocaleDateString("en-IN", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : "Draft";
 
   return (
     <div className="bg-gray-50 min-h-screen text-black">
-      {/* ================= HERO SECTION ================= */}
+      {/* HERO SECTION */}
       <section className="relative w-full h-[400px] md:h-[520px] overflow-hidden">
         <img
           src={image}
-          alt={blog?.title}
+          alt={blog?.title || "Blog cover"}
           className="w-full h-full object-cover"
         />
-
         <div className="absolute inset-0 bg-black/50" />
 
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-6">
-          <span className="mb-4 px-4 py-1 bg-white/20 backdrop-blur-md rounded-full text-sm">
-            {blog?.category}
-          </span>
+          {blog?.category && (
+            <span className="mb-4 px-4 py-1 bg-white/20 backdrop-blur-md rounded-full text-sm">
+              {blog.category}
+            </span>
+          )}
 
           <h1 className="text-3xl md:text-5xl font-bold max-w-4xl leading-tight mb-6">
             {blog?.title}
@@ -60,15 +100,13 @@ export default function BlogDetails() {
 
           <div className="flex items-center gap-2 text-sm text-gray-200">
             <Calendar size={16} />
-            {new Date(blog?.published_at).toLocaleDateString()}
+            {formattedDate}
           </div>
         </div>
       </section>
 
-      {/* ================= ARTICLE CONTENT ================= */}
+      {/* ARTICLE CONTENT */}
       <article className="max-w-6xl mx-auto px-6 py-16 bg-white -mt-16 relative z-10 rounded-3xl shadow-xl">
-        
-        {/* Back Button */}
         <Link
           to="/blogs"
           className="flex items-center gap-2 text-sm text-gray-500 hover:text-black transition mb-6"
@@ -77,31 +115,40 @@ export default function BlogDetails() {
           Back to Blogs
         </Link>
 
-        {/* ✅ TAGS SECTION */}
-        {parsedTags.length > 0 && (
+        {tags.length > 0 && (
           <div className="flex flex-wrap items-center gap-3 mb-8">
             <Tag size={16} className="text-gray-500" />
-            {parsedTags.map((tag, index) => (
+            {tags.map((tag) => (
               <Link
-                key={index}
-                to={`/blogs?tag=${encodeURIComponent(tag)}`}
-                className="px-4 py-1.5 text-sm bg-gray-100 hover:bg-black hover:text-white 
-                           transition rounded-full border border-gray-200"
+                key={tag?.id}
+                to={`/blogs?tag=${encodeURIComponent(tag?.slug)}`}
+                className="px-4 py-1.5 text-sm bg-gray-100 hover:bg-black hover:text-white transition rounded-full border border-gray-200"
               >
-                #{tag}
+                #{tag?.name}
               </Link>
             ))}
           </div>
         )}
 
-        {/* Excerpt */}
+        {keywords.length > 0 && (
+          <div className="flex flex-wrap items-center gap-3 mb-8">
+            {keywords.map((key) => (
+              <span
+                key={key?.id}
+                className="px-4 py-1 text-sm bg-blue-50 text-blue-600 rounded-full"
+              >
+                {key?.keyword}
+              </span>
+            ))}
+          </div>
+        )}
+
         {blog?.excerpt && (
           <p className="text-xl text-gray-600 leading-relaxed mb-10 border-l-4 border-black pl-6 italic">
-            {blog?.excerpt}
+            {blog.excerpt}
           </p>
         )}
 
-        {/* Main Content */}
         <div
           className="prose prose-lg max-w-none
                      prose-headings:font-semibold
@@ -110,7 +157,7 @@ export default function BlogDetails() {
                      prose-a:text-black
                      prose-blockquote:border-black
                      prose-blockquote:text-gray-600"
-          dangerouslySetInnerHTML={{ __html: blog?.content }}
+          dangerouslySetInnerHTML={{ __html: blog?.content || "" }}
         />
       </article>
 

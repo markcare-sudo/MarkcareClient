@@ -2,7 +2,7 @@
 import { postErrorHandler } from '@/components/ErrorHandler';
 import { successHandler } from '@/components/SuccessHandler';
 // import { successHandler } from '@/components/SuccessHandler';
-import { createBlog, deleteBlogById, getBlogs, updateBlogById } from '@/services/blogsService';
+import { createBlog, deleteBlogById, getBlogs, getBlogsById, updateBlogById } from '@/services/blogsService';
 import { createContext, useContext, useEffect, useState } from 'react';
 
 const CLOUD_URL = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
@@ -13,6 +13,7 @@ export const GlobalProvider = ({ children }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [blogs, setBlogs] = useState([])
+    const [blog, setBlog] = useState([])
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -29,6 +30,16 @@ export const GlobalProvider = ({ children }) => {
     try {
       const res = await getBlogs()
       setBlogs(res.data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+    const fetchBlog = async (id) => {
+    try {
+      const res = await getBlogsById(id)
+      setBlog(res.data.data)
+      return res
     } catch (error) {
       console.log(error)
     }
@@ -80,6 +91,8 @@ export const GlobalProvider = ({ children }) => {
         toggleMobileMenu,
         loading,
         blogs,
+        blog, setBlog,
+        fetchBlog,
         uploadBlog,
         updateBlog,
         deleteBlog,

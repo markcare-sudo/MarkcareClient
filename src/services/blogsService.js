@@ -2,12 +2,19 @@ import apiClient from "../utils/api";
 
 // Function to fetch a single user by ID
 export const createBlog = async (data) => {
-    console.log(data)
     return await apiClient.post(`/blogs`, data);
 };
 
-export const getBlogs = async () => {
-    return await apiClient.get(`/blogs`,);
+// export const getBlogs = async (slug) => {
+//     return await apiClient.get(`/blogs?tag=${slug}`);
+// };
+
+// export const getBlogs = async () => {
+//     return await apiClient.get(`/blogs`);
+// };
+
+export const getBlogs = async (params = {}) => {
+  return await apiClient.get("/blogs", { params });
 };
 
 

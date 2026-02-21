@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Footer from "@/components/Footer";
 import { useState } from "react";
-import { CITIES, SERVICES, } from "@/utils/data";
+import { CITIES } from "@/utils/data";
 import Header from "@/components/Header";
 
 const MainLayout = () => {
@@ -14,7 +14,7 @@ const MainLayout = () => {
         <main className="flex-1 overflow-y-auto">
           <Header open={open} setOpen={setOpen} cities={CITIES} />
           <Outlet />
-          <Footer services={SERVICES} cities={CITIES} />
+          <Footer />
         </main>
       </div>
     </div>
