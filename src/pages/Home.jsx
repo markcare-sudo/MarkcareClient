@@ -6,7 +6,7 @@ import WhyUs from "@/components/LandingPageComponents/WhyUs";
 import WorkShowcase from "@/components/LandingPageComponents/WorkShowcase";
 import WhoWeAre from "@/components/WhoWeAre";
 
-import { CITIES, FEATURES, SERVICES } from "@/utils/data";
+import { CITIES } from "@/utils/data";
 import { Helmet } from "react-helmet-async";
 import Testimonials from "@/components/LandingPageComponents/Testimonials";
 
@@ -73,8 +73,8 @@ export default function MarkCareSite() {
       <div className="min-h-screen">
         <Banner />
         <WhoWeAre />
-        <QualityServices services={SERVICES} />
-        <AboutUs features={FEATURES} cities={CITIES} />
+        <QualityServices />
+        <AboutUs cities={CITIES} />
         <WhyUs installs={installs} citiesCount={citiesCount} />
         <WorkShowcase />
         <Clients />
