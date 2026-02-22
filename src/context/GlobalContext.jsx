@@ -3,6 +3,7 @@ import { postErrorHandler } from '@/components/ErrorHandler';
 import { successHandler } from '@/components/SuccessHandler';
 // import { successHandler } from '@/components/SuccessHandler';
 import { createBlog, deleteBlogById, getBlogs, getBlogsById, updateBlogById } from '@/services/blogsService';
+import { createRequest } from '@/services/callbackRequestService';
 import { createContext, useContext, useEffect, useState } from 'react';
 
 const CLOUD_URL = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
@@ -54,6 +55,7 @@ export const GlobalProvider = ({ children }) => {
       postErrorHandler(error)
     }
   }
+  
 
   const updateBlog = async (data, id) => {
     try {
@@ -81,6 +83,18 @@ export const GlobalProvider = ({ children }) => {
   }, [])
 
 
+  
+    const requestCallback = async (data) => {
+    try {
+      const res = await createRequest(data)
+      console.log(res)
+      successHandler(res)
+    } catch (error) {
+      postErrorHandler(error)
+    }
+  }
+
+
   return (
     <GlobalContext.Provider
       value={{
@@ -92,6 +106,7 @@ export const GlobalProvider = ({ children }) => {
         loading,
         blogs,
         blog, setBlog,
+        requestCallback,
         fetchBlog,
         uploadBlog,
         updateBlog,

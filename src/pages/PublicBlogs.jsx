@@ -368,9 +368,7 @@ export default function PublicBlogs() {
       <div className="relative max-w-7xl mx-auto px-4 pb-24">
 
         {/* SEARCH + FILTER */}
-        <div className="flex flex-col md:flex-row gap-6 
-                        justify-between items-center mb-14">
-
+        <div className="flex flex-col md:flex-row gap-6 justify-between items-center mb-14">
           <div className="relative w-full md:w-96">
             <Search
               size={16}

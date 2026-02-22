@@ -1,3 +1,4 @@
+import { useGlobalContext } from "@/context/GlobalContext";
 import { useState } from "react";
 
 // Convert object to label-value pairs dynamically
@@ -17,36 +18,52 @@ const renderSpecifications = (specs) => {
 };
 
 const ProductCard = ({ product }) => {
-   const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     phone: "",
     email: "",
   });
 
+  const { requestCallback } = useGlobalContext();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({
-      product: product.name,
-      price: product.pricing?.basePrice,
-      ...formData,
-    });
 
-    setOpen(false);
+    const enquiryData = {
+      product_name: product.name,
+      product_price: product.pricing?.basePrice,
+      phone: formData.phone,
+      email: formData.email,
+    };
+
+    try {
+      setLoading(true);
+      await requestCallback(enquiryData);
+      setOpen(false);
+      setFormData({ phone: "", email: "" });
+
+      setLoading(false);
+    } catch (error) {
+      setOpen(false);
+      setLoading(false);
+    }
   };
+
   return (
     <div className="border border-red-600 rounded-md p-4 md:p-6 md:p-10 transition hover:shadow-lg hover:shadow-red-500/20">
-      
+
       {/* Top Small Title Bar */}
       <div className="bg-zinc-800 text-white px-4 py-2 text-sm font-medium mb-6">
         {product.name}
       </div>
 
       <div className="grid md:grid-cols-2 gap-10 items-start">
-        
+
         {/* LEFT SECTION */}
         <div>
           <h2 className="text-2xl md:text-3xl font-semibold text-white">
@@ -153,65 +170,67 @@ const ProductCard = ({ product }) => {
       )}
 
       {/* Modal */}
-{open && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
-    <div className="bg-zinc-900 w-full max-w-md rounded-lg p-6 relative border border-red-600">
+      {open && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+          <div className="bg-zinc-900 w-full max-w-md rounded-lg p-6 relative border border-red-600">
 
-      {/* Close Button */}
-      <button
-        onClick={() => setOpen(false)}
-        className="absolute top-3 right-3 text-gray-400 hover:text-white"
-      >
-        ✕
-      </button>
+            {/* Close Button */}
+            <button
+              onClick={() => setOpen(false)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-white"
+            >
+              ✕
+            </button>
 
-      <h3 className="text-xl font-semibold text-white mb-4">
-        Request a Call Back
-      </h3>
+            <h3 className="text-xl font-semibold text-white mb-4">
+              Request a Call Back
+            </h3>
 
-      {/* Product Info */}
-      <div className="bg-black p-4 rounded mb-4 border border-zinc-800">
-        <p className="text-gray-400 text-sm">Product</p>
-        <p className="text-white font-medium">{product.name}</p>
 
-        <p className="text-gray-400 text-sm mt-2">Price</p>
-        <p className="text-green-400 font-semibold">
-          ₹ {product.pricing?.basePrice?.toLocaleString()}
-        </p>
-      </div>
+            {/* Product Info */}
+            <div className="bg-black p-4 rounded mb-4 border border-zinc-800">
+              <p className="text-gray-400 text-sm">Product</p>
+              <p className="text-white font-medium">{product.name}</p>
 
-      {/* Form */}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Enter Phone Number"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-          className="w-full px-4 py-3 bg-black border border-zinc-700 rounded text-white focus:border-red-600 outline-none"
-        />
+              <p className="text-gray-400 text-sm mt-2">Price</p>
+              <p className="text-green-400 font-semibold">
+                ₹ {product.pricing?.basePrice?.toLocaleString()}
+              </p>
+            </div>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Email Address"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="w-full px-4 py-3 bg-black border border-zinc-700 rounded text-white focus:border-red-600 outline-none"
-        />
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Enter Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 bg-black border border-zinc-700 rounded text-white focus:border-red-600 outline-none"
+              />
 
-        <button
-          type="submit"
-          className="w-full py-3 bg-red-600 hover:bg-red-700 rounded text-white font-medium transition"
-        >
-          Submit Request
-        </button>
-      </form>
-    </div>
-  </div>
-)}
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter Email Address (optional)"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-3 bg-black border border-zinc-700 rounded text-white focus:border-red-600 outline-none"
+              />
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-3 bg-red-600 hover:bg-red-700 rounded text-white font-medium transition"
+              >
+                {loading ? "Submitting..." : "Submit Request"}
+              </button>
+
+            </form>
+          </div>
+        </div>
+      )}
 
     </div>
   );
