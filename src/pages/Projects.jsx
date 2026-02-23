@@ -5,6 +5,7 @@ import CategoryFilter from "@/components/ProjectsComponents/CategoryFilter";
 import { PROJECT_CATEGORIES } from "@/constants/projects";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import SEO from "@/components/SEO";
 
 const ProjectsSection = () => {
   const [selectedCategory, setSelectedCategory] = useState(
@@ -18,55 +19,11 @@ const ProjectsSection = () => {
   return (
     <>
       {/* ================= SEO META TAGS ================= */}
-      <Helmet>
-        <title>
-          Projects & Installations | RO, HVAC, STP & Industrial Projects | MarkCare
-        </title>
+      <SEO
+        title="Our Projects | MarkCare Engineering & Facility Solutions Across India"
+        description="Explore MarkCare’s completed projects in RO plants, water treatment systems (WTP, STP, ETP), solar power, HVAC, lifts and facility engineering services delivered across multiple cities in India."
+      />
 
-        <meta
-          name="description"
-          content="Explore MarkCare’s completed projects and installations across HVAC, RO plants, STP, ETP and industrial engineering sectors for healthcare, education, hospitality and manufacturing clients."
-        />
-
-        <meta
-          name="keywords"
-          content="MarkCare Projects, HVAC Projects India, RO Plant Installations, STP ETP Projects, Industrial Engineering Projects, Facility Management Case Studies"
-        />
-
-        <meta name="author" content="MarkCare" />
-        <meta name="robots" content="index, follow" />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="MarkCare Projects | HVAC, RO, STP & Industrial Installations"
-        />
-        <meta
-          property="og:description"
-          content="Real-world installations and engineering projects delivered by MarkCare across multiple industries."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://markcare.co.in/projects" />
-        <meta
-          property="og:image"
-          content="https://markcare.co.in/og/markcare-projects.png"
-        />
-
-        {/* Twitter / X */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="MarkCare Projects | Engineering & Facility Installations"
-        />
-        <meta
-          name="twitter:description"
-          content="View MarkCare’s HVAC, RO, STP & industrial project portfolio across India."
-        />
-        <meta
-          name="twitter:image"
-          content="https://markcare.co.in/og/markcare-projects.png"
-        />
-      </Helmet>
       <section className="max-w-7xl mx-auto text-white px-4 py-10 md:py-16">
         <div className="text-center">
           {/* Heading */}
