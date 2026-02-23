@@ -7,7 +7,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { GlobalProvider } from './context/GlobalContext'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <HelmetProvider>
       <BrowserRouter>
        <GlobalProvider>
@@ -15,5 +15,5 @@ createRoot(document.getElementById('root')).render(
        </GlobalProvider>
       </BrowserRouter>
     </HelmetProvider>
-  </StrictMode>
+  // </StrictMode>
 )

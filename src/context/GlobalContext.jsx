@@ -4,6 +4,7 @@ import { successHandler } from '@/components/SuccessHandler';
 // import { successHandler } from '@/components/SuccessHandler';
 import { createBlog, deleteBlogById, getBlogs, getBlogsById, updateBlogById } from '@/services/blogsService';
 import { createRequest } from '@/services/callbackRequestService';
+import { getTags } from '@/services/tagsService';
 import { createContext, useContext, useEffect, useState } from 'react';
 
 const CLOUD_URL = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
@@ -14,6 +15,8 @@ export const GlobalProvider = ({ children }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [blogs, setBlogs] = useState([])
+  const [tags, setTags] = useState([])
+  const [keywords, setKeywords] = useState([])
     const [blog, setBlog] = useState([])
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -26,6 +29,24 @@ export const GlobalProvider = ({ children }) => {
 
   return `${CLOUD_URL}${publicId}`;
 };
+
+  const fetchTags = async () => {
+    try {
+      const res = await getTags()
+      setTags(res.data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+    const fetchKeywords = async () => {
+    try {
+      const res = await getTags()
+      setKeywords(res.data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const fetchBlogs = async () => {
     try {
@@ -79,6 +100,14 @@ export const GlobalProvider = ({ children }) => {
 
 
   useEffect(() => {
+    fetchTags()
+  }, [])
+
+  useEffect(() => {
+    fetchKeywords()
+  }, [])
+
+  useEffect(() => {
     fetchBlogs()
   }, [])
 
@@ -106,6 +135,8 @@ export const GlobalProvider = ({ children }) => {
         loading,
         blogs,
         blog, setBlog,
+        tags,
+        keywords,
         requestCallback,
         fetchBlog,
         uploadBlog,

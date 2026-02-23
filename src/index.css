@@ -46,3 +46,18 @@ body {
 .ql-toolbar .ql-fill {
   fill: #fff;
 }
+
+.custom-quill .ql-editor {
+  background-color: #000000;
+  color: #ffffff;
+  min-height: 200px;
+}
+
+.custom-quill .ql-toolbar {
+  background: #111111;
+  border-color: #333;
+}
+
+.custom-quill .ql-container {
+  border-color: #333;
+}

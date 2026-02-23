@@ -76,53 +76,57 @@ export default function BlogDetails() {
       })
     : "Draft";
 
-  return (
-    <div className="bg-gray-50 min-h-screen text-black">
-      {/* HERO SECTION */}
-      <section className="relative w-full h-[400px] md:h-[520px] overflow-hidden">
-        <img
-          src={image}
-          alt={blog?.title || "Blog cover"}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50" />
+return (
+  <div className="min-h-screen text-white">
+    {/* HERO SECTION */}
+    <section className="relative w-full h-[420px] md:h-[550px] overflow-hidden">
+      <img
+        src={image}
+        alt={blog?.title || "Blog cover"}
+        className="w-full h-full object-cover scale-105"
+      />
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
 
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-6">
-          {blog?.category && (
-            <span className="mb-4 px-4 py-1 bg-white/20 backdrop-blur-md rounded-full text-sm">
-              {blog.category}
-            </span>
-          )}
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6">
+        {blog?.category && (
+          <span className="mb-5 px-4 py-1 bg-white/10 border border-white/20 rounded-full text-sm backdrop-blur-md">
+            {blog.category}
+          </span>
+        )}
 
-          <h1 className="text-3xl md:text-5xl font-bold max-w-4xl leading-tight mb-6">
-            {blog?.title}
-          </h1>
+        <h1 className="text-3xl md:text-5xl font-bold max-w-4xl leading-tight mb-6">
+          {blog?.title}
+        </h1>
 
-          <div className="flex items-center gap-2 text-sm text-gray-200">
-            <Calendar size={16} />
-            {formattedDate}
-          </div>
+        <div className="flex items-center gap-2 text-sm text-gray-300">
+          <Calendar size={16} />
+          {formattedDate}
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* ARTICLE CONTENT */}
-      <article className="max-w-6xl mx-auto px-6 py-16 bg-white -mt-16 relative z-10 rounded-3xl shadow-xl">
+    {/* ARTICLE CONTENT */}
+    <article className="max-w-5xl mx-auto px-6 py-16 relative -mt-20 z-10">
+      <div className="bg-[#111] rounded-3xl p-8 md:p-14 shadow-2xl border border-white/10">
+
+        {/* Back */}
         <Link
           to="/blogs"
-          className="flex items-center gap-2 text-sm text-gray-500 hover:text-black transition mb-6"
+          className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition mb-8"
         >
           <ArrowLeft size={16} />
           Back to Blogs
         </Link>
 
+        {/* Tags */}
         {tags.length > 0 && (
           <div className="flex flex-wrap items-center gap-3 mb-8">
-            <Tag size={16} className="text-gray-500" />
+            <Tag size={16} className="text-gray-400" />
             {tags.map((tag) => (
               <Link
                 key={tag?.id}
                 to={`/blogs?tag=${encodeURIComponent(tag?.slug)}`}
-                className="px-4 py-1.5 text-sm bg-gray-100 hover:bg-black hover:text-white transition rounded-full border border-gray-200"
+                className="px-4 py-1.5 text-sm bg-white/5 hover:bg-white hover:text-black transition rounded-full border border-white/20"
               >
                 #{tag?.name}
               </Link>
@@ -130,12 +134,13 @@ export default function BlogDetails() {
           </div>
         )}
 
+        {/* Keywords */}
         {keywords.length > 0 && (
-          <div className="flex flex-wrap items-center gap-3 mb-8">
+          <div className="flex flex-wrap gap-3 mb-10">
             {keywords.map((key) => (
               <span
                 key={key?.id}
-                className="px-4 py-1 text-sm bg-blue-50 text-blue-600 rounded-full"
+                className="px-4 py-1 text-sm bg-blue-900/30 text-blue-400 rounded-full border border-blue-700/40"
               >
                 {key?.keyword}
               </span>
@@ -143,25 +148,30 @@ export default function BlogDetails() {
           </div>
         )}
 
+        {/* Excerpt */}
         {blog?.excerpt && (
-          <p className="text-xl text-gray-600 leading-relaxed mb-10 border-l-4 border-black pl-6 italic">
+          <p className="text-xl text-gray-300 leading-relaxed mb-10 border-l-4 border-white pl-6 italic">
             {blog.excerpt}
           </p>
         )}
 
+        {/* Blog Content */}
         <div
-          className="prose prose-lg max-w-none
-                     prose-headings:font-semibold
+          className="prose prose-invert prose-lg max-w-none
+                     prose-headings:text-white
+                     prose-p:text-gray-300
+                     prose-a:text-blue-400
+                     prose-strong:text-white
                      prose-img:rounded-2xl
-                     prose-img:shadow-md
-                     prose-a:text-black
-                     prose-blockquote:border-black
-                     prose-blockquote:text-gray-600"
+                     prose-img:shadow-lg
+                     prose-blockquote:border-white
+                     prose-blockquote:text-gray-400"
           dangerouslySetInnerHTML={{ __html: blog?.content || "" }}
         />
-      </article>
+      </div>
+    </article>
 
-      <div className="h-20" />
-    </div>
-  );
+    <div className="h-20" />
+  </div>
+);
 }
