@@ -63,7 +63,7 @@ export default function BlogForm({ open, onClose, initialData }) {
         : [];
 
       const parsedKeywords = Array.isArray(initialData.Keywords)
-        ? initialData.Keywords.map(k => (typeof k === 'object' ? (k.keyword || k.name) : k)).filter(Boolean)
+        ? initialData.Keywords.map(k => (typeof k === 'object' ? (k.keyword) : k)).filter(Boolean)
         : [];
 
       setForm({
@@ -272,27 +272,6 @@ export default function BlogForm({ open, onClose, initialData }) {
               </div>
             </div>
 
-            {/* <div className="space-y-6">
-              <MetaInput
-                label="Tags"
-                input={tagInput}
-                setInput={setTagInput}
-                items={form.tags}
-                addItem={(val) => addItem("tags", val)}
-                removeItem={(tag) => setForm(prev => ({ ...prev, tags: prev.tags.filter(t => t !== tag) }))}
-                color="red"
-              />
-              <MetaInput
-                label="SEO Keywords"
-                input={keywordInput}
-                setInput={setKeywordInput}
-                items={form.keywords}
-                addItem={(val) => addItem("keywords", val)}
-                removeItem={(kw) => setForm(prev => ({ ...prev, keywords: prev.keywords.filter(k => k !== kw) }))}
-                color="blue"
-              />
-            </div> */}
-
             {/* Tags & Keywords Section */}
             <div className="space-y-6">
               <MetaInput
@@ -337,14 +316,38 @@ export default function BlogForm({ open, onClose, initialData }) {
   );
 }
 
-// Sub-component for Tags/Keywords
-// function MetaInput({ label, input, setInput, items, addItem, removeItem, color }) {
-//   const colorClasses = color === "red" 
-//     ? "bg-red-600/20 text-red-400 border-red-600/30" 
+// // Sub-component for Tags/Keywords
+// function MetaInput({ label, input, setInput, items, addItem, removeItem, color, allSuggestions = [] }) {
+//   const [showSuggestions, setShowSuggestions] = useState(false);
+//   const suggestionRef = useRef(null);
+
+//   const colorClasses = color === "red"
+//     ? "bg-red-600/20 text-red-400 border-red-600/30"
 //     : "bg-blue-600/20 text-blue-400 border-blue-600/30";
 
+//   // Filter logic: match input, ignore already selected items
+//   const filteredSuggestions = useMemo(() => {
+//     if (!input.trim()) return [];
+//     const search = input.toLowerCase();
+//     return allSuggestions.filter(s =>
+//       s.name.toLowerCase().includes(search) &&
+//       !items.includes(s.name.toLowerCase())
+//     ).slice(0, 5); // Limit to top 5 results
+//   }, [input, allSuggestions, items]);
+
+//   // Close suggestions when clicking outside
+//   useEffect(() => {
+//     const handleClickOutside = (e) => {
+//       if (suggestionRef.current && !suggestionRef.current.contains(e.target)) {
+//         setShowSuggestions(false);
+//       }
+//     };
+//     document.addEventListener("mousedown", handleClickOutside);
+//     return () => document.removeEventListener("mousedown", handleClickOutside);
+//   }, []);
+
 //   return (
-//     <div className="space-y-2">
+//     <div className="space-y-2 relative" ref={suggestionRef}>
 //       <label className="block text-sm text-gray-400 font-medium">{label}</label>
 //       <div className="w-full bg-white/5 border border-white/10 rounded-xl p-3 flex flex-wrap gap-2 focus-within:ring-2 focus-within:ring-white/10">
 //         {items.map((item) => (
@@ -357,21 +360,45 @@ export default function BlogForm({ open, onClose, initialData }) {
 //         ))}
 //         <input
 //           value={input}
-//           onChange={(e) => setInput(e.target.value)}
-//           onKeyDown={(e) => { 
-//             if (e.key === "Enter") { 
-//               e.preventDefault(); 
-//               addItem(input); 
-//             } 
+//           onFocus={() => setShowSuggestions(true)}
+//           onChange={(e) => {
+//             setInput(e.target.value);
+//             setShowSuggestions(true);
+//           }}
+//           onKeyDown={(e) => {
+//             if (e.key === "Enter") {
+//               e.preventDefault();
+//               addItem(input);
+//               setShowSuggestions(false);
+//             }
 //           }}
 //           placeholder={`Add ${label.toLowerCase()}...`}
 //           className="flex-1 bg-transparent outline-none min-w-[150px] text-sm text-white"
 //         />
 //       </div>
+
+//       {/* Suggestion Dropdown */}
+//       {showSuggestions && filteredSuggestions.length > 0 && (
+//         <div className="absolute z-[60] w-full mt-1 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+//           {filteredSuggestions.map((s) => (
+//             <button
+//               key={s.id}
+//               type="button"
+//               className="w-full px-4 py-3 text-left text-sm text-white hover:bg-red-600/20 transition flex items-center justify-between group"
+//               onClick={() => {
+//                 addItem(s.name);
+//                 setShowSuggestions(false);
+//               }}
+//             >
+//               <span>{s.name}</span>
+//               <span className="text-[10px] text-gray-500 group-hover:text-red-400">Existing {label.slice(0, -1)}</span>
+//             </button>
+//           ))}
+//         </div>
+//       )}
 //     </div>
 //   );
 // }
-
 
 function MetaInput({ label, input, setInput, items, addItem, removeItem, color, allSuggestions = [] }) {
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -381,17 +408,28 @@ function MetaInput({ label, input, setInput, items, addItem, removeItem, color, 
     ? "bg-red-600/20 text-red-400 border-red-600/30"
     : "bg-blue-600/20 text-blue-400 border-blue-600/30";
 
-  // Filter logic: match input, ignore already selected items
+  // Filter logic: Handles both .name (tags) and .keyword (keywords)
   const filteredSuggestions = useMemo(() => {
     if (!input.trim()) return [];
     const search = input.toLowerCase();
-    return allSuggestions.filter(s =>
-      s.name.toLowerCase().includes(search) &&
-      !items.includes(s.name.toLowerCase())
-    ).slice(0, 5); // Limit to top 5 results
+
+    return allSuggestions.filter(s => {
+      // 1. Determine which property to use (name or keyword)
+      const suggestionText = s.name || s.keyword;
+      
+      // 2. Safety check: if neither exists, skip this item
+      if (!suggestionText) return false;
+
+      const normalizedText = suggestionText.toLowerCase();
+
+      // 3. Match against search and exclude already selected items
+      return (
+        normalizedText.includes(search) &&
+        !items.some(alreadySelected => alreadySelected.toLowerCase() === normalizedText)
+      );
+    }).slice(0, 5); 
   }, [input, allSuggestions, items]);
 
-  // Close suggestions when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (suggestionRef.current && !suggestionRef.current.contains(e.target)) {
@@ -435,21 +473,27 @@ function MetaInput({ label, input, setInput, items, addItem, removeItem, color, 
 
       {/* Suggestion Dropdown */}
       {showSuggestions && filteredSuggestions.length > 0 && (
-        <div className="absolute z-[60] w-full mt-1 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
-          {filteredSuggestions.map((s) => (
-            <button
-              key={s.id}
-              type="button"
-              className="w-full px-4 py-3 text-left text-sm text-white hover:bg-red-600/20 transition flex items-center justify-between group"
-              onClick={() => {
-                addItem(s.name);
-                setShowSuggestions(false);
-              }}
-            >
-              <span>{s.name}</span>
-              <span className="text-[10px] text-gray-500 group-hover:text-red-400">Existing {label.slice(0, -1)}</span>
-            </button>
-          ))}
+        <div className="absolute z-[60] w-full mt-1 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-xl overflow-hidden">
+          {filteredSuggestions.map((s) => {
+            // Use whichever display property is available
+            const displayName = s.name || s.keyword;
+            return (
+              <button
+                key={s.id}
+                type="button"
+                className="w-full px-4 py-3 text-left text-sm text-white hover:bg-white/5 transition flex items-center justify-between group"
+                onClick={() => {
+                  addItem(displayName);
+                  setShowSuggestions(false);
+                }}
+              >
+                <span>{displayName}</span>
+                <span className="text-[10px] text-gray-500 group-hover:text-gray-300">
+                  Use existing
+                </span>
+              </button>
+            );
+          })}
         </div>
       )}
     </div>

@@ -4,6 +4,7 @@ import { successHandler } from '@/components/SuccessHandler';
 // import { successHandler } from '@/components/SuccessHandler';
 import { createBlog, deleteBlogById, getBlogs, getBlogsById, updateBlogById } from '@/services/blogsService';
 import { createRequest } from '@/services/callbackRequestService';
+import { getKeywords } from '@/services/keywordService';
 import { getTags } from '@/services/tagsService';
 import { createContext, useContext, useEffect, useState } from 'react';
 
@@ -41,8 +42,8 @@ export const GlobalProvider = ({ children }) => {
 
     const fetchKeywords = async () => {
     try {
-      const res = await getTags()
-      setKeywords(res.data.data)
+      const res = await getKeywords()
+      setKeywords(res.data)
     } catch (error) {
       console.log(error)
     }
