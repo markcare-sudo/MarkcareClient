@@ -87,6 +87,7 @@ const AppRoutes = () => {
             <Route path="about-us" element={<ErrorBoundary><AboutUs /></ErrorBoundary>} />
             <Route path="contact-us" element={<ErrorBoundary><Contact /></ErrorBoundary>} />
             <Route path="blogs" element={<ErrorBoundary><PublicBlogs /></ErrorBoundary>} />
+             <Route path="blogs/:slug" element={<ErrorBoundary><BlogDetails /></ErrorBoundary>} />
 
             <Route path="services">
               {ServiceRoutes()}
