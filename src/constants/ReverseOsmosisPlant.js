@@ -1,10 +1,21 @@
+
+export const PRODUCT_IMAGES = {
+  REVERSE_OSMOSIS_500LPH: import.meta.env.VITE_REVERSE_OSMOSIS_500LPH || "",
+  REVERSE_OSMOSIS_2000LPH: import.meta.env.VITE_REVERSE_OSMOSIS_2000LPH || "",
+  REVERSE_OSMOSIS_DMRO: import.meta.env.VITE_REVERSE_OSMOSIS_DMRO || "",
+  REVERSE_OSMOSIS_INDUSTRIALRO: import.meta.env.VITE_REVERSE_OSMOSIS_INDUSTRIALRO || "",
+  REVERSE_OSMOSIS_IROP: import.meta.env.VITE_REVERSE_OSMOSIS_IROP || "",
+  REVERSE_OSMOSIS_RP500: import.meta.env.VITE_REVERSE_OSMOSIS_RP500 || "",
+};
+
+
 export const REVERSE_OSMOSIS_PLANTS = [
   {
     id: 1,
     slug: "industrial-reverse-osmosis-plant",
     category: "Industrial",
     name: "Industrial Reverse Osmosis Plant",
-
+    image: PRODUCT_IMAGES.REVERSE_OSMOSIS_INDUSTRIALRO,
     description:
       "Industrial reverse osmosis plant designed to remove dissolved salts, heavy metals and contaminants from raw water using high-performance RO membranes.",
 
@@ -49,7 +60,7 @@ export const REVERSE_OSMOSIS_PLANTS = [
     slug: "dm-ro-water-plant",
     category: "Industrial",
     name: "DM RO Water Plant",
-
+    image: PRODUCT_IMAGES.REVERSE_OSMOSIS_DMRO,
     description:
       "DM RO water plant combining reverse osmosis and demineralization technology for producing ultra-pure water for industrial and pharmaceutical applications.",
 
@@ -90,7 +101,7 @@ export const REVERSE_OSMOSIS_PLANTS = [
     slug: "industrial-ro-system",
     category: "Industrial",
     name: "Industrial RO System",
-
+    image: PRODUCT_IMAGES.REVERSE_OSMOSIS_IROP,
     description:
       "Heavy-duty industrial RO system engineered for continuous operation in manufacturing, textile, food processing and pharmaceutical industries.",
 
@@ -131,7 +142,7 @@ export const REVERSE_OSMOSIS_PLANTS = [
     slug: "500-lph-commercial-ro-plant",
     category: "Commercial",
     name: "500 LPH Commercial RO Plant",
-
+    image: PRODUCT_IMAGES.REVERSE_OSMOSIS_500LPH,
     description:
       "500 LPH commercial RO plant suitable for hotels, hospitals, schools and packaged drinking water units.",
 
@@ -171,7 +182,7 @@ export const REVERSE_OSMOSIS_PLANTS = [
     slug: "ro-plant-500-lph",
     category: "Commercial",
     name: "RO Plant 500 LPH",
-
+    image: PRODUCT_IMAGES.REVERSE_OSMOSIS_500LPH,
     description:
       "Compact 500 LPH RO plant designed for small-scale commercial water purification needs.",
 
@@ -209,7 +220,7 @@ export const REVERSE_OSMOSIS_PLANTS = [
     slug: "2000-lph-ro-plant",
     category: "Commercial",
     name: "2000 LPH RO Plant",
-
+    image: PRODUCT_IMAGES.REVERSE_OSMOSIS_2000LPH,
     description:
       "High-capacity 2000 LPH RO plant suitable for medium-scale industries, water bottling units and commercial establishments.",
 

@@ -1,10 +1,21 @@
+export const PRODUCT_IMAGES = {
+  WATERTREATMENT_INDUSTRIAL_WTP: import.meta.env.VITE_WATERTREATMENT_INDUSTRIAL_WTP || "",
+  WATERTREATMENT_IRON_REMOVAL: import.meta.env.VITE_WATERTREATMENT_IRON_REMOVAL || "",
+  WATERTREATMENT_ISWTP: import.meta.env.VITE_WATERTREATMENT_ISWTP || "",
+  WATERTREATMENT_IWTP_REPAIR_SERVICE: import.meta.env.VITE_WATERTREATMENT_IWTP_REPAIR_SERVICE || "",
+  WATERTREATMENT_IWTP: import.meta.env.VITE_WATERTREATMENT_IWTP || "",
+  WATERTREATMENT_IWWTP: import.meta.env.VITE_WATERTREATMENT_IWWTP || "",
+  WATERTREATMENT_RO_WTP: import.meta.env.VITE_WATERTREATMENT_RO_WTP || "",
+  WATERTREATMENT_WTP: import.meta.env.VITE_WATERTREATMENT_WTP || "",
+};
+
 export const WATER_TREATMENT_PLANTS = [
   {
     id: 1,
     slug: "industrial-water-treatment-plant",
     category: "Industrial",
     name: "Industrial Water Treatment Plant",
-
+    image: PRODUCT_IMAGES.WATERTREATMENT_INDUSTRIAL_WTP,
     description:
       "Industrial water treatment plant designed to remove suspended solids, dissolved salts and impurities from raw water for industrial applications.",
 
@@ -88,7 +99,7 @@ export const WATER_TREATMENT_PLANTS = [
     slug: "industrial-waste-water-treatment-plant",
     category: "Industrial",
     name: "Industrial Waste Water Treatment Plant",
-
+    image: PRODUCT_IMAGES.WATERTREATMENT_IWWTP,
     description:
       "Effluent treatment plant designed to treat industrial wastewater before discharge or reuse in compliance with environmental standards.",
 
@@ -130,7 +141,7 @@ export const WATER_TREATMENT_PLANTS = [
     slug: "industrial-salt-water-treatment-plant",
     category: "Industrial",
     name: "Industrial Salt Water Treatment Plant",
-
+    image: PRODUCT_IMAGES.WATERTREATMENT_RO_WTP,
     description:
       "Desalination plant designed for high TDS salt water treatment using advanced reverse osmosis membrane systems.",
 
@@ -171,7 +182,7 @@ export const WATER_TREATMENT_PLANTS = [
     slug: "industrial-ro-water-treatment-plant",
     category: "Industrial",
     name: "Industrial RO Water Treatment Plant",
-
+    image: PRODUCT_IMAGES.WATERTREATMENT_RO_WTP,
     description:
       "Reverse osmosis based water treatment plant for removing dissolved salts, heavy metals and contaminants.",
 
@@ -211,7 +222,7 @@ export const WATER_TREATMENT_PLANTS = [
     slug: "iron-removal-industrial-water-treatment-plant",
     category: "Industrial",
     name: "Iron Removal Industrial Water Treatment Plant",
-
+    image: PRODUCT_IMAGES.WATERTREATMENT_IRON_REMOVAL,
     description:
       "Specialized filtration plant for removal of iron and manganese from groundwater sources.",
 
@@ -248,7 +259,7 @@ export const WATER_TREATMENT_PLANTS = [
     slug: "industrial-water-treatment-plant-repair-service",
     category: "Service",
     name: "Industrial Water Treatment Plant Repair & Service",
-
+    image: PRODUCT_IMAGES.WATERTREATMENT_IWTP_REPAIR_SERVICE,
     description:
       "Comprehensive repair and maintenance services for all types of industrial water treatment plants.",
 
@@ -278,7 +289,7 @@ export const WATER_TREATMENT_PLANTS = [
     slug: "media-change-industrial-water-treatment-plant",
     category: "Service",
     name: "Media Change Industrial Water Treatment Plant",
-
+    image: PRODUCT_IMAGES.WATERTREATMENT_IWTP_REPAIR_SERVICE,
     description:
       "Professional filter media replacement service for sand filters, carbon filters and resin systems.",
 

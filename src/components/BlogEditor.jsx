@@ -316,7 +316,7 @@ export default function BlogForm({ open, onClose, initialData }) {
   );
 }
 
-// // Sub-component for Tags/Keywords
+
 // function MetaInput({ label, input, setInput, items, addItem, removeItem, color, allSuggestions = [] }) {
 //   const [showSuggestions, setShowSuggestions] = useState(false);
 //   const suggestionRef = useRef(null);
@@ -325,17 +325,28 @@ export default function BlogForm({ open, onClose, initialData }) {
 //     ? "bg-red-600/20 text-red-400 border-red-600/30"
 //     : "bg-blue-600/20 text-blue-400 border-blue-600/30";
 
-//   // Filter logic: match input, ignore already selected items
+//   // Filter logic: Handles both .name (tags) and .keyword (keywords)
 //   const filteredSuggestions = useMemo(() => {
 //     if (!input.trim()) return [];
 //     const search = input.toLowerCase();
-//     return allSuggestions.filter(s =>
-//       s.name.toLowerCase().includes(search) &&
-//       !items.includes(s.name.toLowerCase())
-//     ).slice(0, 5); // Limit to top 5 results
+
+//     return allSuggestions.filter(s => {
+//       // 1. Determine which property to use (name or keyword)
+//       const suggestionText = s.name || s.keyword;
+      
+//       // 2. Safety check: if neither exists, skip this item
+//       if (!suggestionText) return false;
+
+//       const normalizedText = suggestionText.toLowerCase();
+
+//       // 3. Match against search and exclude already selected items
+//       return (
+//         normalizedText.includes(search) &&
+//         !items.some(alreadySelected => alreadySelected.toLowerCase() === normalizedText)
+//       );
+//     }).slice(0, 5); 
 //   }, [input, allSuggestions, items]);
 
-//   // Close suggestions when clicking outside
 //   useEffect(() => {
 //     const handleClickOutside = (e) => {
 //       if (suggestionRef.current && !suggestionRef.current.contains(e.target)) {
@@ -379,26 +390,33 @@ export default function BlogForm({ open, onClose, initialData }) {
 
 //       {/* Suggestion Dropdown */}
 //       {showSuggestions && filteredSuggestions.length > 0 && (
-//         <div className="absolute z-[60] w-full mt-1 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
-//           {filteredSuggestions.map((s) => (
-//             <button
-//               key={s.id}
-//               type="button"
-//               className="w-full px-4 py-3 text-left text-sm text-white hover:bg-red-600/20 transition flex items-center justify-between group"
-//               onClick={() => {
-//                 addItem(s.name);
-//                 setShowSuggestions(false);
-//               }}
-//             >
-//               <span>{s.name}</span>
-//               <span className="text-[10px] text-gray-500 group-hover:text-red-400">Existing {label.slice(0, -1)}</span>
-//             </button>
-//           ))}
+//         <div className="absolute z-[60] w-full mt-1 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-xl overflow-hidden">
+//           {filteredSuggestions.map((s) => {
+//             // Use whichever display property is available
+//             const displayName = s.name || s.keyword;
+//             return (
+//               <button
+//                 key={s.id}
+//                 type="button"
+//                 className="w-full px-4 py-3 text-left text-sm text-white hover:bg-white/5 transition flex items-center justify-between group"
+//                 onClick={() => {
+//                   addItem(displayName);
+//                   setShowSuggestions(false);
+//                 }}
+//               >
+//                 <span>{displayName}</span>
+//                 <span className="text-[10px] text-gray-500 group-hover:text-gray-300">
+//                   Use existing
+//                 </span>
+//               </button>
+//             );
+//           })}
 //         </div>
 //       )}
 //     </div>
 //   );
 // }
+
 
 function MetaInput({ label, input, setInput, items, addItem, removeItem, color, allSuggestions = [] }) {
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -408,21 +426,27 @@ function MetaInput({ label, input, setInput, items, addItem, removeItem, color, 
     ? "bg-red-600/20 text-red-400 border-red-600/30"
     : "bg-blue-600/20 text-blue-400 border-blue-600/30";
 
-  // Filter logic: Handles both .name (tags) and .keyword (keywords)
+  // Process strings with commas into multiple items
+  const handleCommaSeparatedAdd = (value) => {
+    if (!value.includes(',')) {
+      addItem(value);
+      return;
+    }
+
+    // Split by comma, remove empty strings, and trim whitespace
+    const parts = value.split(',').map(p => p.trim()).filter(p => p.length > 0);
+    parts.forEach(part => addItem(part));
+    setInput(""); // Clear input after processing all parts
+  };
+
   const filteredSuggestions = useMemo(() => {
     if (!input.trim()) return [];
     const search = input.toLowerCase();
 
     return allSuggestions.filter(s => {
-      // 1. Determine which property to use (name or keyword)
       const suggestionText = s.name || s.keyword;
-      
-      // 2. Safety check: if neither exists, skip this item
       if (!suggestionText) return false;
-
       const normalizedText = suggestionText.toLowerCase();
-
-      // 3. Match against search and exclude already selected items
       return (
         normalizedText.includes(search) &&
         !items.some(alreadySelected => alreadySelected.toLowerCase() === normalizedText)
@@ -456,17 +480,24 @@ function MetaInput({ label, input, setInput, items, addItem, removeItem, color, 
           value={input}
           onFocus={() => setShowSuggestions(true)}
           onChange={(e) => {
-            setInput(e.target.value);
-            setShowSuggestions(true);
+            const val = e.target.value;
+            // If the user typed a comma, process it immediately
+            if (val.includes(',')) {
+              handleCommaSeparatedAdd(val);
+              setShowSuggestions(false);
+            } else {
+              setInput(val);
+              setShowSuggestions(true);
+            }
           }}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               e.preventDefault();
-              addItem(input);
+              handleCommaSeparatedAdd(input); // Use the logic here too
               setShowSuggestions(false);
             }
           }}
-          placeholder={`Add ${label.toLowerCase()}...`}
+          placeholder={`Add ${label.toLowerCase()} (separate by comma)...`}
           className="flex-1 bg-transparent outline-none min-w-[150px] text-sm text-white"
         />
       </div>
@@ -475,7 +506,6 @@ function MetaInput({ label, input, setInput, items, addItem, removeItem, color, 
       {showSuggestions && filteredSuggestions.length > 0 && (
         <div className="absolute z-[60] w-full mt-1 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-xl overflow-hidden">
           {filteredSuggestions.map((s) => {
-            // Use whichever display property is available
             const displayName = s.name || s.keyword;
             return (
               <button
@@ -485,12 +515,11 @@ function MetaInput({ label, input, setInput, items, addItem, removeItem, color, 
                 onClick={() => {
                   addItem(displayName);
                   setShowSuggestions(false);
+                  setInput(""); // Ensure input is cleared on selection
                 }}
               >
                 <span>{displayName}</span>
-                <span className="text-[10px] text-gray-500 group-hover:text-gray-300">
-                  Use existing
-                </span>
+                <span className="text-[10px] text-gray-500 group-hover:text-gray-300">Use existing</span>
               </button>
             );
           })}
