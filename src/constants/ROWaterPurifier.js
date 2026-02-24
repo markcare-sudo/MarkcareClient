@@ -1,10 +1,20 @@
+export const PRODUCT_IMAGES = {
+  RO_AGROWP: import.meta.env.VITE_RO_AGROWP || "",
+  RO_ATRO: import.meta.env.VITE_RO_ATRO || "",
+  RO_HPALWP: import.meta.env.VITE_RO_HPALWP || "",
+  RO_ROWATER: import.meta.env.VITE_RO_ROWATER || "",
+  RO_ROUVWP: import.meta.env.VITE_RO_ROUVWP || "",
+  RO_WMROUVWP: import.meta.env.VITE_RO_WMROUVWP || "",
+};
+
+
 export const RO_WATER_PURIFIERS = [
   {
     id: 1,
     slug: "wall-mounted-ro-uv-water-purifier",
     category: "Domestic",
     name: "Wall Mounted RO UV Water Purifier",
-
+    image: PRODUCT_IMAGES.RO_ROWATER,
     description:
       "Wall mounted RO UV water purifier designed for safe and hygienic drinking water by removing dissolved salts, bacteria and viruses.",
 
@@ -46,7 +56,7 @@ export const RO_WATER_PURIFIERS = [
     slug: "ro-uv-water-purifier",
     category: "Domestic",
     name: "RO UV Water Purifier",
-
+    image: PRODUCT_IMAGES.RO_ROUVWP,
     description:
       "Advanced RO UV water purifier with multi-stage filtration system ensuring clean, safe and mineral-balanced drinking water.",
 
@@ -86,7 +96,7 @@ export const RO_WATER_PURIFIERS = [
     slug: "white-ro-uv-water-purifier",
     category: "Domestic",
     name: "White RO UV Water Purifier",
-
+    image: PRODUCT_IMAGES.RO_WMROUVWP,
     description:
       "Stylish white RO UV water purifier suitable for modern kitchens with high purification efficiency.",
 
@@ -125,7 +135,7 @@ export const RO_WATER_PURIFIERS = [
     slug: "aquaguard-ro-water-purifier",
     category: "Domestic",
     name: "Aquaguard RO Water Purifier",
-
+    image: PRODUCT_IMAGES.RO_AGROWP,
     description:
       "Premium Aquaguard RO water purifier with advanced multi-stage purification technology for high TDS water.",
 
@@ -163,7 +173,7 @@ export const RO_WATER_PURIFIERS = [
     slug: "havells-pro-alkaline-water-purifier",
     category: "Domestic",
     name: "Havells Pro Alkaline Water Purifier",
-
+    image: PRODUCT_IMAGES.RO_HPALWP,
     description:
       "Advanced alkaline water purifier that enriches water with essential minerals and maintains optimal pH balance.",
 
@@ -202,7 +212,7 @@ export const RO_WATER_PURIFIERS = [
     slug: "aqua-touch-ro-water-purifier",
     category: "Domestic",
     name: "Aqua Touch RO Water Purifier",
-
+    image: PRODUCT_IMAGES.RO_ATRO,
     description:
       "Budget-friendly Aqua Touch RO water purifier suitable for home use with reliable multi-stage filtration.",
 

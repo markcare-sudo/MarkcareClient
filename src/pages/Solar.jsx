@@ -1,6 +1,6 @@
 // import React from "react";
 import ProductCard from "@/components/ProductCard";
-import { REFRIGERATION_SYSTEMS } from "@/constants/Fridge";
+import { SOLAR_POWER_SYSTEMS } from "@/constants/SolarPowerSystems";
 
 
 const Solar = () => {
@@ -19,7 +19,7 @@ const Solar = () => {
         </div>
 
         {/* All Elevators */}
-        {REFRIGERATION_SYSTEMS.map((product) => (
+        {SOLAR_POWER_SYSTEMS.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>

@@ -23,6 +23,22 @@ export const BANNER_IMAGES = {
 }
 
 
+export const PRODUCT_IMAGES = {
+  RO_AGROWP: import.meta.env.VITE_RO_AGROWP || "",
+  RO_ATRO: import.meta.env.VITE_RO_ATRO || "",
+  RO_HPALWP: import.meta.env.VITE_RO_HPALWP || "",
+  RO_ROWATER: import.meta.env.VITE_RO_ROWATER || "",
+  RO_ROUVWP: import.meta.env.VITE_RO_ROUVWP || "",
+  RO_WMROUVWP: import.meta.env.VITE_RO_WMROUVWP || "",
+
+  ELEVATOR_COMMERCIAL: import.meta.env.VITE_ELEVATOR_COMMERCIAL || "",
+  ELEVATOR_SINGLE_PHASE: import.meta.env.VITE_ELEVATOR_SINGLE_PHASE || "",
+  ELEVATOR_GLASS_DOOR: import.meta.env.VITE_ELEVATOR_GLASS_DOOR || "",
+  ELEVATOR_GOODS_LIFT: import.meta.env.VITE_ELEVATOR_GOODS_LIFT || "",
+  ELEVATOR_THYDRAULIC: import.meta.env.VITE_ELEVATOR_THYDRAULIC || "",
+  ELEVATOR_RESIDENTIAL: import.meta.env.VITE_ELEVATOR_RESIDENTIAL || "",
+
+};
 
 
 export const CONTACT_IMAGES = {

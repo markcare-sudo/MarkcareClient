@@ -98,12 +98,61 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* RIGHT SECTION (Image + Price) */}
-        <div className="relative">
+        {/* <div className="relative">
           <div className="bg-zinc-900 rounded-md h-[320px] flex items-center justify-center text-gray-500">
             product Image
           </div>
 
           <div className="absolute bottom-4 left-4 bg-black/80 px-4 py-2 rounded">
+            <p className="text-green-400 font-semibold">
+              ₹ {product.pricing?.basePrice?.toLocaleString()}
+            </p>
+            <p className="text-xs text-gray-400">
+              Minimum Order Quantity:{" "}
+              {product.pricing?.minimumOrderQuantity || 1}{" "}
+              {product.pricing?.unit || "Piece"}
+            </p>
+          </div>
+        </div> */}
+
+        <div className="relative group aspect-square w-full overflow-hidden rounded-xl border border-white/10 bg-zinc-900">
+          {/* Full Background Image */}
+          {product.image ? (
+            <img
+              src={product.image}
+              alt={product.title || "Product Image"}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          ) : (
+            <div className="flex flex-col items-center gap-2 text-gray-600">
+              <Upload size={48} strokeWidth={1} />
+              <span className="text-xs uppercase tracking-widest">No Image</span>
+            </div>
+          )}
+
+          {/* Gradient Overlay for Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
+
+          {/* Content Overlay */}
+          {/* <div className="absolute bottom-0 left-0 right-0 p-5">
+            <div className="flex flex-col gap-1">
+              <p className="text-2xl font-bold text-green-400">
+                ₹ {product.pricing?.basePrice?.toLocaleString()}
+              </p>
+
+              <div className="flex items-center justify-between border-t border-white/10 pt-2 mt-1">
+                <p className="text-[11px] text-gray-400 uppercase tracking-wider">
+                  MOQ: {product.pricing?.minimumOrderQuantity || 1} {product.pricing?.unit || "Unit"}
+                </p>
+
+                <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded text-gray-300">
+                  In Stock
+                </span>
+              </div>
+            </div>
+          </div> */}
+
+               <div className="absolute bottom-4 left-4 bg-black/80 px-4 py-2 rounded">
             <p className="text-green-400 font-semibold">
               ₹ {product.pricing?.basePrice?.toLocaleString()}
             </p>
