@@ -199,7 +199,7 @@ export default function PublicBlogs() {
                       : "/placeholder.jpg"
                   }
                   alt={featuredBlog?.title}
-                  className="w-full h-80 object-cover"
+                  className="w-full object-cover"
                 />
 
                 <div className="p-10 flex flex-col justify-center">

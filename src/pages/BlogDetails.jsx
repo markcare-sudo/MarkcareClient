@@ -85,7 +85,7 @@ return (
         alt={blog?.title || "Blog cover"}
         className="w-full h-full object-cover scale-105"
       />
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6">
         {blog?.category && (
