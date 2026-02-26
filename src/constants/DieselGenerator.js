@@ -1,219 +1,367 @@
+// export const DIESEL_GENERATORS = [
+//   {
+//     id: 1,
+//     slug: "ashok-leyland-diesel-generator",
+//     category: "Industrial",
+//     name: "Ashok Leyland Diesel Generator",
+
+//     description:
+//       "Heavy-duty Ashok Leyland diesel generator designed for reliable backup power in industrial and commercial applications.",
+
+//     pricing: {
+//       basePrice: 850000,
+//       currency: "INR",
+//       unit: "Generator",
+//       minimumOrderQuantity: 1
+//     },
+
+//     specifications: {
+//       brand: "Ashok Leyland",
+//       capacityRange: "62.5 kVA – 500 kVA",
+//       fuelType: "Diesel",
+//       coolingSystem: "Water Cooled",
+//       phase: "Three Phase",
+//       frequency: "50 Hz",
+//       voltage: "415V",
+//       startingSystem: "Electric Start"
+//     },
+
+//     safetyFeatures: [
+//       "Overload Protection",
+//       "Low Oil Pressure Shutdown",
+//       "High Temperature Cut-Off",
+//       "Emergency Stop Button"
+//     ],
+
+//     services: {
+//       installation: { available: true },
+//       amc: { available: true },
+//       rental: { available: false },
+//       repair: { available: true, emergencySupport: true },
+//       spareParts: { available: true },
+//       warranty: { available: true, period: "24 Months" }
+//     }
+//   },
+
+//   {
+//     id: 2,
+//     slug: "diesel-generator-rental",
+//     category: "Service",
+//     name: "Diesel Generator Rental",
+
+//     description:
+//       "Short-term and long-term diesel generator rental services for construction sites, events, hospitals and industries.",
+
+//     pricing: {
+//       basePrice: 5000,
+//       currency: "INR",
+//       unit: "Per Day"
+//     },
+
+//     specifications: {
+//       capacityRange: "15 kVA – 500 kVA",
+//       fuelType: "Diesel",
+//       rentalDuration: "Daily / Weekly / Monthly",
+//       operatorSupport: "Optional",
+//       deliverySupport: "Available"
+//     },
+
+//     safetyFeatures: [
+//       "Soundproof Canopy",
+//       "Overload Protection",
+//       "Emergency Shutdown"
+//     ],
+
+//     services: {
+//       delivery: { available: true },
+//       operator: { available: true },
+//       installation: { available: true },
+//       amc: { available: false },
+//       warranty: { available: false }
+//     }
+//   },
+
+//   {
+//     id: 3,
+//     slug: "amc-for-diesel-generators",
+//     category: "Service",
+//     name: "AMC For Diesel Generators",
+
+//     description:
+//       "Annual maintenance contract (AMC) services for diesel generators ensuring optimal performance and reduced downtime.",
+
+//     pricing: {
+//       basePrice: 25000,
+//       currency: "INR",
+//       unit: "Year"
+//     },
+
+//     specifications: {
+//       serviceType: "Preventive Maintenance",
+//       coverage: "Engine + Alternator + Control Panel",
+//       visitFrequency: "Quarterly / Half-Yearly",
+//       emergencySupport: "Available",
+//       coverageArea: "Pan India"
+//     },
+
+//     services: {
+//       inspection: { available: true },
+//       preventiveMaintenance: { available: true },
+//       emergencyRepair: { available: true },
+//       spareParts: { available: true },
+//       warranty: { available: false }
+//     }
+//   },
+
+//   {
+//     id: 4,
+//     slug: "diesel-generator-installation",
+//     category: "Service",
+//     name: "Diesel Generator Installation",
+
+//     description:
+//       "Professional diesel generator installation service including foundation setup, electrical integration and system testing.",
+
+//     pricing: {
+//       basePrice: 15000,
+//       currency: "INR",
+//       unit: "Service"
+//     },
+
+//     specifications: {
+//       installationType: "On-Site",
+//       includes: "Foundation + Electrical Wiring + Testing",
+//       phaseSupport: "Single / Three Phase",
+//       compliance: "Electrical Safety Standards"
+//     },
+
+//     services: {
+//       siteInspection: { available: true },
+//       loadTesting: { available: true },
+//       commissioning: { available: true },
+//       warranty: { available: false }
+//     }
+//   },
+
+//   {
+//     id: 5,
+//     slug: "15kva-koel-green-diesel-generator",
+//     category: "Commercial",
+//     name: "15kVA Koel Green Diesel Generator",
+
+//     description:
+//       "15kVA Koel Green diesel generator suitable for small offices, shops and residential backup power needs.",
+
+//     pricing: {
+//       basePrice: 320000,
+//       currency: "INR",
+//       unit: "Generator"
+//     },
+
+//     specifications: {
+//       brand: "Koel Green",
+//       capacity: "15 kVA",
+//       fuelType: "Diesel",
+//       phase: "Single / Three Phase",
+//       coolingSystem: "Air Cooled / Water Cooled",
+//       frequency: "50 Hz",
+//       voltage: "230V / 415V",
+//       canopyType: "Soundproof"
+//     },
+
+//     safetyFeatures: [
+//       "Low Oil Pressure Alarm",
+//       "Overload Protection",
+//       "Short Circuit Protection",
+//       "Emergency Stop"
+//     ],
+
+//     services: {
+//       installation: { available: true },
+//       amc: { available: true },
+//       repair: { available: true },
+//       spareParts: { available: true },
+//       warranty: { available: true, period: "24 Months" }
+//     }
+//   },
+
+//   {
+//     id: 6,
+//     slug: "diesel-generator-repair-services",
+//     category: "Service",
+//     name: "Diesel Generator Repair & Services",
+
+//     description:
+//       "Comprehensive diesel generator repair and servicing for all brands including engine overhaul, alternator repair and panel troubleshooting.",
+
+//     pricing: {
+//       basePrice: 5000,
+//       currency: "INR",
+//       unit: "Service"
+//     },
+
+//     specifications: {
+//       serviceType: "On-Site / Workshop",
+//       responseTime: "24–48 Hours",
+//       coverageArea: "Pan India",
+//       supportedBrands: "All Major Brands"
+//     },
+
+//     services: {
+//       emergencyRepair: { available: true },
+//       engineOverhaul: { available: true },
+//       alternatorRepair: { available: true },
+//       inspection: { available: true },
+//       spareParts: { available: true },
+//       warranty: { available: false }
+//     }
+//   }
+// ];
+
+
+
+
 export const DIESEL_GENERATORS = [
   {
     id: 1,
-    slug: "ashok-leyland-diesel-generator",
+    slug: "silent-diesel-generator",
     category: "Industrial",
-    name: "Ashok Leyland Diesel Generator",
+    name: "Silent Diesel Generator",
 
     description:
-      "Heavy-duty Ashok Leyland diesel generator designed for reliable backup power in industrial and commercial applications.",
+      "High-performance silent diesel generator designed for residential, commercial, and industrial backup power applications. Engineered for low noise and high durability.",
 
     pricing: {
-      basePrice: 850000,
+      basePrice: null, // Pricing not mentioned in brochure
       currency: "INR",
       unit: "Generator",
-      minimumOrderQuantity: 1
+      note: "Price available on request"
     },
 
     specifications: {
-      brand: "Ashok Leyland",
-      capacityRange: "62.5 kVA – 500 kVA",
       fuelType: "Diesel",
-      coolingSystem: "Water Cooled",
-      phase: "Three Phase",
-      frequency: "50 Hz",
-      voltage: "415V",
-      startingSystem: "Electric Start"
+      generatorType: "Silent / Soundproof",
+      noiseLevel: "75 dBA at 1 meter (Certified)",
+      construction: "Steel outer construction with heavy-duty base frame",
+      enclosureType: "Weatherproof, acid-proof, heat-resistant powder coated",
+      mounting: "Inbuilt Anti-Vibration Mounting",
+      fuelTank: "Inbuilt Fuel Tank",
     },
 
-    safetyFeatures: [
-      "Overload Protection",
-      "Low Oil Pressure Shutdown",
-      "High Temperature Cut-Off",
-      "Emergency Stop Button"
+    salientFeatures: [
+      "Low noise 75 dBA Whisper operation",
+      "Soundproof & weatherproof acoustic enclosure",
+      "Ready-to-use silent set (No foundation required)",
+      "Protection against temperature rise",
+      "Custom residential & hospital-grade silencers",
+      "Single bearing generator with anti-vibration mounting",
+    ],
+
+    constructionFeatures: [
+      "Heavy-duty fabricated base frame",
+      "Stainless steel hardware components",
+      "Bolted modular design (Easy assembly/dismantling)",
+      "Neoprene gasket sealed joints",
+      "Glass wool insulation with aluminum cladding",
+      "Unique lifting arrangement",
     ],
 
     services: {
+      consultation: { available: true },
       installation: { available: true },
       amc: { available: true },
-      rental: { available: false },
-      repair: { available: true, emergencySupport: true },
-      spareParts: { available: true },
-      warranty: { available: true, period: "24 Months" }
+      emergencySupport: { available: true },
+      maintenance: { available: true },
     }
   },
 
   {
     id: 2,
-    slug: "diesel-generator-rental",
+    slug: "diesel-generator-supply-installation",
     category: "Service",
-    name: "Diesel Generator Rental",
+    name: "Generator Supply & Installation Service",
 
     description:
-      "Short-term and long-term diesel generator rental services for construction sites, events, hospitals and industries.",
+      "Complete generator supply and installation solutions including consultation, delivery, setup, and commissioning.",
 
     pricing: {
-      basePrice: 5000,
+      basePrice: null,
       currency: "INR",
-      unit: "Per Day"
+      unit: "Service",
+      note: "Quotation based pricing"
     },
 
     specifications: {
-      capacityRange: "15 kVA – 500 kVA",
-      fuelType: "Diesel",
-      rentalDuration: "Daily / Weekly / Monthly",
-      operatorSupport: "Optional",
-      deliverySupport: "Available"
+      serviceType: "On-Site Installation",
+      includes: "Consultation + Delivery + Installation + Testing",
+      supportedApplications: "Residential / Commercial / Industrial",
     },
 
-    safetyFeatures: [
-      "Soundproof Canopy",
-      "Overload Protection",
-      "Emergency Shutdown"
-    ],
-
     services: {
-      delivery: { available: true },
-      operator: { available: true },
+      siteInspection: { available: true },
       installation: { available: true },
-      amc: { available: false },
-      warranty: { available: false }
+      loadTesting: { available: true },
+      commissioning: { available: true },
     }
   },
 
   {
     id: 3,
-    slug: "amc-for-diesel-generators",
+    slug: "annual-maintenance-contract",
     category: "Service",
-    name: "AMC For Diesel Generators",
+    name: "Annual Maintenance Contract (AMC)",
 
     description:
-      "Annual maintenance contract (AMC) services for diesel generators ensuring optimal performance and reduced downtime.",
+      "Comprehensive AMC services ensuring uninterrupted power performance through preventive maintenance and responsive support.",
 
     pricing: {
-      basePrice: 25000,
+      basePrice: null,
       currency: "INR",
-      unit: "Year"
+      unit: "Year",
+      note: "Pricing based on generator capacity"
     },
 
     specifications: {
-      serviceType: "Preventive Maintenance",
-      coverage: "Engine + Alternator + Control Panel",
-      visitFrequency: "Quarterly / Half-Yearly",
+      serviceCoverage: "Engine + Alternator + Control Panel",
+      maintenanceType: "Preventive & Breakdown Maintenance",
       emergencySupport: "Available",
-      coverageArea: "Pan India"
     },
 
     services: {
-      inspection: { available: true },
       preventiveMaintenance: { available: true },
-      emergencyRepair: { available: true },
-      spareParts: { available: true },
-      warranty: { available: false }
+      inspection: { available: true },
+      breakdownSupport: { available: true },
+      sparePartsSupport: { available: true },
     }
   },
 
   {
     id: 4,
-    slug: "diesel-generator-installation",
+    slug: "diesel-generator-repair-service",
     category: "Service",
-    name: "Diesel Generator Installation",
+    name: "Diesel Generator Repair & Emergency Service",
 
     description:
-      "Professional diesel generator installation service including foundation setup, electrical integration and system testing.",
+      "Professional generator repair and emergency breakdown support services to ensure minimal downtime.",
 
     pricing: {
-      basePrice: 15000,
+      basePrice: null,
       currency: "INR",
-      unit: "Service"
+      unit: "Service",
+      note: "Service charges applicable"
     },
 
     specifications: {
-      installationType: "On-Site",
-      includes: "Foundation + Electrical Wiring + Testing",
-      phaseSupport: "Single / Three Phase",
-      compliance: "Electrical Safety Standards"
-    },
-
-    services: {
-      siteInspection: { available: true },
-      loadTesting: { available: true },
-      commissioning: { available: true },
-      warranty: { available: false }
-    }
-  },
-
-  {
-    id: 5,
-    slug: "15kva-koel-green-diesel-generator",
-    category: "Commercial",
-    name: "15kVA Koel Green Diesel Generator",
-
-    description:
-      "15kVA Koel Green diesel generator suitable for small offices, shops and residential backup power needs.",
-
-    pricing: {
-      basePrice: 320000,
-      currency: "INR",
-      unit: "Generator"
-    },
-
-    specifications: {
-      brand: "Koel Green",
-      capacity: "15 kVA",
-      fuelType: "Diesel",
-      phase: "Single / Three Phase",
-      coolingSystem: "Air Cooled / Water Cooled",
-      frequency: "50 Hz",
-      voltage: "230V / 415V",
-      canopyType: "Soundproof"
-    },
-
-    safetyFeatures: [
-      "Low Oil Pressure Alarm",
-      "Overload Protection",
-      "Short Circuit Protection",
-      "Emergency Stop"
-    ],
-
-    services: {
-      installation: { available: true },
-      amc: { available: true },
-      repair: { available: true },
-      spareParts: { available: true },
-      warranty: { available: true, period: "24 Months" }
-    }
-  },
-
-  {
-    id: 6,
-    slug: "diesel-generator-repair-services",
-    category: "Service",
-    name: "Diesel Generator Repair & Services",
-
-    description:
-      "Comprehensive diesel generator repair and servicing for all brands including engine overhaul, alternator repair and panel troubleshooting.",
-
-    pricing: {
-      basePrice: 5000,
-      currency: "INR",
-      unit: "Service"
-    },
-
-    specifications: {
-      serviceType: "On-Site / Workshop",
-      responseTime: "24–48 Hours",
-      coverageArea: "Pan India",
-      supportedBrands: "All Major Brands"
+      responseType: "Emergency / Scheduled",
+      coverageArea: "Chennai, Bangalore, Delhi, Hyderabad, Mumbai",
+      supportType: "On-Site / Workshop",
     },
 
     services: {
       emergencyRepair: { available: true },
-      engineOverhaul: { available: true },
-      alternatorRepair: { available: true },
       inspection: { available: true },
+      technicalSupport: { available: true },
       spareParts: { available: true },
-      warranty: { available: false }
     }
   }
 ];

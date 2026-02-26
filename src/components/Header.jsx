@@ -287,11 +287,11 @@ const Header = ({ cities = CITIES }) => {
     // { name: "Smart Home Automation", slug: "smart-home-automation" },
     { name: "Solar Power Systems", slug: "solar-power-systems" },
     { name: "AC Systems", slug: "ac-systems" },
-    { name: "Refrigerators", slug: "refrigerators" },
-    { name: "Washing Machine", slug: "washing-machine" },
-      { name: "UPS Systems", slug: "ups-systems" },
-    { name: "TV", slug: "tv" },
-    { name: "Geysers", slug: "geysers" },
+    // { name: "Refrigerators", slug: "refrigerators" },
+    // { name: "Washing Machine", slug: "washing-machine" },
+    //   { name: "UPS Systems", slug: "ups-systems" },
+    // { name: "TV", slug: "tv" },
+    // { name: "Geysers", slug: "geysers" },
   ];
 
   const commercialServices = [
@@ -299,7 +299,7 @@ const Header = ({ cities = CITIES }) => {
     { name: "Sewage Treatment Plant", slug: "sewage-treatment-plant" },
     { name: "Effluent Treatment Plant", slug: "effluent-treatment-plant" },
     { name: "Diesel Generators", slug: "diesel-generators" },
-    { name: "Solar Walls", slug: "solar-walls" },
+    // { name: "Solar Walls", slug: "solar-walls" },
     // { name: "CCTV & Security Systems", slug: "cctv-security-systems" },
   ];
 
