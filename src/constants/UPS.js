@@ -1,10 +1,21 @@
+export const PRODUCT_IMAGES = {
+
+  VITE_UPS_COMMERCIAL: import.meta.env.VITE_UPS_COMMERCIAL || "",
+  VITE_UPS_DOUBLEUPS: import.meta.env.VITE_UPS_DOUBLEUPS || "",
+  VITE_UPS_HOMEUPS: import.meta.env.VITE_UPS_HOMEUPS || "",
+  VITE_UPS_INDUSTRIALUPS: import.meta.env.VITE_UPS_INDUSTRIALUPS || "",
+
+};
+
+
+
 export const UPS_SYSTEMS = [
   {
     id: 1,
     slug: "home-inverter-ups-system",
     category: "Domestic",
     name: "Home Inverter UPS System",
-
+    image: PRODUCT_IMAGES.VITE_UPS_HOMEUPS,
     description:
       "Reliable home inverter UPS system designed for residential power backup during outages. Ideal for running lights, fans, TV, WiFi, and small appliances with pure sine wave output.",
 
@@ -48,7 +59,7 @@ export const UPS_SYSTEMS = [
     slug: "commercial-line-interactive-ups",
     category: "Commercial",
     name: "Commercial Line Interactive UPS",
-
+    image: PRODUCT_IMAGES.VITE_UPS_COMMERCIAL,
     description:
       "Efficient line-interactive UPS system suitable for offices, retail shops, and IT setups requiring stable voltage regulation and backup protection.",
 
@@ -90,7 +101,7 @@ export const UPS_SYSTEMS = [
     slug: "online-double-conversion-ups",
     category: "Industrial",
     name: "Online Double Conversion UPS",
-
+    image: PRODUCT_IMAGES.VITE_UPS_DOUBLEUPS,
     description:
       "High-performance online double conversion UPS system designed for hospitals, data centers, and industrial applications requiring zero transfer time and uninterrupted power supply.",
 
@@ -135,7 +146,7 @@ export const UPS_SYSTEMS = [
     slug: "industrial-heavy-duty-ups",
     category: "Industrial",
     name: "Industrial Heavy Duty UPS System",
-
+    image: PRODUCT_IMAGES.VITE_UPS_INDUSTRIALUPS,
     description:
       "Heavy-duty industrial UPS system engineered for manufacturing plants, large commercial complexes, and mission-critical operations requiring high capacity backup power.",
 

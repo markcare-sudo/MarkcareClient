@@ -23,7 +23,6 @@ export const BANNER_IMAGES = {
 }
 
 
-
 export const PRODUCT_IMAGES = {
   RO_AGROWP: import.meta.env.VITE_RO_AGROWP || "",
   RO_ATRO: import.meta.env.VITE_RO_ATRO || "",
@@ -62,6 +61,12 @@ export const PRODUCT_IMAGES = {
   SOLAR_HYBRID: import.meta.env.VITE_SOLAR_HYBRID || "",
   SOLAR_OFFGRID: import.meta.env.VITE_SOLAR_OFFGRID || "",
   SOLAR_ONGRID: import.meta.env.VITE_SOLAR_ONGRID || "",
+
+  VITE_UPS_COMMERCIAL: import.meta.env.VITE_UPS_COMMERCIAL || "",
+  VITE_UPS_DOUBLEUPS: import.meta.env.VITE_UPS_DOUBLEUPS || "",
+  VITE_UPS_HOMEUPS: import.meta.env.VITE_UPS_HOMEUPS || "",
+  VITE_UPS_INDUSTRIALUPS: import.meta.env.VITE_UPS_INDUSTRIALUPS || "",
+
 };
 
 
