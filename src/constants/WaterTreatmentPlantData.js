@@ -1,4 +1,5 @@
 export const PRODUCT_IMAGES = {
+    WATERTREATMENT_COMMERCIAL: import.meta.env.VITE_WATERTREATMENT_COMMERCIAL || "",
   WATERTREATMENT_INDUSTRIAL_WTP: import.meta.env.VITE_WATERTREATMENT_INDUSTRIAL_WTP || "",
   WATERTREATMENT_IRON_REMOVAL: import.meta.env.VITE_WATERTREATMENT_IRON_REMOVAL || "",
   WATERTREATMENT_ISWTP: import.meta.env.VITE_WATERTREATMENT_ISWTP || "",
@@ -182,7 +183,7 @@ export const WATER_TREATMENT_PLANTS = [
     slug: "industrial-ro-water-treatment-plant",
     category: "Industrial",
     name: "Industrial RO Water Treatment Plant",
-    image: PRODUCT_IMAGES.WATERTREATMENT_RO_WTP,
+    image: PRODUCT_IMAGES.WATERTREATMENT_COMMERCIAL,
     description:
       "Reverse osmosis based water treatment plant for removing dissolved salts, heavy metals and contaminants.",
 

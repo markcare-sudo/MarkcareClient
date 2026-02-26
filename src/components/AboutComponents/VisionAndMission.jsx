@@ -81,7 +81,7 @@ export default function VisionMission() {
 
               {/* Replace this image path with yours */}
               <img
-                src="/images/vision-illustration.png"
+                src="/assets/VisionIllustrator.png"
                 alt="Vision Illustration"
                 className="max-w-md w-full object-contain"
               />

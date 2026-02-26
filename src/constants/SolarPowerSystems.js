@@ -1,10 +1,22 @@
+
+export const PRODUCT_IMAGES = {
+
+  SOLAR_COMMERCIAL: import.meta.env.VITE_SOLAR_COMMERCIAL || "",
+  SOLAR_INDUSTRIAL: import.meta.env.VITE_SOLAR_INDUSTRIAL || "",
+  SOLAR_RESIDENTIAL: import.meta.env.VITE_SOLAR_RESIDENTIAL || "",
+  SOLAR_HYBRID: import.meta.env.VITE_SOLAR_HYBRID || "",
+  SOLAR_OFFGRID: import.meta.env.VITE_SOLAR_OFFGRID || "",
+  SOLAR_ONGRID: import.meta.env.VITE_SOLAR_ONGRID || "",
+};
+
+
 export const SOLAR_POWER_SYSTEMS = [
   {
     id: 1,
     slug: "industrial-solar-power-plant",
     category: "Industrial",
     name: "Industrial Solar Power Plant",
-
+    image: PRODUCT_IMAGES.SOLAR_INDUSTRIAL,
     description:
       "Large-scale industrial solar power plant designed to reduce electricity costs and ensure sustainable energy generation for factories and manufacturing units.",
 
@@ -47,7 +59,7 @@ export const SOLAR_POWER_SYSTEMS = [
     slug: "commercial-solar-power-system",
     category: "Commercial",
     name: "Commercial Solar Power System",
-
+    image: PRODUCT_IMAGES.SOLAR_COMMERCIAL,
     description:
       "Efficient commercial solar power system ideal for offices, hospitals, schools and commercial buildings to reduce operational energy expenses.",
 
@@ -88,7 +100,7 @@ export const SOLAR_POWER_SYSTEMS = [
     slug: "residential-rooftop-solar-system",
     category: "Domestic",
     name: "Residential Rooftop Solar System",
-
+    image: PRODUCT_IMAGES.SOLAR_RESIDENTIAL,
     description:
       "Compact and efficient rooftop solar system designed for homes and apartments to reduce electricity bills and ensure sustainable living.",
 
@@ -129,7 +141,7 @@ export const SOLAR_POWER_SYSTEMS = [
     slug: "on-grid-solar-system",
     category: "Domestic",
     name: "On-Grid Solar System",
-
+    image: PRODUCT_IMAGES.SOLAR_ONGRID,
     description:
       "Grid-connected solar system that allows excess power export to the electricity board using net metering for maximum savings.",
 
@@ -167,7 +179,7 @@ export const SOLAR_POWER_SYSTEMS = [
     slug: "off-grid-solar-system",
     category: "Domestic",
     name: "Off-Grid Solar System",
-
+    image: PRODUCT_IMAGES.SOLAR_OFFGRID,
     description:
       "Independent off-grid solar power system with battery backup, ideal for remote locations and areas with frequent power cuts.",
 
@@ -206,7 +218,7 @@ export const SOLAR_POWER_SYSTEMS = [
     slug: "hybrid-solar-system",
     category: "Commercial",
     name: "Hybrid Solar System",
-
+    image: PRODUCT_IMAGES.SOLAR_HYBRID,
     description:
       "Hybrid solar power system combining grid connectivity with battery backup to ensure uninterrupted power supply and maximum efficiency.",
 

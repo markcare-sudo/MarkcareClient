@@ -1,10 +1,26 @@
+
+export const PRODUCT_IMAGES = {
+  
+  WATERTREATMENT_COMMERCIAL: import.meta.env.VITE_WATERTREATMENT_COMMERCIAL || "",
+  WATERTREATMENT_SOFTNER: import.meta.env.VITE_WATERTREATMENT_SOFTNER || "",
+  WATERTREATMENT_INDUSTRIAL_WTP: import.meta.env.VITE_WATERTREATMENT_INDUSTRIAL_WTP || "",
+  WATERTREATMENT_IRON_REMOVAL: import.meta.env.VITE_WATERTREATMENT_IRON_REMOVAL || "",
+  WATERTREATMENT_ISWTP: import.meta.env.VITE_WATERTREATMENT_ISWTP || "",
+  WATERTREATMENT_IWTP_REPAIR_SERVICE: import.meta.env.VITE_WATERTREATMENT_IWTP_REPAIR_SERVICE || "",
+  WATERTREATMENT_IWTP: import.meta.env.VITE_WATERTREATMENT_IWTP || "",
+  WATERTREATMENT_IWWTP: import.meta.env.VITE_WATERTREATMENT_IWWTP || "",
+  WATERTREATMENT_RO_WTP: import.meta.env.VITE_WATERTREATMENT_RO_WTP || "",
+  WATERTREATMENT_WTP: import.meta.env.VITE_WATERTREATMENT_WTP || "",
+};
+
+
 export const WATER_SOFTENING_PLANTS = [
   {
     id: 1,
     slug: "commercial-water-softening-plant",
     category: "Commercial",
     name: "Commercial Water Softening Plant",
-
+    image: PRODUCT_IMAGES.WATERTREATMENT_COMMERCIAL,
     description:
       "Commercial water softening plant designed to remove hardness-causing minerals like calcium and magnesium from water for hotels, hospitals and commercial buildings.",
 
@@ -48,7 +64,7 @@ export const WATER_SOFTENING_PLANTS = [
     slug: "softener-water-treatment-plant",
     category: "Industrial",
     name: "Softener Water Treatment Plant",
-
+    image: PRODUCT_IMAGES.WATERTREATMENT_SOFTNER,
     description:
       "Industrial softener water treatment plant engineered to reduce water hardness and protect boilers, cooling towers and pipelines from scaling.",
 
@@ -84,52 +100,52 @@ export const WATER_SOFTENING_PLANTS = [
     }
   },
 
-  {
-    id: 3,
-    slug: "softener-water-treatment-plant-automatic",
-    category: "Industrial",
-    name: "Softener Water Treatment Plant (Automatic)",
+  // {
+  //   id: 3,
+  //   slug: "softener-water-treatment-plant-automatic",
+  //   category: "Industrial",
+  //   name: "Softener Water Treatment Plant (Automatic)",
+  //   image: PRODUCT_IMAGES.WATERTREATMENT_IWWTP,
+  //   description:
+  //     "Fully automatic softener water treatment plant with advanced control valve system for continuous and efficient hardness removal.",
 
-    description:
-      "Fully automatic softener water treatment plant with advanced control valve system for continuous and efficient hardness removal.",
+  //   pricing: {
+  //     basePrice: 300000,
+  //     currency: "INR",
+  //     unit: "Plant"
+  //   },
 
-    pricing: {
-      basePrice: 300000,
-      currency: "INR",
-      unit: "Plant"
-    },
+  //   specifications: {
+  //     plantType: "Automatic Water Softener",
+  //     capacityLPH: "5,000 – 40,000",
+  //     controlValveType: "Multiport Automatic Valve",
+  //     regenerationCycle: "Time Based / Volume Based",
+  //     vesselMaterial: "FRP / MS / SS",
+  //     phase: "Single / Three Phase"
+  //   },
 
-    specifications: {
-      plantType: "Automatic Water Softener",
-      capacityLPH: "5,000 – 40,000",
-      controlValveType: "Multiport Automatic Valve",
-      regenerationCycle: "Time Based / Volume Based",
-      vesselMaterial: "FRP / MS / SS",
-      phase: "Single / Three Phase"
-    },
+  //   safetyFeatures: [
+  //     "Auto Shut-Off",
+  //     "Over Pressure Protection",
+  //     "Brine Tank Overflow Protection"
+  //   ],
 
-    safetyFeatures: [
-      "Auto Shut-Off",
-      "Over Pressure Protection",
-      "Brine Tank Overflow Protection"
-    ],
-
-    services: {
-      installation: { available: true },
-      amc: { available: true },
-      resinReplacement: { available: true },
-      repair: { available: true },
-      spareParts: { available: true },
-      warranty: { available: true, period: "18 Months" }
-    }
-  },
+  //   services: {
+  //     installation: { available: true },
+  //     amc: { available: true },
+  //     resinReplacement: { available: true },
+  //     repair: { available: true },
+  //     spareParts: { available: true },
+  //     warranty: { available: true, period: "18 Months" }
+  //   }
+  // },
 
   {
     id: 4,
     slug: "industrial-sewage-water-treatment-plant-operation-maintenance",
     category: "Service",
     name: "Industrial Sewage Water Treatment Plant Operation & Maintenance",
-
+    image: PRODUCT_IMAGES.WATERTREATMENT_IWTP_REPAIR_SERVICE,
     description:
       "Comprehensive operation and maintenance (O&M) services for industrial sewage water treatment plants ensuring continuous performance and compliance with pollution control standards.",
 
