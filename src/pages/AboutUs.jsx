@@ -28,7 +28,7 @@ export default function AboutUs() {
       />
 
       <section id="about" className="text-gray-900">
-        <img src={ABOUT_IMAGES.About_us} alt="About Us" className="w-full h-auto rounded-lg shadow-lg" />
+        <img src={ABOUT_IMAGES.About_us} alt="About Us" className="w-full h-auto shadow-lg" />
         <div className="mx-auto max-w-7xl p-4">
           <AboutHero />
           <VisionAndMission />

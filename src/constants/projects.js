@@ -62,10 +62,6 @@ export const PROJECT_CATEGORIES = [
     projects: [],
   },
 
-  {
-    name: "HVAC Projects",
-    projects: [],
-  },
 
   {
     name: "Water Softener",
@@ -73,32 +69,18 @@ export const PROJECT_CATEGORIES = [
   },
 
   {
-    name: "Commercial RO",
+    name: "Solar Power Systems",
     projects: [],
   },
 
-  {
-    name: "Hospital Projects",
+    {
+    name: "Generators",
     projects: [],
   },
 
-  {
-    name: "Manufacturing Units",
+    {
+    name: "AC Systems",
     projects: [],
   },
 
-  {
-    name: "Educational Institutions",
-    projects: [],
-  },
-
-  {
-    name: "Hospitality Projects",
-    projects: [],
-  },
-
-  {
-    name: "Custom Installations",
-    projects: [],
-  },
 ];
