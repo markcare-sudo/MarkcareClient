@@ -4,8 +4,8 @@ import ProjectCard from "@/components/ProjectCard";
 import CategoryFilter from "@/components/ProjectsComponents/CategoryFilter";
 import { PROJECT_CATEGORIES } from "@/constants/projects";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import SEO from "@/components/SEO";
+import { BANNER_IMAGES } from "@/constants/branding";
 
 const ProjectsSection = () => {
   const [selectedCategory, setSelectedCategory] = useState(
@@ -24,6 +24,7 @@ const ProjectsSection = () => {
         description="Explore MarkCare’s completed projects in RO plants, water treatment systems (WTP, STP, ETP), solar power, HVAC, lifts and facility engineering services delivered across multiple cities in India."
       />
 
+      <img src={BANNER_IMAGES.PROJECTS} alt="Projects" className="w-full h-auto shadow-lg" />
       <section className="max-w-7xl mx-auto text-white px-4 py-10 md:py-16">
         <div className="text-center">
           {/* Heading */}

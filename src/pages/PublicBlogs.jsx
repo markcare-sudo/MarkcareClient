@@ -3,6 +3,7 @@ import { Search } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useGlobalContext } from "@/context/GlobalContext";
 import SEO from "@/components/SEO";
+import { BANNER_IMAGES } from "@/constants/branding";
 
 /* ===============================
    Reusable Blog Card
@@ -125,7 +126,7 @@ export default function PublicBlogs() {
         description="Read expert insights from MarkCare on water treatment plants (RO, WTP, STP, ETP), solar power systems, HVAC solutions, lifts, generators and facility management services across India."
       />
       <div className="min-h-screen text-white relative overflow-hidden">
-
+        <img src={BANNER_IMAGES.BLOGS} alt="Blogs" className="w-full h-auto shadow-lg" />
         {/* HERO */}
         <section className="relative py-24 px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -163,8 +164,8 @@ export default function PublicBlogs() {
                   key={cat}
                   onClick={() => setCategory(cat)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${category === cat
-                      ? "bg-red-600 text-white"
-                      : "bg-white/5 border border-white/10 hover:bg-red-600/10 text-gray-300"
+                    ? "bg-red-600 text-white"
+                    : "bg-white/5 border border-white/10 hover:bg-red-600/10 text-gray-300"
                     }`}
                 >
                   {cat}

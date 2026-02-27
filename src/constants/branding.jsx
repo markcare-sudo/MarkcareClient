@@ -13,6 +13,9 @@ export const LOGOS = {
 };
 
 export const BANNER_IMAGES = {
+  ABOUT_US : import.meta.env.VITE_ABOUT_US,
+    PROJECTS : import.meta.env.VITE_PROJECTS,
+      BLOGS : import.meta.env.VITE_BLOGS,
   ELEVATOR_BANNER: import.meta.env.VITE_ELEVATOR_BANNER,
   RO_BANNER: import.meta.env.VITE_ROWATER_BANNER,
   WATERSOFTENING_BANNER: import.meta.env.VITE_WATERSOFTNING_BANNER,

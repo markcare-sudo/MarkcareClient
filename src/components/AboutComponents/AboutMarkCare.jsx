@@ -55,7 +55,7 @@ export default function AboutHero() {
   }, [isInView]);
 
   return (
-    <section className="relative text-white py-24 overflow-hidden">
+    <section className="relative text-white py-10 overflow-hidden">
 
       <div className="relative max-w-7xl mx-auto text-center">
 

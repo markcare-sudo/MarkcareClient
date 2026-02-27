@@ -284,14 +284,8 @@ const Header = ({ cities = CITIES }) => {
   const domesticServices = [
     { name: "Residential Elevators", slug: "elevators" },
     { name: "RO Water Purifiers", slug: "ro-water-purifiers" },
-    // { name: "Smart Home Automation", slug: "smart-home-automation" },
     { name: "Solar Power Systems", slug: "solar-power-systems" },
     { name: "AC Systems", slug: "ac-systems" },
-    // { name: "Refrigerators", slug: "refrigerators" },
-    // { name: "Washing Machine", slug: "washing-machine" },
-    //   { name: "UPS Systems", slug: "ups-systems" },
-    // { name: "TV", slug: "tv" },
-    // { name: "Geysers", slug: "geysers" },
   ];
 
   const commercialServices = [
@@ -299,8 +293,6 @@ const Header = ({ cities = CITIES }) => {
     { name: "Sewage Treatment Plant", slug: "sewage-treatment-plant" },
     { name: "Effluent Treatment Plant", slug: "effluent-treatment-plant" },
     { name: "Diesel Generators", slug: "diesel-generators" },
-    // { name: "Solar Walls", slug: "solar-walls" },
-    // { name: "CCTV & Security Systems", slug: "cctv-security-systems" },
   ];
 
   return (
@@ -331,7 +323,7 @@ const Header = ({ cities = CITIES }) => {
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-black/90 text-white shadow-md">
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-black/10 text-white shadow-md">
         <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
 
           {/* Logo Section */}

@@ -9,6 +9,7 @@ import WhoWeAre from "@/components/WhoWeAre";
 import { CITIES } from "@/utils/data";
 import { Helmet } from "react-helmet-async";
 import Testimonials from "@/components/LandingPageComponents/Testimonials";
+import OurIndustriesCarousel from "@/components/LandingPageComponents/OurIndustries";
 
 const installs = 5000;
 const citiesCount = 15;
@@ -74,6 +75,7 @@ export default function MarkCareSite() {
         <Banner />
         <WhoWeAre />
         <QualityServices />
+        <OurIndustriesCarousel />
         <AboutUs cities={CITIES} />
         <WhyUs installs={installs} citiesCount={citiesCount} />
         <WorkShowcase />

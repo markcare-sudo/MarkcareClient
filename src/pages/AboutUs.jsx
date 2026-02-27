@@ -9,6 +9,7 @@ import {
 import SEO from "@/components/SEO"; // ✅ Import SEO component
 import AboutHero from "@/components/AboutComponents/AboutMarkCare";
 import VisionAndMission from "@/components/AboutComponents/VisionAndMission";
+import { ABOUT_IMAGES } from "@/constants/branding";
 
 export default function AboutUs() {
   const stats = [
@@ -27,7 +28,8 @@ export default function AboutUs() {
       />
 
       <section id="about" className="text-gray-900">
-        <div className="mx-auto max-w-7xl px-4 py-10">
+        <img src={ABOUT_IMAGES.About_us} alt="About Us" className="w-full h-auto rounded-lg shadow-lg" />
+        <div className="mx-auto max-w-7xl p-4">
           <AboutHero />
           <VisionAndMission />
         </div>
