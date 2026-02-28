@@ -1,3 +1,5 @@
+import AC from "@/pages/AC";
+
 export const LOGOS = {
   Mark_Care_Logo: import.meta.env.VITE_LOGO,
   Anna_University_Logo: import.meta.env.VITE_ANNA_UNIVERSITY_LOGO,
@@ -13,9 +15,11 @@ export const LOGOS = {
 };
 
 export const BANNER_IMAGES = {
-  ABOUT_US : import.meta.env.VITE_ABOUT_US,
-    PROJECTS : import.meta.env.VITE_PROJECTS,
-      BLOGS : import.meta.env.VITE_BLOGS,
+  AC_BANNER: import.meta.env.VITE_AC_BANNER,
+  SOLAR_BANNER: import.meta.env.VITE_SOLAR_BANNER,
+  ABOUT_US: import.meta.env.VITE_ABOUT_US,
+  PROJECTS: import.meta.env.VITE_PROJECTS,
+  BLOGS: import.meta.env.VITE_BLOGS,
   ELEVATOR_BANNER: import.meta.env.VITE_ELEVATOR_BANNER,
   RO_BANNER: import.meta.env.VITE_ROWATER_BANNER,
   WATERSOFTENING_BANNER: import.meta.env.VITE_WATERSOFTNING_BANNER,
@@ -26,6 +30,7 @@ export const BANNER_IMAGES = {
 }
 
 
+
 export const PRODUCT_IMAGES = {
   RO_AGROWP: import.meta.env.VITE_RO_AGROWP || "",
   RO_ATRO: import.meta.env.VITE_RO_ATRO || "",
@@ -33,6 +38,13 @@ export const PRODUCT_IMAGES = {
   RO_ROWATER: import.meta.env.VITE_RO_ROWATER || "",
   RO_ROUVWP: import.meta.env.VITE_RO_ROUVWP || "",
   RO_WMROUVWP: import.meta.env.VITE_RO_WMROUVWP || "",
+
+  AC_CDAC: import.meta.env.VITE_AC_CDAC || "",
+  AC_WINDOWAIR: import.meta.env.VITE_AC_WINDOWAIR || "",
+  AC_VRV_VRF: import.meta.env.VITE_AC_VRV_VRF || "",
+  AC_ICIMAGES: import.meta.env.VITE_AC_ICIMAGES || "",
+  AC_SPLITAIR: import.meta.env.VITE_AC_SPLITAIR || "",
+  AC_CASSETTEAIR: import.meta.env.VITE_AC_CASSETTEAIR || "",
 
   ELEVATOR_COMMERCIAL: import.meta.env.VITE_ELEVATOR_COMMERCIAL || "",
   ELEVATOR_SINGLE_PHASE: import.meta.env.VITE_ELEVATOR_SINGLE_PHASE || "",

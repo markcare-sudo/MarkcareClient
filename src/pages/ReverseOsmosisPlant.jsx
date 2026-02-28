@@ -1,4 +1,5 @@
 // import React from "react";
+import Testimonials from "@/components/LandingPageComponents/Testimonials";
 import ProductCard from "@/components/ProductCard";
 import { REVERSE_OSMOSIS_PLANTS } from "@/constants/ReverseOsmosisPlant";
 
@@ -22,6 +23,8 @@ const ReverseOsmosisPlant = () => {
         {REVERSE_OSMOSIS_PLANTS.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
+
+        <Testimonials />
       </div>
     </section>
   );

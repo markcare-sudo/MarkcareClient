@@ -1,10 +1,21 @@
+export const PRODUCT_IMAGES = {
+
+  AC_CDAC: import.meta.env.VITE_AC_CDAC || "",
+  AC_WINDOWAIR: import.meta.env.VITE_AC_WINDOWAIR || "",
+  AC_VRV_VRF: import.meta.env.VITE_AC_VRV_VRF || "",
+  AC_ICIMAGES: import.meta.env.VITE_AC_ICIMAGES || "",
+  AC_SPLITAIR: import.meta.env.VITE_AC_SPLITAIR || "",
+  AC_CASSETTEAIR: import.meta.env.VITE_AC_CASSETTEAIR || "",
+
+};
+
 export const AIR_CONDITIONING_SYSTEMS = [
   {
     id: 1,
     slug: "industrial-central-air-conditioning-system",
     category: "Industrial",
     name: "Industrial Central Air Conditioning System",
-
+    image: PRODUCT_IMAGES.AC_ICIMAGES,
     description:
       "High-capacity central air conditioning system designed for factories, warehouses, and large industrial facilities with continuous cooling requirements.",
 
@@ -48,7 +59,7 @@ export const AIR_CONDITIONING_SYSTEMS = [
     slug: "commercial-ductable-air-conditioner",
     category: "Commercial",
     name: "Commercial Ductable Air Conditioner",
-
+    image: PRODUCT_IMAGES.AC_CDAC,
     description:
       "Ductable air conditioning system ideal for offices, showrooms, hospitals, and commercial complexes for uniform air distribution.",
 
@@ -88,7 +99,7 @@ export const AIR_CONDITIONING_SYSTEMS = [
     slug: "vrv-vrf-air-conditioning-system",
     category: "Commercial",
     name: "VRV / VRF Air Conditioning System",
-
+    image: PRODUCT_IMAGES.AC_VRV_VRF,
     description:
       "Energy-efficient VRV/VRF air conditioning system suitable for multi-floor buildings, IT parks, hotels and commercial spaces.",
 
@@ -128,7 +139,7 @@ export const AIR_CONDITIONING_SYSTEMS = [
     slug: "cassette-air-conditioner",
     category: "Commercial",
     name: "Cassette Air Conditioner",
-
+    image: PRODUCT_IMAGES.AC_CASSETTEAIR,
     description:
       "Ceiling-mounted cassette AC providing 360° airflow, ideal for offices, restaurants and retail stores.",
 
@@ -167,7 +178,7 @@ export const AIR_CONDITIONING_SYSTEMS = [
     slug: "split-air-conditioner",
     category: "Domestic",
     name: "Split Air Conditioner",
-
+    image: PRODUCT_IMAGES.AC_SPLITAIR,
     description:
       "Energy-efficient split air conditioner for homes, apartments and small offices with inverter technology options.",
 
@@ -207,7 +218,7 @@ export const AIR_CONDITIONING_SYSTEMS = [
     slug: "window-air-conditioner",
     category: "Domestic",
     name: "Window Air Conditioner",
-
+    image: PRODUCT_IMAGES.AC_WINDOWAIR,
     description:
       "Compact and affordable window air conditioner suitable for small rooms and residential spaces.",
 

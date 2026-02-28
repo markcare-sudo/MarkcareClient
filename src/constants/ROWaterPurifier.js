@@ -1,436 +1,503 @@
-// export const PRODUCT_IMAGES = {
-//   RO_AGROWP: import.meta.env.VITE_RO_AGROWP || "",
-//   RO_ATRO: import.meta.env.VITE_RO_ATRO || "",
-//   RO_HPALWP: import.meta.env.VITE_RO_HPALWP || "",
-//   RO_ROWATER: import.meta.env.VITE_RO_ROWATER || "",
-//   RO_ROUVWP: import.meta.env.VITE_RO_ROUVWP || "",
-//   RO_WMROUVWP: import.meta.env.VITE_RO_WMROUVWP || "",
-// };
-
-
-// export const RO_WATER_PURIFIERS = [
-//   {
-//     id: 1,
-//     slug: "wall-mounted-ro-uv-water-purifier",
-//     category: "Domestic",
-//     name: "Wall Mounted RO UV Water Purifier",
-//     image: PRODUCT_IMAGES.RO_ROWATER,
-//     description:
-//       "Wall mounted RO UV water purifier designed for safe and hygienic drinking water by removing dissolved salts, bacteria and viruses.",
-
-//     pricing: {
-//       basePrice: 14500,
-//       currency: "INR",
-//       unit: "Unit",
-//       minimumOrderQuantity: 1
-//     },
-
-//     specifications: {
-//       purificationTechnology: "RO + UV",
-//       mountingType: "Wall Mounted",
-//       storageCapacity: "8–10 Litres",
-//       suitableWaterSource: "Borewell / Municipal",
-//       tdsHandling: "Up to 2000 ppm",
-//       bodyMaterial: "Food Grade ABS",
-//       powerRequirement: "230V AC, 50Hz"
-//     },
-
-//     safetyFeatures: [
-//       "Auto Shut-Off",
-//       "Low Pressure Protection",
-//       "High TDS Protection",
-//       "UV Disinfection Chamber"
-//     ],
-
-//     services: {
-//       installation: { available: true },
-//       amc: { available: true },
-//       repair: { available: true, emergencySupport: true },
-//       spareParts: { available: true },
-//       warranty: { available: true, period: "12 Months" }
-//     }
-//   },
-
-//   {
-//     id: 2,
-//     slug: "ro-uv-water-purifier",
-//     category: "Domestic",
-//     name: "RO UV Water Purifier",
-//     image: PRODUCT_IMAGES.RO_ROUVWP,
-//     description:
-//       "Advanced RO UV water purifier with multi-stage filtration system ensuring clean, safe and mineral-balanced drinking water.",
-
-//     pricing: {
-//       basePrice: 12000,
-//       currency: "INR",
-//       unit: "Unit",
-//       minimumOrderQuantity: 1
-//     },
-
-//     specifications: {
-//       purificationTechnology: "RO + UV + Sediment + Carbon",
-//       storageCapacity: "7–12 Litres",
-//       tdsReduction: "Up to 95%",
-//       suitableWaterSource: "Borewell / Municipal / Tanker",
-//       mountingType: "Wall Mounted",
-//       powerRequirement: "230V AC"
-//     },
-
-//     safetyFeatures: [
-//       "Auto Flush System",
-//       "Overheat Protection",
-//       "Low Water Pressure Cut-Off"
-//     ],
-
-//     services: {
-//       installation: { available: true },
-//       amc: { available: true },
-//       repair: { available: true },
-//       spareParts: { available: true },
-//       warranty: { available: true, period: "12 Months" }
-//     }
-//   },
-
-//   {
-//     id: 3,
-//     slug: "white-ro-uv-water-purifier",
-//     category: "Domestic",
-//     name: "White RO UV Water Purifier",
-//     image: PRODUCT_IMAGES.RO_WMROUVWP,
-//     description:
-//       "Stylish white RO UV water purifier suitable for modern kitchens with high purification efficiency.",
-
-//     pricing: {
-//       basePrice: 13500,
-//       currency: "INR",
-//       unit: "Unit"
-//     },
-
-//     specifications: {
-//       purificationTechnology: "RO + UV",
-//       color: "White",
-//       storageCapacity: "8 Litres",
-//       tdsHandling: "Up to 1800 ppm",
-//       mountingType: "Wall Mounted",
-//       filterStages: "5–7 Stages"
-//     },
-
-//     safetyFeatures: [
-//       "Smart Tank Overflow Protection",
-//       "UV Fail Alarm",
-//       "Auto Power Off"
-//     ],
-
-//     services: {
-//       installation: { available: true },
-//       amc: { available: true },
-//       repair: { available: true },
-//       spareParts: { available: true },
-//       warranty: { available: true, period: "12 Months" }
-//     }
-//   },
-
-//   {
-//     id: 4,
-//     slug: "aquaguard-ro-water-purifier",
-//     category: "Domestic",
-//     name: "Aquaguard RO Water Purifier",
-//     image: PRODUCT_IMAGES.RO_AGROWP,
-//     description:
-//       "Premium Aquaguard RO water purifier with advanced multi-stage purification technology for high TDS water.",
-
-//     pricing: {
-//       basePrice: 18500,
-//       currency: "INR",
-//       unit: "Unit"
-//     },
-
-//     specifications: {
-//       brand: "Aquaguard",
-//       purificationTechnology: "RO + UV + MTDS",
-//       storageCapacity: "7–10 Litres",
-//       tdsHandling: "Up to 2500 ppm",
-//       installationType: "Wall Mounted / Table Top"
-//     },
-
-//     safetyFeatures: [
-//       "Taste Adjuster (MTDS)",
-//       "Energy Saving Mode",
-//       "High TDS Alarm"
-//     ],
-
-//     services: {
-//       installation: { available: true },
-//       amc: { available: true },
-//       repair: { available: true },
-//       spareParts: { available: true },
-//       warranty: { available: true, period: "12 Months" }
-//     }
-//   },
-
-//   {
-//     id: 5,
-//     slug: "havells-pro-alkaline-water-purifier",
-//     category: "Domestic",
-//     name: "Havells Pro Alkaline Water Purifier",
-//     image: PRODUCT_IMAGES.RO_HPALWP,
-//     description:
-//       "Advanced alkaline water purifier that enriches water with essential minerals and maintains optimal pH balance.",
-
-//     pricing: {
-//       basePrice: 21000,
-//       currency: "INR",
-//       unit: "Unit"
-//     },
-
-//     specifications: {
-//       brand: "Havells",
-//       purificationTechnology: "RO + UV + Alkaline",
-//       filtrationStages: "8 Stages",
-//       mineralEnrichment: "Copper + Zinc",
-//       storageCapacity: "8 Litres",
-//       suitableWaterSource: "High TDS Water"
-//     },
-
-//     safetyFeatures: [
-//       "pH Balance Control",
-//       "Auto Shut-Off",
-//       "Low Pressure Protection"
-//     ],
-
-//     services: {
-//       installation: { available: true },
-//       amc: { available: true },
-//       repair: { available: true },
-//       spareParts: { available: true },
-//       warranty: { available: true, period: "12 Months" }
-//     }
-//   },
-
-//   {
-//     id: 6,
-//     slug: "aqua-touch-ro-water-purifier",
-//     category: "Domestic",
-//     name: "Aqua Touch RO Water Purifier",
-//     image: PRODUCT_IMAGES.RO_ATRO,
-//     description:
-//       "Budget-friendly Aqua Touch RO water purifier suitable for home use with reliable multi-stage filtration.",
-
-//     pricing: {
-//       basePrice: 9500,
-//       currency: "INR",
-//       unit: "Unit"
-//     },
-
-//     specifications: {
-//       brand: "Aqua Touch",
-//       purificationTechnology: "RO + UV",
-//       storageCapacity: "7–10 Litres",
-//       mountingType: "Wall Mounted",
-//       tdsHandling: "Up to 2000 ppm"
-//     },
-
-//     safetyFeatures: [
-//       "Auto Start/Stop",
-//       "Overflow Protection",
-//       "Low Voltage Protection"
-//     ],
-
-//     services: {
-//       installation: { available: true },
-//       amc: { available: true },
-//       repair: { available: true },
-//       spareParts: { available: true },
-//       warranty: { available: true, period: "12 Months" }
-//     }
-//   }
-// ];
-
-
-
 export const PRODUCT_IMAGES = {
-  DOLPHIN_PUROSIS: import.meta.env.VITE_DOLPHIN_PUROSIS || "",
-  AQUA_MARS: import.meta.env.VITE_AQUA_MARS || "",
-  AQUA_PEARL: import.meta.env.VITE_AQUA_PEARL || "",
-  AQUA_WATE_LILY: import.meta.env.VITE_AQUA_WATE_LILY || "",
-  LX_ONE_TITANIUM: import.meta.env.VITE_LX_ONE_TITANIUM || "",
-  AQUA_QUEEN: import.meta.env.VITE_AQUA_QUEEN || "",
+  DOLPHIN: import.meta.env.VITE_RO_DOLPHIN || "",
+  AQUA_MARS: import.meta.env.VITE_RO_AQUAMARS || "",
+  MERLIN: import.meta.env.VITE_RO_MERLIN || "",
+  MATRIX_AQUA: import.meta.env.VITE_RO_MATRIX_AQUA || "",
+  AQUA_PEARL: import.meta.env.VITE_RO_AQUA_PEARL || "",
+  AQUA_XL: import.meta.env.VITE_RO_AQUA_XL || "",
+  AQUA_JADE: import.meta.env.VITE_RO_AQUA_JADE || "",
+  AQUA_WATE_LILY: import.meta.env.VITE_RO_AQUA_WATE_LILY || "",
+  AQUA_ONIX: import.meta.env.VITE_RO_AQUA_ONIX || "",
+  AQUA_LEXZON: import.meta.env.VITE_RO_AQUA_LEXZON || "",
+  AQUA_2090: import.meta.env.VITE_RO_AQUA_2090 || "",
+  LX_ONE_TITANIUM: import.meta.env.VITE_RO_LX_ONE_TITANIUM || "",
+  HI_FLO: import.meta.env.VITE_RO_HI_FLO || "",
+  AQUA_ROMA: import.meta.env.VITE_RO_AQUA_ROMA || "",
+  AQUA_LIBRA: import.meta.env.VITE_RO_AQUA_LIBRA || "",
+  SONNET: import.meta.env.VITE_RO_SONNET || "",
+  AQUA_QUEEN: import.meta.env.VITE_RO_AQUA_QUEEN || "",
 };
 
 export const RO_WATER_PURIFIERS = [
-  {
-    id: 1,
-    slug: "dolphin-purosis-ro-aqua-grand-plus",
-    category: "Domestic",
-    name: "Dolphin Purosis RO Aqua Grand Plus",
-    image: PRODUCT_IMAGES.DOLPHIN_PUROSIS,
-    description:
-      "Advanced 5-stage RO water purifier delivering pure and safe drinking water with high purification efficiency.",
 
-    pricing: {
-      basePrice: 11499,
-      currency: "INR",
-      unit: "Unit",
-      originalPrice: 13299,
-    },
+{
+id:1,
+slug:"dolphin-purosis-ro-aqua-grand-plus",
+category:"Domestic",
+name:"Dolphin Purosis RO Aqua Grand Plus",
+image:PRODUCT_IMAGES.DOLPHIN,
+description:"Advanced 5-stage RO water purifier delivering pure and safe drinking water with high purification efficiency.",
 
-    specifications: {
-      purificationMethod: "RO",
-      purificationStages: "5 Stages",
-      storageTankCapacity: "11 Liters",
-      purificationCapacity: "12–15 Liters / Hour",
-    },
+pricing:{
+basePrice:11499,
+currency:"INR",
+unit:"Unit",
+originalPrice:13299
+},
 
-    services: {
-      installation: { available: true, free: true },
-      generalService: { available: true, frequency: "Once every 6 months (Free)" },
-      warranty: { available: true, period: "1 Year" },
-      customerSupport: "24/7 Customer Service",
-    },
-  },
+specifications:{
+purificationMethod:"RO",
+purificationStages:"5 Stages",
+storageTankCapacity:"11 Liters",
+purificationCapacity:"12–15 Liters / Hour"
+},
 
-  {
-    id: 2,
-    slug: "aqua-mars-ro-water-purifier",
-    category: "Domestic",
-    name: "Aqua Mars RO Water Purifier",
-    image: PRODUCT_IMAGES.AQUA_MARS,
-    description:
-      "7-stage RO+UV+UF+Mineral Balance purification system ensuring safe, mineral-rich drinking water.",
+services:{
+installation:{available:true,free:true},
+generalService:{available:true,frequency:"Once every 6 months (Free)"},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
 
-    pricing: {
-      basePrice: 9500,
-      currency: "INR",
-      unit: "Unit",
-    },
+{
+id:2,
+slug:"aqua-mars-ro-water-purifier",
+category:"Domestic",
+name:"Aqua Mars RO Water Purifier",
+image:PRODUCT_IMAGES.AQUA_MARS,
+description:"7-stage RO + UV + UF + Mineral Balance purification system ensuring safe and mineral-rich drinking water.",
 
-    specifications: {
-      purificationMethod: "RO + UV + UF + Mineral Balance",
-      purificationStages: "7 Stages",
-      storageTankCapacity: "10 Liters",
-      purificationCapacity: "12–15 Liters / Hour",
-    },
+pricing:{
+basePrice:9500,
+currency:"INR",
+unit:"Unit"
+},
 
-    services: {
-      installation: { available: true, free: true },
-      warranty: { available: true, period: "1 Year" },
-      customerSupport: "24/7 Customer Service",
-    },
-  },
+specifications:{
+purificationMethod:"RO + UV + UF + Mineral Balance",
+purificationStages:"7 Stages",
+storageTankCapacity:"10 Liters",
+purificationCapacity:"12–15 Liters / Hour"
+},
 
-  {
-    id: 3,
-    slug: "aqua-pearl-ro-uv-alkaline",
-    category: "Domestic",
-    name: "Aqua Pearl RO UV Alkaline",
-    image: PRODUCT_IMAGES.AQUA_PEARL,
-    description:
-      "7-stage RO + UV + Alkaline purification system providing healthy and pH-balanced drinking water.",
+services:{
+installation:{available:true,free:true},
+generalService:{available:true,frequency:"Once every 6 months"},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
 
-    pricing: {
-      basePrice: 11300,
-      currency: "INR",
-      unit: "Unit",
-    },
+{
+id:3,
+slug:"merlin-ro-copper-mineral-water-purifier",
+category:"Domestic",
+name:"Merlin RO Copper Mineral Water Purifier",
+image:PRODUCT_IMAGES.MERLIN,
+description:"High performance RO + UV + UF water purifier with copper and mineral technology for healthier drinking water.",
 
-    specifications: {
-      purificationMethod: "RO + UV + Alkaline",
-      purificationStages: "7 Stages",
-      storageTankCapacity: "10 Liters",
-      purificationCapacity: "12 Liters / Hour",
-    },
+pricing:{
+basePrice:15000,
+currency:"INR",
+unit:"Unit"
+},
 
-    services: {
-      installation: { available: true, free: true },
-      warranty: { available: true, period: "1 Year" },
-      customerSupport: "24/7 Customer Service",
-    },
-  },
+specifications:{
+purificationMethod:"RO + UV + UF + Minerals + Copper",
+purificationStages:"7 Stages",
+storageTankCapacity:"10 Liters",
+purificationCapacity:"12–15 Liters / Hour"
+},
 
-  {
-    id: 4,
-    slug: "aqua-wate-lily-ro-uv-uf-copper",
-    category: "Domestic",
-    name: "Aqua Wate Lily",
-    image: PRODUCT_IMAGES.AQUA_WATE_LILY,
-    description:
-      "Premium 7-stage RO + UV + UF + Copper purification system with enhanced mineral retention.",
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
 
-    pricing: {
-      basePrice: 12000,
-      currency: "INR",
-      unit: "Unit",
-    },
+{
+id:4,
+slug:"matrix-aqua-2029-ro-water-purifier",
+category:"Domestic",
+name:"Matrix Aqua 2029",
+image:PRODUCT_IMAGES.MATRIX_AQUA,
+description:"Premium RO purifier with copper enhancement delivering pure mineral enriched drinking water.",
 
-    specifications: {
-      purificationMethod: "RO + UV + UF + Copper",
-      purificationStages: "7 Stages",
-      storageTankCapacity: "11 Liters",
-      purificationCapacity: "13 Liters / Hour",
-    },
+pricing:{
+basePrice:12500,
+currency:"INR",
+unit:"Unit"
+},
 
-    services: {
-      installation: { available: true, free: true },
-      warranty: { available: true, period: "1 Year" },
-      customerSupport: "24/7 Customer Service",
-    },
-  },
+specifications:{
+purificationMethod:"RO + UF + Copper",
+purificationStages:"7 Stages",
+storageTankCapacity:"12 Liters",
+purificationCapacity:"13–15 Liters / Hour"
+},
 
-  {
-    id: 5,
-    slug: "lx-one-titanium-series",
-    category: "Domestic",
-    name: "LX One Titanium Series",
-    image: PRODUCT_IMAGES.LX_ONE_TITANIUM,
-    description:
-      "BIS Certified RO+UV+UF+TDS+Alkaline+Copper water purifier with 8L storage and advanced 7-stage purification.",
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
 
-    pricing: {
-      basePrice: 13200,
-      currency: "INR",
-      unit: "Unit",
-    },
+{
+id:5,
+slug:"aqua-pearl-ro-uv-alkaline",
+category:"Domestic",
+name:"Aqua Pearl RO UV Alkaline",
+image:PRODUCT_IMAGES.AQUA_PEARL,
+description:"7-stage RO + UV + Alkaline purification system providing healthy pH balanced drinking water.",
 
-    specifications: {
-      purificationMethod: "RO + UV + UF + TDS + Alkaline + Copper",
-      purificationStages: "7 Stages",
-      storageTankCapacity: "8 Liters",
-      purificationCapacity: "13 Liters / Hour",
-      certification: "BIS IS 16240:2023",
-    },
+pricing:{
+basePrice:11300,
+currency:"INR",
+unit:"Unit"
+},
 
-    services: {
-      installation: { available: true, free: true },
-      warranty: { available: true, period: "1 Year" },
-      customerSupport: "24/7 Customer Service",
-    },
-  },
+specifications:{
+purificationMethod:"RO + UV + Alkaline",
+purificationStages:"7 Stages",
+storageTankCapacity:"10 Liters",
+purificationCapacity:"12 Liters / Hour"
+},
 
-  {
-    id: 6,
-    slug: "aqua-queen-ro-water-purifier",
-    category: "Domestic",
-    name: "Aqua Queen RO Water Purifier",
-    image: PRODUCT_IMAGES.AQUA_QUEEN,
-    description:
-      "Reverse Osmosis water purifier with carbon filtration ensuring clean and safe drinking water for home use.",
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
 
-    pricing: {
-      basePrice: 6800,
-      currency: "INR",
-      unit: "Unit",
-    },
+{
+id:6,
+slug:"aqua-xl-ro-water-purifier",
+category:"Domestic",
+name:"Aqua XL",
+image:PRODUCT_IMAGES.AQUA_XL,
+description:"Powerful RO purifier designed for large family water consumption with advanced filtration.",
 
-    specifications: {
-      purificationMethod: "RO + Carbon Filtration",
-      purificationStages: "7 Stages",
-      storageTankCapacity: "10 Liters",
-    },
+pricing:{
+basePrice:11800,
+currency:"INR",
+unit:"Unit"
+},
 
-    services: {
-      installation: { available: true, free: true },
-      warranty: { available: true, period: "1 Year" },
-      customerSupport: "24/7 Customer Service",
-    },
-  },
+specifications:{
+purificationMethod:"RO + UF",
+purificationStages:"7 Stages",
+storageTankCapacity:"12 Liters",
+purificationCapacity:"13–15 Liters / Hour"
+},
+
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
+
+{
+id:7,
+slug:"aqua-jade-ro-alkaline-water-purifier",
+category:"Domestic",
+name:"Aqua Jade",
+image:PRODUCT_IMAGES.AQUA_JADE,
+description:"Advanced RO purifier with alkaline technology delivering mineral rich drinking water.",
+
+pricing:{
+basePrice:11700,
+currency:"INR",
+unit:"Unit"
+},
+
+specifications:{
+purificationMethod:"RO + UV + UF + TDS + Alkaline",
+purificationStages:"7 Stages",
+storageTankCapacity:"12 Liters",
+purificationCapacity:"12–15 Liters / Hour"
+},
+
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
+
+{
+id:8,
+slug:"aqua-wate-lily-ro-uv-uf-copper",
+category:"Domestic",
+name:"Aqua Wate Lily",
+image:PRODUCT_IMAGES.AQUA_WATE_LILY,
+description:"Premium RO + UV + UF + Copper purification system delivering mineral enriched drinking water.",
+
+pricing:{
+basePrice:12000,
+currency:"INR",
+unit:"Unit"
+},
+
+specifications:{
+purificationMethod:"RO + UV + UF + Copper",
+purificationStages:"7 Stages",
+storageTankCapacity:"11 Liters",
+purificationCapacity:"13 Liters / Hour"
+},
+
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
+
+{
+id:9,
+slug:"aqua-onix-ro-water-purifier",
+category:"Domestic",
+name:"Aqua Onix",
+image:PRODUCT_IMAGES.AQUA_ONIX,
+description:"Modern RO purifier with mineral technology ensuring healthy drinking water.",
+
+pricing:{
+basePrice:10700,
+currency:"INR",
+unit:"Unit"
+},
+
+specifications:{
+purificationMethod:"RO + UF + Minerals",
+purificationStages:"7 Stages",
+storageTankCapacity:"12 Liters",
+purificationCapacity:"11 Liters / Hour"
+},
+
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
+
+{
+id:10,
+slug:"aqua-lexzon-ro-water-purifier",
+category:"Domestic",
+name:"Aqua Lexzon",
+image:PRODUCT_IMAGES.AQUA_LEXZON,
+description:"Efficient 5 stage RO purifier designed for reliable home water purification.",
+
+pricing:{
+basePrice:9700,
+currency:"INR",
+unit:"Unit"
+},
+
+specifications:{
+purificationMethod:"RO",
+purificationStages:"5 Stages",
+storageTankCapacity:"11 Liters",
+purificationCapacity:"12–15 Liters / Hour"
+},
+
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
+
+{
+id:11,
+slug:"aqua-2090-ro-copper-alkaline",
+category:"Domestic",
+name:"Aqua 2090",
+image:PRODUCT_IMAGES.AQUA_2090,
+description:"RO purifier with active copper and alkaline filter for healthier drinking water.",
+
+pricing:{
+basePrice:12500,
+currency:"INR",
+unit:"Unit"
+},
+
+specifications:{
+purificationMethod:"RO + Active Copper + Alkaline Filter",
+purificationStages:"7 Stages",
+storageTankCapacity:"10 Liters",
+purificationCapacity:"12–15 Liters / Hour"
+},
+
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
+
+{
+id:12,
+slug:"lx-one-titanium-series",
+category:"Domestic",
+name:"LX One Titanium Series",
+image:PRODUCT_IMAGES.LX_ONE_TITANIUM,
+description:"BIS Certified RO + UV + UF + TDS + Alkaline + Copper purifier with premium purification technology.",
+
+pricing:{
+basePrice:13200,
+currency:"INR",
+unit:"Unit"
+},
+
+specifications:{
+purificationMethod:"RO + UV + UF + TDS + Alkaline + Copper",
+purificationStages:"7 Stages",
+storageTankCapacity:"8 Liters",
+purificationCapacity:"13 Liters / Hour",
+certification:"BIS IS 16240:2023"
+},
+
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
+
+{
+id:13,
+slug:"hi-flo-ro-water-purifier",
+category:"Domestic",
+name:"Hi Flo",
+image:PRODUCT_IMAGES.HI_FLO,
+description:"High flow RO purifier with copper and alkaline filtration for superior water quality.",
+
+pricing:{
+basePrice:11400,
+currency:"INR",
+unit:"Unit"
+},
+
+specifications:{
+purificationMethod:"RO + Copper + Alkaline",
+purificationStages:"7 Stages",
+storageTankCapacity:"12 Liters",
+purificationCapacity:"15 Liters / Hour"
+},
+
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
+
+{
+id:14,
+slug:"aqua-roma-ro-water-purifier",
+category:"Domestic",
+name:"Aqua Roma",
+image:PRODUCT_IMAGES.AQUA_ROMA,
+description:"RO purifier with TDS controller and alkaline filter for balanced drinking water.",
+
+pricing:{
+basePrice:11800,
+currency:"INR",
+unit:"Unit"
+},
+
+specifications:{
+purificationMethod:"RO + UF + TDS Controller + Alkaline Filter",
+purificationStages:"7 Stages",
+storageTankCapacity:"10 Liters",
+purificationCapacity:"12–15 Liters / Hour"
+},
+
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
+
+{
+id:15,
+slug:"aqua-libra-ro-water-purifier",
+category:"Domestic",
+name:"Aqua Libra",
+image:PRODUCT_IMAGES.AQUA_LIBRA,
+description:"Advanced RO purifier with alkaline technology and TDS controller.",
+
+pricing:{
+basePrice:12100,
+currency:"INR",
+unit:"Unit"
+},
+
+specifications:{
+purificationMethod:"RO + UF + TDS Controller + Alkaline Filter",
+purificationStages:"7 Stages",
+storageTankCapacity:"10 Liters",
+purificationCapacity:"12–15 Liters / Hour"
+},
+
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
+
+{
+id:16,
+slug:"sonnet-ro-water-purifier",
+category:"Domestic",
+name:"Sonnet RO Water Purifier",
+image:PRODUCT_IMAGES.SONNET,
+description:"Affordable RO purifier with TDS controller providing safe drinking water.",
+
+pricing:{
+basePrice:6800,
+currency:"INR",
+unit:"Unit"
+},
+
+specifications:{
+purificationMethod:"RO + UF + TDS Controller",
+purificationStages:"7 Stages",
+storageTankCapacity:"10 Liters",
+purificationCapacity:"12–15 Liters / Hour"
+},
+
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+},
+
+{
+id:17,
+slug:"aqua-queen-ro-water-purifier",
+category:"Domestic",
+name:"Aqua Queen RO Water Purifier",
+image:PRODUCT_IMAGES.AQUA_QUEEN,
+description:"Reverse Osmosis water purifier with carbon filtration ensuring clean and safe drinking water.",
+
+pricing:{
+basePrice:6800,
+currency:"INR",
+unit:"Unit"
+},
+
+specifications:{
+purificationMethod:"RO + Carbon Filtration",
+purificationStages:"7 Stages",
+storageTankCapacity:"10 Liters",
+purificationCapacity:"12–15 Liters / Hour"
+},
+
+services:{
+installation:{available:true,free:true},
+warranty:{available:true,period:"1 Year"},
+customerSupport:"24/7 Customer Service"
+}
+}
+
 ];
