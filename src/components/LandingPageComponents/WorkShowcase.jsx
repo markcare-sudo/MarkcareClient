@@ -1,5 +1,5 @@
 // WorkShowcase.jsx
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function WorkShowcase() {
@@ -12,15 +12,24 @@ export default function WorkShowcase() {
     { src: "/assets/Images/Markcare10.jpg", alt: "Factory Utility Project" },
   ];
 
-  const duplicated = [...images, ...images]; // For infinite loop
+  const duplicated = [...images, ...images];
+
   const [selected, setSelected] = useState(null);
+  const marqueeRef = useRef(null);
+  const [width, setWidth] = useState(0);
+
+  // Measure exact width for seamless loop
+  useEffect(() => {
+    if (marqueeRef.current) {
+      setWidth(marqueeRef.current.scrollWidth / 2);
+    }
+  }, []);
 
   return (
     <section
       id="work"
       className="relative py-20 lg:py-28 text-white overflow-hidden"
     >
-
       <div className="relative max-w-7xl mx-auto px-4">
         {/* ================= HEADER ================= */}
         <motion.div
@@ -45,15 +54,19 @@ export default function WorkShowcase() {
         </motion.div>
       </div>
 
-      {/* ================= INFINITE SLIDER ================= */}
+      {/* ================= SEAMLESS INFINITE SLIDER ================= */}
       <div className="relative mt-14 overflow-hidden">
         <motion.div
-          className="flex gap-8"
-          animate={{ x: ["0%", "-50%"] }}
+          ref={marqueeRef}
+          className="flex gap-8 w-max"
+          animate={{ x: [0, -width] }}
           transition={{
-            repeat: Infinity,
-            duration: 5,
-            ease: "linear",
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 30, // 🔥 Adjust speed here (higher = slower)
+              ease: "linear",
+            },
           }}
           whileHover={{ animationPlayState: "paused" }}
         >
@@ -61,6 +74,7 @@ export default function WorkShowcase() {
             <motion.div
               key={i}
               whileHover={{ y: -8 }}
+              transition={{ type: "spring", stiffness: 200 }}
               onClick={() => setSelected(i % images.length)}
               className="min-w-[280px] md:min-w-[420px] cursor-pointer 
                          rounded-2xl overflow-hidden border border-white/10 

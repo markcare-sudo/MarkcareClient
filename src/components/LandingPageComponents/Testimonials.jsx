@@ -4,24 +4,38 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     name: "Ramesh Kumar",
-    role: "Apartment Owner",
+    role: "Flat Owner – Vijayawada",
     rating: 5,
     review:
-      "Excellent AC repair service. The team was professional, on time, and very transparent with pricing. Highly recommended!",
+      "My AC suddenly stopped working in peak summer and I was honestly worried about the cost. The MarkCare team came the same day, explained the issue clearly and fixed it without suggesting unnecessary parts. Pricing was fair and service was clean. Really happy with how they handled everything.",
   },
   {
     name: "Priya Sharma",
-    role: "Factory Manager",
+    role: "Operations Manager – Manufacturing Unit",
     rating: 5,
     review:
-      "MarkCare handled our industrial lift maintenance efficiently. Their technicians are well-trained and responsive.",
+      "We’ve been using MarkCare for our industrial lift maintenance for over a year now. They respond quickly whenever we raise a ticket and their technicians are disciplined and knowledgeable. Downtime has reduced significantly after they took over.",
   },
   {
     name: "Arjun Reddy",
-    role: "Homeowner",
+    role: "Independent House Owner",
     rating: 4,
     review:
-      "Quick RO plant installation and great after-service support. Very satisfied with the overall experience.",
+      "Got RO plant installation done for our home. Installation was smooth and completed in a day. After-service support is good they even followed up after a week to check if everything was working fine. Overall a reliable team.",
+  },
+  {
+    name: "Sana Begum",
+    role: "Apartment Association Member",
+    rating: 5,
+    review:
+      "We contacted MarkCare for water treatment setup in our apartment. They inspected the site properly before giving quotation, which gave us confidence. Work was completed on schedule and residents are satisfied with water quality now.",
+  },
+  {
+    name: "Venkatesh Rao",
+    role: "Small Factory Owner",
+    rating: 4,
+    review:
+      "Their team installed utility systems in our unit. There were a couple of minor delays due to material availability, but they communicated clearly and finished the job properly. Professional approach and reasonable pricing.",
   },
 ];
 

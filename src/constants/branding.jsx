@@ -85,6 +85,39 @@ export const PRODUCT_IMAGES = {
 };
 
 
+export const MARKCARE_GALLERY = {
+  GALLERY_1: import.meta.env.VITE_GALLERY_1,
+  GALLERY_2: import.meta.env.VITE_GALLERY_2,
+  GALLERY_3: import.meta.env.VITE_GALLERY_3,
+  GALLERY_4: import.meta.env.VITE_GALLERY_4,
+  GALLERY_5: import.meta.env.VITE_GALLERY_5,
+  GALLERY_6: import.meta.env.VITE_GALLERY_6,
+  GALLERY_7: import.meta.env.VITE_GALLERY_7,
+  GALLERY_8: import.meta.env.VITE_GALLERY_8,
+  GALLERY_9: import.meta.env.VITE_GALLERY_9,
+  GALLERY_10: import.meta.env.VITE_GALLERY_10,
+  GALLERY_11: import.meta.env.VITE_GALLERY_11,
+  GALLERY_12: import.meta.env.VITE_GALLERY_12,
+  GALLERY_13: import.meta.env.VITE_GALLERY_13,
+  GALLERY_14: import.meta.env.VITE_GALLERY_14,
+  GALLERY_15: import.meta.env.VITE_GALLERY_15,
+  GALLERY_16: import.meta.env.VITE_GALLERY_16,
+  // GALLERY_17: import.meta.env.VITE_GALLERY_17,
+  GALLERY_18: import.meta.env.VITE_GALLERY_18,
+  GALLERY_19: import.meta.env.VITE_GALLERY_19,
+  GALLERY_20: import.meta.env.VITE_GALLERY_20,
+  GALLERY_21: import.meta.env.VITE_GALLERY_21,
+  GALLERY_22: import.meta.env.VITE_GALLERY_22,
+  GALLERY_23: import.meta.env.VITE_GALLERY_23,
+  GALLERY_24: import.meta.env.VITE_GALLERY_24,
+  GALLERY_25: import.meta.env.VITE_GALLERY_25,
+  GALLERY_26: import.meta.env.VITE_GALLERY_26,
+  GALLERY_27: import.meta.env.VITE_GALLERY_27,
+  GALLERY_28: import.meta.env.VITE_GALLERY_28,
+  GALLERY_29: import.meta.env.VITE_GALLERY_29,
+  GALLERY_30: import.meta.env.VITE_GALLERY_30,
+};
+
 
 export const CONTACT_IMAGES = {
   CONTACT_US: import.meta.env.VITE_CONTACT_US || "",

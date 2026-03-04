@@ -4,14 +4,46 @@ export const PROJECT_CATEGORIES = [
     projects: [
       {
         id: 1,
-        title: "Government Royapettah Hospital",
+        title: "Government Royapettah Hospital – Common Area",
         location: "Chennai, Tamil Nadu",
-        capacity: "1000 LPH × 3 Units",
-        description: "Installed RO plant for dialysis unit.",
+        capacity: "1000 LPH",
+        description: "Installed 1000 LPH RO plant for Common Area water purification system.",
         image: "/hospital.jpg",
       },
       {
         id: 2,
+        title: "Government Royapettah Hospital – Medical Block",
+        location: "Chennai, Tamil Nadu",
+        capacity: "1000 LPH",
+        description: "Installed 1000 LPH RO plant for Medical Block.",
+        image: "/hospital.jpg",
+      },
+      {
+        id: 3,
+        title: "Government Royapettah Hospital – New Cancer Block",
+        location: "Chennai, Tamil Nadu",
+        capacity: "1000 LPH",
+        description: "Installed 1000 LPH RO plant for New Cancer Block.",
+        image: "/hospital.jpg",
+      },
+      {
+        id: 4,
+        title: "Government Royapettah Hospital – New Surgical Block",
+        location: "Chennai, Tamil Nadu",
+        capacity: "1000 LPH",
+        description: "Installed 1000 LPH RO plant for New Surgical Block (Work Order 2026–2027).",
+        image: "/hospital.jpg",
+      },
+      {
+        id: 5,
+        title: "Government Peripheral Hospital – 4 Units",
+        location: "Tamil Nadu",
+        capacity: "1000 LPH × 4 Units",
+        description: "Supplied and installed 4 Nos of 1000 LPH RO plants as per government work order.",
+        image: "/hospital.jpg",
+      },
+      {
+        id: 6,
         title: "Apollo Clinic",
         location: "Bangalore, Karnataka",
         capacity: "500 LPH",
@@ -62,7 +94,6 @@ export const PROJECT_CATEGORIES = [
     projects: [],
   },
 
-
   {
     name: "Water Softener",
     projects: [],
@@ -73,14 +104,13 @@ export const PROJECT_CATEGORIES = [
     projects: [],
   },
 
-    {
+  {
     name: "Generators",
     projects: [],
   },
 
-    {
+  {
     name: "AC Systems",
     projects: [],
   },
-
 ];

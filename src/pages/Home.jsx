@@ -75,7 +75,7 @@ export default function MarkCareSite() {
         <Banner />
         <WhoWeAre />
         <QualityServices />
-        <OurIndustriesCarousel />
+        {/* <OurIndustriesCarousel /> */}
         <AboutUs cities={CITIES} />
         <WhyUs installs={installs} citiesCount={citiesCount} />
         <WorkShowcase />
