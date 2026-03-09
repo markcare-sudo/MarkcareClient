@@ -85,6 +85,14 @@ export const PRODUCT_IMAGES = {
 };
 
 
+export const PROJECTS_IMAGES = {
+  ROYEPEETA: import.meta.env.VITE_ROYEPEETA,
+  PROJECTS_ROWATERP1: import.meta.env.VITE_PROJECTS_ROWATERP1,
+  PROJECTS_ROWATERP2: import.meta.env.VITE_PROJECTS_ROWATERP2,
+  PROJECTS_ROWATERP3: import.meta.env.VITE_PROJECTS_ROWATERP3,
+}
+
+
 export const MARKCARE_GALLERY = {
   GALLERY_1: import.meta.env.VITE_GALLERY_1,
   GALLERY_2: import.meta.env.VITE_GALLERY_2,

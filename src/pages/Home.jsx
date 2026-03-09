@@ -74,8 +74,8 @@ export default function MarkCareSite() {
       <div className="min-h-screen">
         <Banner />
         <WhoWeAre />
+        <OurIndustriesCarousel />
         <QualityServices />
-        {/* <OurIndustriesCarousel /> */}
         <AboutUs cities={CITIES} />
         <WhyUs installs={installs} citiesCount={citiesCount} />
         <WorkShowcase />
