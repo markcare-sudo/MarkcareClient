@@ -32,17 +32,35 @@ const Header = ({ cities = CITIES }) => {
 
   // --- Grouped Data ---
   const domesticServices = [
-    { name: "Residential Elevators", slug: "elevators" },
+    { name: "Residential & Commercial Elevators", slug: "commercial-elevators-lifts" },
     { name: "RO Water Purifiers", slug: "ro-water-purifiers" },
     { name: "Solar Power Systems", slug: "solar-power-systems" },
     { name: "AC Systems", slug: "ac-systems" },
+    { name: "(TV) Television Installation & Service", slug: "tv-installation-service" },
+    { name: "Refrigerator Service", slug: "refrigerator-service" },
+    { name: "Washing Machine Service", slug: "washing-machine-service" },
+    { name: "Geyser Installation & Service", slug: "geyser-installation-service" },
+    // { name: "Water Heater Systems", slug: "water-heater-systems" },
+    { name: "Kitchen Chimney Service", slug: "kitchen-chimney-service" },
   ];
 
+
   const commercialServices = [
-    { name: "Water Treatment Plant", slug: "water-treatment-plant" },
-    // { name: "Sewage Treatment Plant", slug: "sewage-treatment-plant" },
-    // { name: "Effluent Treatment Plant", slug: "effluent-treatment-plant" },
+    { name: "Water Treatment Plant (WTP, ETP, STP)", slug: "water-treatment-plant" },
+    { name: "Water Softening Plant", slug: "water-softening-plant" },
+    { name: "Reverse Osmosis Plant", slug: "reverse-osmosis-plant" },
+
+    { name: "Industrial RO Systems", slug: "industrial-ro-systems" },
+    { name: "Commercial RO Water Purifiers", slug: "commercial-ro-water-purifiers" },
+
     { name: "Diesel Generators", slug: "diesel-generators" },
+    { name: "Solar Power Systems", slug: "commercial-solar-power-systems" },
+
+    { name: "Centralized AC / HVAC Systems", slug: "ac-systems" },
+
+    { name: "Commercial Elevators & Lifts", slug: "commercial-elevators-lifts" },
+
+    // { name: "Industrial Water Pumps", slug: "industrial-water-pumps" },
   ];
 
   return (

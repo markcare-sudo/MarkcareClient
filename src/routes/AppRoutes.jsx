@@ -32,7 +32,7 @@ const AppRoutes = () => {
 
   const ServiceRoutes = () => (
     <>
-      <Route path="elevators" element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>} />
+      <Route path="commercial-elevators-lifts" element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>} />
       <Route path="water-treatment-plant" element={<ErrorBoundary><WaterTreatmentPlant /></ErrorBoundary>} />
       <Route path="sewage-treatment-plant" element={<ErrorBoundary><SewageTreatmentPlant /></ErrorBoundary>} />
       <Route path="water-softening-plant" element={<ErrorBoundary><WaterSofteningPlant /></ErrorBoundary>} />
@@ -41,7 +41,7 @@ const AppRoutes = () => {
       <Route path="diesel-generators" element={<ErrorBoundary><DieselGenerator /></ErrorBoundary>} />
       <Route path="solar-power-systems" element={<ErrorBoundary><Solar /></ErrorBoundary>} />
       <Route path="ac-systems" element={<ErrorBoundary><AC /></ErrorBoundary>} />
-      <Route path="refrigerators" element={<ErrorBoundary><Refrigerators /></ErrorBoundary>} />
+      <Route path="refrigerator-service" element={<ErrorBoundary><Refrigerators /></ErrorBoundary>} />
       <Route path="ups-systems" element={<ErrorBoundary><UPS /></ErrorBoundary>} />
     </>
   );
