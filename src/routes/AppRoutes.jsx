@@ -32,7 +32,7 @@ const AppRoutes = () => {
 
   const ServiceRoutes = () => (
     <>
-      <Route path="commercial-elevators-lifts" element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>} />
+      <Route path="elevators-lifts" element={<ErrorBoundary><ElevatorsPage /></ErrorBoundary>} />
       <Route path="water-treatment-plant" element={<ErrorBoundary><WaterTreatmentPlant /></ErrorBoundary>} />
       <Route path="sewage-treatment-plant" element={<ErrorBoundary><SewageTreatmentPlant /></ErrorBoundary>} />
       <Route path="water-softening-plant" element={<ErrorBoundary><WaterSofteningPlant /></ErrorBoundary>} />

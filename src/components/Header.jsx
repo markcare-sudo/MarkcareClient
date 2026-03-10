@@ -32,7 +32,7 @@ const Header = ({ cities = CITIES }) => {
 
   // --- Grouped Data ---
   const domesticServices = [
-    { name: "Residential & Commercial Elevators", slug: "commercial-elevators-lifts" },
+    { name: "Residential & Commercial Elevators", slug: "elevators-lifts" },
     { name: "RO Water Purifiers", slug: "ro-water-purifiers" },
     { name: "Solar Power Systems", slug: "solar-power-systems" },
     { name: "AC Systems", slug: "ac-systems" },
@@ -40,8 +40,9 @@ const Header = ({ cities = CITIES }) => {
     { name: "Refrigerator Service", slug: "refrigerator-service" },
     { name: "Washing Machine Service", slug: "washing-machine-service" },
     { name: "Geyser Installation & Service", slug: "geyser-installation-service" },
+    { name: "UPS Systems", slug: "ups-systems" },
     // { name: "Water Heater Systems", slug: "water-heater-systems" },
-    { name: "Kitchen Chimney Service", slug: "kitchen-chimney-service" },
+    // { name: "Kitchen Chimney Service", slug: "kitchen-chimney-service" },
   ];
 
 
@@ -51,14 +52,14 @@ const Header = ({ cities = CITIES }) => {
     { name: "Reverse Osmosis Plant", slug: "reverse-osmosis-plant" },
 
     { name: "Industrial RO Systems", slug: "industrial-ro-systems" },
-    { name: "Commercial RO Water Purifiers", slug: "commercial-ro-water-purifiers" },
+    { name: "Commercial RO Water Purifiers", slug: "ro-water-purifiers" },
 
     { name: "Diesel Generators", slug: "diesel-generators" },
-    { name: "Solar Power Systems", slug: "commercial-solar-power-systems" },
+    { name: "Solar Power Systems", slug: "solar-power-systems" },
 
     { name: "Centralized AC / HVAC Systems", slug: "ac-systems" },
 
-    { name: "Commercial Elevators & Lifts", slug: "commercial-elevators-lifts" },
+    { name: "Commercial Elevators & Lifts", slug: "elevators-lifts" },
 
     // { name: "Industrial Water Pumps", slug: "industrial-water-pumps" },
   ];
