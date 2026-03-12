@@ -54,7 +54,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            What Our <span className="text-orange-500">Satisfied Customers</span> Say
+            What Our <span className="text-red-600">Satisfied Customers</span> Say
           </h2>
           <p className="text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed">
             Trusted by homeowners and industrial leaders for reliable, 

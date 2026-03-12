@@ -41,10 +41,10 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section className="relative py-20 lg:py-28 bg-neutral-950 overflow-hidden">
+    <section className="relative py-20 lg:py-28 overflow-hidden">
       {/* Subtle Background Accent */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-10 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-orange-500/20 via-transparent to-transparent blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-500/20 via-transparent to-transparent blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6">
@@ -59,7 +59,7 @@ const ServicesSection = () => {
             className="max-w-2xl"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-              Our <span className="text-orange-500">Services</span>
+              Our <span className="text-red-500">Services</span>
             </h2>
             <p className="text-neutral-400 mt-4 text-lg leading-relaxed">
               Comprehensive, standardized, and reliable – tailored solutions 
@@ -105,7 +105,7 @@ const ServicesSection = () => {
                   title={service.name}
                   // Assuming ServiceCard handles the click; passing name or whole object
                   onClick={() => handleServiceClick(service.name)}
-                  className="bg-neutral-900/50 border-neutral-800 hover:border-orange-500/50 transition-colors"
+                  className="bg-neutral-900/50 border-neutral-800 hover:border-red-500/50 transition-colors"
                 />
               </div>
             </motion.div>

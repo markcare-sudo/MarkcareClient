@@ -98,7 +98,7 @@ export default function Clients() {
         </div>
 
         {/* Marquee Wrapper */}
-        <div 
+        <div
           className="relative mt-10 group"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -127,7 +127,7 @@ export default function Clients() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .text-glow {
           text-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
         }

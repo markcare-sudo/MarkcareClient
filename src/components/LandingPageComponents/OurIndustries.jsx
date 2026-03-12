@@ -48,13 +48,13 @@ export default function IndustriesSlider() {
   }, [handleNext]);
 
   return (
-    <section className="relative bg-neutral-950 py-20 px-4 overflow-hidden text-white">
+    <section className="relative py-20 px-4 overflow-hidden text-white">
       {/* Header */}
       <div className="max-w-4xl mx-auto text-center mb-12 lg:mb-20">
         <motion.span 
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-orange-500 font-medium tracking-widest uppercase text-sm"
+          className="text-red-500 font-medium tracking-widest uppercase text-sm"
         >
           Premium Solutions
         </motion.span>
@@ -71,13 +71,13 @@ export default function IndustriesSlider() {
         <div className="absolute inset-0 flex items-center justify-between z-40 pointer-events-none px-4 md:px-10">
           <button
             onClick={handlePrev}
-            className="pointer-events-auto bg-white/10 hover:bg-orange-600 transition-colors p-4 rounded-full backdrop-blur-md border border-white/20 group"
+            className="pointer-events-auto bg-white/10 hover:bg-red-600 transition-colors p-4 rounded-full backdrop-blur-md border border-white/20 group"
           >
             <ChevronLeft className="w-6 h-6 group-active:scale-90 transition-transform" />
           </button>
           <button
             onClick={handleNext}
-            className="pointer-events-auto bg-white/10 hover:bg-orange-600 transition-colors p-4 rounded-full backdrop-blur-md border border-white/20 group"
+            className="pointer-events-auto bg-white/10 hover:bg-red-600 transition-colors p-4 rounded-full backdrop-blur-md border border-white/20 group"
           >
             <ChevronRight className="w-6 h-6 group-active:scale-90 transition-transform" />
           </button>
@@ -110,7 +110,7 @@ export default function IndustriesSlider() {
                   damping: 25,
                 }}
                 className={`absolute w-[300px] md:w-[400px] aspect-[3/4] md:h-[480px] rounded-3xl p-1 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] ${
-                  isActive ? "bg-gradient-to-b from-orange-600 to-red-700" : "bg-neutral-900 border border-neutral-800"
+                  isActive ? "bg-gradient-to-b from-red-600 to-red-700" : "bg-neutral-900 border border-neutral-800"
                 }`}
               >
                 <div className="relative h-full w-full bg-neutral-900/40 rounded-[22px] overflow-hidden flex flex-col">
@@ -139,7 +139,7 @@ export default function IndustriesSlider() {
                       to={item.path}
                       className={`inline-flex items-center justify-center gap-2 mt-4 px-6 py-3 rounded-xl font-medium transition-all ${
                         isActive 
-                        ? "bg-white text-black hover:bg-orange-50" 
+                        ? "bg-white text-black hover:bg-red-50" 
                         : "bg-neutral-800 text-white hover:bg-neutral-700"
                       }`}
                     >
@@ -161,7 +161,7 @@ export default function IndustriesSlider() {
             key={index}
             onClick={() => setActive(index)}
             className={`transition-all duration-300 rounded-full ${
-              active === index ? "w-8 bg-orange-500" : "w-2 bg-neutral-700 hover:bg-neutral-500"
+              active === index ? "w-8 bg-red-500" : "w-2 bg-neutral-700 hover:bg-neutral-500"
             } h-2`}
             aria-label={`Go to slide ${index + 1}`}
           />

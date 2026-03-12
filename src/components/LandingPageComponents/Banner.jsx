@@ -1,154 +1,110 @@
-import { BANNER_IMAGES } from "@/constants/branding";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { BANNER_IMAGES } from "@/constants/branding";
+import { ChevronRight } from "lucide-react";
 
 const serviceItems = [
-  {
-    name: "  Residential Elevators",
-    path: "/services/elevators",
-    image: BANNER_IMAGES.ELEVATOR_BANNER,
-  },
-  {
-    name: "  Water Treatment Plant",
-    path: "/services/water-treatment-plant",
-    image: BANNER_IMAGES.WATERTREATMENT_BANNER,
-  },
-  {
-    name: "  Water Softening Plant",
-    path: "/services/water-softening-plant",
-    image: BANNER_IMAGES.WATERSOFTENING_BANNER,
-  },
-  {
-    name: "  Sewage Treatment Plant",
-    path: "/services/sewage-treatment-plant",
-    image: BANNER_IMAGES.SEWAGEWATER_BANNER,
-  },
-  {
-    name: "  Reverse Osmosis Plant",
-    path: "/services/reverse-osmosis-plant",
-    image: BANNER_IMAGES.REVERSEOSMOSIS_BANNER,
-  },
-  {
-    name: "  RO Water Purifiers",
-    path: "/services/ro-water-purifiers",
-    image: BANNER_IMAGES.RO_BANNER,
-  },
-  {
-    name: "  Diesel Generators",
-    path: "/services/diesel-generators",
-    image: BANNER_IMAGES.DEISELGENERATE_BANNER,
-  },
+  { name: "Residential Elevators", path: "/services/elevators", image: BANNER_IMAGES.ELEVATOR_BANNER },
+  { name: "Water Treatment Plant", path: "/services/water-treatment-plant", image: BANNER_IMAGES.WATERTREATMENT_BANNER },
+  { name: "Water Softening Plant", path: "/services/water-softening-plant", image: BANNER_IMAGES.WATERSOFTENING_BANNER },
+  { name: "Sewage Treatment Plant", path: "/services/sewage-treatment-plant", image: BANNER_IMAGES.SEWAGEWATER_BANNER },
+  { name: "Reverse Osmosis Plant", path: "/services/reverse-osmosis-plant", image: BANNER_IMAGES.REVERSEOSMOSIS_BANNER },
+  { name: "RO Water Purifiers", path: "/services/ro-water-purifiers", image: BANNER_IMAGES.RO_BANNER },
+  { name: "Diesel Generators", path: "/services/diesel-generators", image: BANNER_IMAGES.DEISELGENERATE_BANNER },
 ];
 
 export default function ServiceCarousel() {
   const [current, setCurrent] = useState(0);
-  const [typedText, setTypedText] = useState("");
   const navigate = useNavigate();
 
-  // Auto Slide
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % serviceItems.length);
-    }, 4000);
-    return () => clearInterval(interval);
+  const nextSlide = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % serviceItems.length);
   }, []);
 
-  // Typing Effect
   useEffect(() => {
-    const fullText = serviceItems[current].name;
-    let index = 0;
-    setTypedText("");
-
-    const typing = setInterval(() => {
-      setTypedText((prev) => prev + fullText.charAt(index));
-      index++;
-      if (index === fullText.length) clearInterval(typing);
-    }, 80);
-
-    return () => clearInterval(typing);
-  }, [current]);
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
 
   return (
-    <div className="relative w-full overflow-hidden">
-      {serviceItems.map((item, index) => (
-        <div
-          key={index}
-          className={`transition-opacity duration-1000 ${index === current ? "opacity-100" : "opacity-0 absolute inset-0"
-            }`}
+    <div className="relative w-full h-[70vh] md:h-[85vh] lg:h-[90vh] overflow-hidden bg-black">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0"
         >
-          {/* MOBILE LAYOUT (Image Top, Text Bottom) */}
-          <div className="md:hidden relative w-full bg-black">
-            {/* Image */}
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-full h-auto object-contain"
-            />
+          {/* Cinematic Background Image */}
+          <motion.img
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 5, ease: "easeOut" }}
+            src={serviceItems[current].image}
+            alt={serviceItems[current].name}
+            className="w-full h-full object-cover"
+          />
 
-            {/* Bottom Gradient Shadow */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          {/* Premium Gradient Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent hidden md:block" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent md:hidden" />
 
-            {/* Text Content */}
-            <div className="absolute bottom-0 w-full px-4 pb-6">
-              <h2 className="text-2xl font-bold text-white leading-tight">
-                {typedText}
-                <span className="border-r-2 border-yellow-400 animate-pulse ml-2"></span>
-              </h2>
-
-              <button
-                onClick={() => navigate(item.path)}
-                className="mt-4 px-6 py-3 bg-red-700 hover:bg-red-800 cursor-pointer text-white font-semibold rounded-md transition-all duration-300"
+          {/* Content Wrapper */}
+          <div className="absolute inset-0 flex items-end md:items-center px-6 md:px-20 lg:px-32 pb-20 md:pb-0">
+            <div className="max-w-3xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
               >
-                Explore Service
-              </button>
-            </div>
-          </div>
-
-          {/* DESKTOP LAYOUT */}
-          <div className="hidden md:block relative h-[80vh] lg:h-[90vh]">
-            {/* Background Image */}
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-full h-full object-cover"
-            />
-
-            {/* Left Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
-
-            {/* Content */}
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-1/2 px-34 text-left">
-                <h2 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
-                  {typedText}
-                  <span className="border-r-2 border-yellow-400 animate-pulse ml-2"></span>
+                <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-red-500 uppercase bg-red-500/10 border border-red-500/20 rounded-full">
+                  Our Specialization
+                </span>
+                
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
+                  {/* Smooth reveal instead of heavy typing effect */}
+                  {serviceItems[current].name}
                 </h2>
 
-                <button
-                  onClick={() => navigate(item.path)}
-                  className="mt-6 px-6 py-3 bg-red-700 hover:bg-red-800 text-white font-semibold rounded-md transition-all duration-300"
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate(serviceItems[current].path)}
+                  className="group flex items-center gap-3 px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full transition-all shadow-xl shadow-red-600/20"
                 >
                   Explore Service
-                </button>
-              </div>
+                  <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </motion.div>
             </div>
           </div>
-        </div>
-      ))}
+        </motion.div>
+      </AnimatePresence>
 
-      {/* Indicators */}
-      <div className="flex justify-center gap-3 py-4 bg-black md:absolute md:bottom-6 md:left-0 md:right-0 md:bg-transparent z-20">
+      {/* Navigation Indicators */}
+      <div className="absolute bottom-8 left-0 right-0 z-30 flex justify-center gap-4">
         {serviceItems.map((_, index) => (
-          <div
+          <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`w-6 h-2 md:w-4 md:h-4 rounded-full cursor-pointer transition-all ${index === current ? "bg-yellow-500 scale-110" : "bg-white/70"
-              }`}
-          ></div>
+            className="relative h-1.5 transition-all duration-300 overflow-hidden rounded-full bg-white/20"
+            style={{ width: index === current ? "3rem" : "1rem" }}
+          >
+            {index === current && (
+              <motion.div
+                layoutId="activeIndicator"
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 5, ease: "linear" }}
+                className="absolute inset-0 bg-red-500"
+              />
+            )}
+          </button>
         ))}
       </div>
     </div>
   );
-
-
 }
