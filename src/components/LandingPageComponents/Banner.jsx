@@ -5,7 +5,7 @@ import { BANNER_IMAGES } from "@/constants/branding";
 import { ChevronRight } from "lucide-react";
 
 const serviceItems = [
-  { name: "Residential Elevators", path: "/services/elevators", image: BANNER_IMAGES.ELEVATOR_BANNER },
+  { name: "Residential Elevators", path: "/services/elevators-lifts", image: BANNER_IMAGES.ELEVATOR_BANNER },
   { name: "Water Treatment Plant", path: "/services/water-treatment-plant", image: BANNER_IMAGES.WATERTREATMENT_BANNER },
   { name: "Water Softening Plant", path: "/services/water-softening-plant", image: BANNER_IMAGES.WATERSOFTENING_BANNER },
   { name: "Sewage Treatment Plant", path: "/services/sewage-treatment-plant", image: BANNER_IMAGES.SEWAGEWATER_BANNER },
