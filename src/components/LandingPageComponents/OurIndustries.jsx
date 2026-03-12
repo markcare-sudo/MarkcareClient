@@ -102,7 +102,7 @@ export default function IndustriesSlider() {
                 stiffness: 120,
                 damping: 20,
               }}
-              className={`absolute w-[360px] rounded-2xl overflow-hidden shadow-2xl ${
+              className={`absolute h-[440px] w-[360px] rounded-2xl overflow-hidden shadow-2xl ${
                 offset === 0
                   ? "bg-red-600 text-white"
                   : "bg-gray-900 text-white"
@@ -113,7 +113,7 @@ export default function IndustriesSlider() {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="h-[160px] object-contain"
+                  className="h-[200px] object-contain"
                 />
               </div>
 
