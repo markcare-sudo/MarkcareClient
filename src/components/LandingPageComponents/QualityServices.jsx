@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { SERVICES } from "@/constants/servicesData";
 import ServiceCard from "./ServiceCard";
-import CallbackModal from "../CallbackModal";
+import CallbackModal from "@/components/CallBackModal";
 
 // Refined animation variants for a smoother "pop-in" effect
 const containerVariants = {

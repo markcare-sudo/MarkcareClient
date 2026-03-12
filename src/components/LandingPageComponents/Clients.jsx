@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import { CLIENTS } from "@/utils/data";
 
 const ClientCard = ({ logo, name, subtitle }) => (

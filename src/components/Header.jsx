@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from "react";
-import { MapPin, Menu, Phone, X, ChevronDown } from "lucide-react";
+import React, { useState, useMemo, useEffect } from "react";
+import { MapPin, Menu, Phone, X, ChevronDown, Sparkles, Building2, Home } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { LOGOS } from "@/constants/branding";
@@ -8,13 +8,19 @@ import Button from "./ReusableComponents/Button";
 
 const Header = ({ cities = CITIES }) => {
   const { pathname } = useLocation();
-
   const [mobileOpen, setMobileOpen] = useState(false);
   const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll effect for professional glassmorphism
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const pathParts = pathname.split("/").filter(Boolean);
-
   const cityFromPath = useMemo(() => {
     if (pathParts.length === 0) return null;
     const first = pathParts[0].toLowerCase();
@@ -30,114 +36,118 @@ const Header = ({ cities = CITIES }) => {
     return `/${selectedCity}/${parts.join("/")}`.replace(/\/$/, "");
   };
 
-  // --- Grouped Data ---
   const domesticServices = [
-    { name: "Residential & Commercial Elevators", slug: "elevators-lifts" },
+    { name: "Residential Elevators", slug: "elevators-lifts" },
     { name: "RO Water Purifiers", slug: "ro-water-purifiers" },
     { name: "Solar Power Systems", slug: "solar-power-systems" },
-    { name: "AC Systems", slug: "ac-systems" },
-    { name: "(TV) Television Installation & Service", slug: "tv-installation-service" },
-    { name: "Refrigerator Service", slug: "refrigerator-service" },
-    { name: "Washing Machine Service", slug: "washing-machine-service" },
-    { name: "Geyser Installation & Service", slug: "geyser-installation-service" },
-    // { name: "UPS Systems", slug: "ups-systems" },
-    // { name: "Water Heater Systems", slug: "water-heater-systems" },
-    // { name: "Kitchen Chimney Service", slug: "kitchen-chimney-service" },
+    { name: "AC Systems & HVAC", slug: "ac-systems" },
+    { name: "TV & Appliances", slug: "tv-installation-service" },
+    { name: "Kitchen Solutions", slug: "kitchen-chimney-service" },
   ];
 
-
   const commercialServices = [
-    { name: "Water Treatment Plant (WTP, ETP, STP)", slug: "water-treatment-plant" },
-    { name: "Water Softening Plant", slug: "water-softening-plant" },
-    { name: "Reverse Osmosis Plant", slug: "reverse-osmosis-plant" },
-
-    { name: "Industrial RO Systems", slug: "industrial-ro-systems" },
-    { name: "Commercial RO Water Purifiers", slug: "ro-water-purifiers" },
-
+    { name: "WTP / ETP / STP Plants", slug: "water-treatment-plant" },
+    { name: "Water Softening", slug: "water-softening-plant" },
+    { name: "Industrial RO Plants", slug: "industrial-ro-systems" },
     { name: "Diesel Generators", slug: "diesel-generators" },
-    { name: "Solar Power Systems", slug: "solar-power-systems" },
-
-    { name: "Centralized AC / HVAC Systems", slug: "ac-systems" },
-
-    { name: "Commercial Elevators & Lifts", slug: "elevators-lifts" },
-
-    // { name: "Industrial Water Pumps", slug: "industrial-water-pumps" },
+    { name: "Commercial Lifts", slug: "elevators-lifts" },
+    { name: "Centralized HVAC", slug: "ac-systems" },
   ];
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-red-700 text-white text-sm">
-        <div className="max-w-7xl mx-auto flex justify-between px-4 py-2">
-          <div className="flex items-center gap-3">
-            <Phone size={14} />
-            <a href="tel:+919884927676">+91 98849 27676</a>
-            <span className="hidden sm:inline">|</span>
-            <a href="tel:+917010421860" className="hidden sm:inline">+91 70104 21860</a>
+      {/* Dynamic Top Bar */}
+      <div className="bg-gradient-to-r from-red-700 to-red-600 text-white text-[11px] font-medium transition-all duration-300">
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-1.5">
+          <div className="flex items-center gap-4">
+            <a href="tel:+919884927676" className="flex items-center gap-1.5 hover:text-white/80 transition group">
+              <Phone size={12} className="group-hover:rotate-12 transition-transform" />
+              <span>+91 98849 27676</span>
+            </a>
+            <span className="hidden sm:inline opacity-30">|</span>
+            <span className="hidden sm:flex items-center gap-1.5">
+              <MapPin size={12} />
+              <span>Available in:</span>
+            </span>
+            <div className="flex gap-2">
+              {cities.slice(0, 3).map((c) => (
+                <Link key={c} to={getCityPath(c.toLowerCase())} className="hover:underline opacity-80 hover:opacity-100">
+                  {c}
+                </Link>
+              ))}
+            </div>
           </div>
-
-          <div className="hidden sm:flex items-center gap-2 flex-wrap">
-            <MapPin size={14} />
-            {cities.map((c) => (
-              <Link
-                key={c}
-                to={getCityPath(c.toLowerCase())}
-                className="text-xs bg-white/10 px-2 py-0.5 rounded-full hover:bg-black/40 transition"
-              >
-                {c}
-              </Link>
-            ))}
+          <div className="hidden md:flex items-center gap-2">
+            <Sparkles size={12} className="text-yellow-400" />
+            <span className="uppercase tracking-widest opacity-80">Certified Industrial Standards</span>
           </div>
         </div>
       </div>
 
-      {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-black/10 text-white shadow-md">
-        <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-
+      {/* Main Navigation */}
+      <header 
+        className={`sticky top-0 z-50 transition-all duration-500 ${
+          isScrolled 
+          ? "bg-black/80 backdrop-blur-xl border-b border-white/10 py-3" 
+          : "bg-transparent py-5"
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center text-white">
+          
           {/* Logo Section */}
-          <Link to={basePath || "/"} className="flex items-center gap-3">
-            <img src={LOGOS.Mark_Care_Logo} alt="Logo" className="w-12 h-auto rounded-md" />
-            <div>
-              <div className="font-semibold text-base">Mark Care Pvt. Ltd.</div>
-              <div className="text-[10px] text-slate-400 uppercase tracking-tighter">Residential • Industrial Solutions</div>
+          <Link to={basePath || "/"} className="flex items-center gap-3 group">
+            <div className="relative">
+                <img src={LOGOS.Mark_Care_Logo} alt="Logo" className="w-10 md:w-12 h-auto rounded-xl ring-2 ring-red-500/20 group-hover:ring-red-500 transition-all" />
+                <div className="absolute -inset-1 bg-red-500/20 blur opacity-0 group-hover:opacity-100 transition rounded-xl" />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-bold text-lg md:text-xl tracking-tight leading-none">MARK CARE</span>
+              <span className="text-[10px] text-red-500 font-bold uppercase tracking-widest mt-1">Pvt. Ltd.</span>
             </div>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium">
-            <Link to={basePath || "/"} className="hover:text-red-500 transition">Home</Link>
-            <Link to={`${basePath}/about-us`} className="hover:text-red-500 transition">About</Link>
+          <div className="hidden lg:flex items-center gap-8 text-[13px] font-semibold uppercase tracking-wider">
+            {["Home", "About Us", "Projects", "Gallery", "Blogs"].map((item) => (
+              <Link 
+                key={item} 
+                to={item === "Home" ? (basePath || "/") : `${basePath}/${item.toLowerCase().replace(" ", "-")}`} 
+                className="relative group py-2"
+              >
+                <span className="group-hover:text-red-500 transition-colors">{item}</span>
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-red-500 transition-all group-hover:w-full" />
+              </Link>
+            ))}
 
-            {/* Products & Services Dropdown */}
+            {/* Mega Dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setDesktopServicesOpen(true)}
               onMouseLeave={() => setDesktopServicesOpen(false)}
             >
-              <button className="flex items-center gap-1 hover:text-red-500 py-2">
-                Products & Services <ChevronDown size={16} />
+              <button className="flex items-center gap-1.5 group py-2 hover:text-red-500 transition-colors">
+                PRODUCTS & SERVICES <ChevronDown size={14} className={`transition-transform duration-300 ${desktopServicesOpen ? "rotate-180" : ""}`} />
               </button>
 
               <AnimatePresence>
                 {desktopServicesOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[580px] bg-blue-950 text-white rounded shadow-2xl overflow-hidden flex border border-gray-100"
+                    initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 15, scale: 0.98 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[650px] bg-neutral-950 border border-white/10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden flex"
                   >
                     {/* Domestic Column */}
-                    <div className="flex-1 border-r border-gray-100">
-                      <div className="bg-red-50/50 px-5 py-3 text-[11px] font-bold text-white-700 uppercase tracking-widest border-b border-red-100">
-                        Domestic Solutions
+                    <div className="flex-1 p-6 bg-gradient-to-b from-white/[0.02] to-transparent">
+                      <div className="flex items-center gap-2 text-red-500 font-bold text-xs mb-6 tracking-widest uppercase">
+                        <Home size={14} /> Domestic
                       </div>
-                      <div className="p-2 grid grid-cols-1">
+                      <div className="space-y-1">
                         {domesticServices.map((item) => (
                           <Link
                             key={item.slug}
                             to={`${baseServicePath}/${item.slug}`}
-                            className="px-4 py-2 text-[13px] hover:bg-slate-500 hover:text-black-600 rounded-md transition"
+                            className="block px-4 py-2.5 text-sm text-neutral-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
                           >
                             {item.name}
                           </Link>
@@ -146,16 +156,16 @@ const Header = ({ cities = CITIES }) => {
                     </div>
 
                     {/* Commercial Column */}
-                    <div className="flex-1">
-                      <div className="bg-slate-50 px-5 py-3 text-[11px] font-bold text-slate-700 uppercase tracking-widest border-b border-slate-100">
-                        Commercial Solutions
+                    <div className="flex-1 p-6 border-l border-white/10">
+                      <div className="flex items-center gap-2 text-blue-500 font-bold text-xs mb-6 tracking-widest uppercase">
+                        <Building2 size={14} /> Industrial
                       </div>
-                      <div className="p-2 grid grid-cols-1">
+                      <div className="space-y-1">
                         {commercialServices.map((item) => (
                           <Link
                             key={item.slug}
                             to={`${baseServicePath}/${item.slug}`}
-                            className="px-4 py-2 text-[13px] hover:bg-slate-500 hover:text-black-600 rounded-md transition"
+                            className="block px-4 py-2.5 text-sm text-neutral-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
                           >
                             {item.name}
                           </Link>
@@ -166,78 +176,86 @@ const Header = ({ cities = CITIES }) => {
                 )}
               </AnimatePresence>
             </div>
-
-            <Link to={`${basePath}/projects`} className="hover:text-red-500 transition">Projects</Link>
-            <Link to={`${basePath}/gallery`} className="hover:text-red-500 transition">Gallery</Link>
-            <Link to={`${basePath}/blogs`} className="hover:text-red-500 transition">Blogs</Link>
-
-            <Link to={`${basePath}/contact-us`}>
-              <Button className="rounded-full px-6">Contact Us</Button>
-            </Link>
           </div>
 
-          {/* Mobile Toggle */}
-          <button className="md:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
-            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* CTA & Mobile Toggle */}
+          <div className="flex items-center gap-4">
+            <Link to={`${basePath}/contact-us`} className="hidden md:block">
+              <Button className="rounded-full px-8 bg-red-600 hover:bg-white hover:text-red-600 transition-all duration-300 font-bold text-xs uppercase tracking-widest shadow-lg shadow-red-600/20">
+                Get Quote
+              </Button>
+            </Link>
+            <button 
+              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 transition" 
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </nav>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Overlay */}
         <AnimatePresence>
           {mobileOpen && (
             <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="md:hidden bg-zinc-950 border-t border-white/10 px-6 py-8 flex flex-col gap-5 overflow-y-auto max-h-[85vh]"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed inset-0 top-[110px] md:top-[120px] bg-black z-40 lg:hidden p-8 flex flex-col gap-6"
             >
-              <Link className="text-lg font-medium" to={basePath || "/"} onClick={() => setMobileOpen(false)}>Home</Link>
-              <Link className="text-lg font-medium" to={`${basePath}/about-us`} onClick={() => setMobileOpen(false)}>About Us</Link>
+              <div className="space-y-4">
+                {["Home", "About Us", "Projects", "Gallery", "Blogs"].map((item) => (
+                   <Link 
+                   key={item}
+                   className="block text-3xl font-bold tracking-tighter hover:text-red-500 transition-colors" 
+                   to={item === "Home" ? (basePath || "/") : `${basePath}/${item.toLowerCase().replace(" ", "-")}`} 
+                   onClick={() => setMobileOpen(false)}
+                 >
+                   {item}
+                 </Link>
+                ))}
+              </div>
 
-              {/* Mobile Services Accordion */}
+              <div className="h-px bg-white/10 my-4" />
+
               <div>
                 <button
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="flex justify-between items-center w-full text-lg font-medium text-red-500"
+                  className="flex justify-between items-center w-full text-2xl font-bold text-red-500"
                 >
                   Products & Services
-                  <ChevronDown size={20} className={mobileServicesOpen ? "rotate-180" : ""} />
+                  <ChevronDown className={`transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`} />
                 </button>
 
-                {mobileServicesOpen && (
-                  <div className="mt-4 flex flex-col gap-6 pl-4 border-l border-white/10">
-                    {/* Domestic */}
-                    <div>
-                      <p className="text-[10px] uppercase text-gray-500 mb-3 font-black tracking-widest">Domestic</p>
-                      <div className="grid grid-cols-1 gap-3">
-                        {domesticServices.map((item) => (
-                          <Link key={item.slug} to={`${baseServicePath}/${item.slug}`} className="text-sm text-gray-300" onClick={() => setMobileOpen(false)}>
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                    {/* Commercial */}
-                    <div>
-                      <p className="text-[10px] uppercase text-gray-500 mb-3 font-black tracking-widest">Commercial</p>
-                      <div className="grid grid-cols-1 gap-3">
-                        {commercialServices.map((item) => (
-                          <Link key={item.slug} to={`${baseServicePath}/${item.slug}`} className="text-sm text-gray-300" onClick={() => setMobileOpen(false)}>
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
+                <AnimatePresence>
+                    {mobileServicesOpen && (
+                    <motion.div 
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        className="overflow-hidden"
+                    >
+                        <div className="grid grid-cols-1 gap-6 py-6 pl-4 border-l border-red-500/30 mt-4">
+                            <div>
+                                <h5 className="text-[10px] uppercase tracking-[0.3em] text-neutral-500 mb-4">Domestic</h5>
+                                {domesticServices.map(s => (
+                                    <Link key={s.slug} className="block py-2 text-neutral-300" to={`${baseServicePath}/${s.slug}`} onClick={() => setMobileOpen(false)}>{s.name}</Link>
+                                ))}
+                            </div>
+                            <div>
+                                <h5 className="text-[10px] uppercase tracking-[0.3em] text-neutral-500 mb-4">Industrial</h5>
+                                {commercialServices.map(s => (
+                                    <Link key={s.slug} className="block py-2 text-neutral-300" to={`${baseServicePath}/${s.slug}`} onClick={() => setMobileOpen(false)}>{s.name}</Link>
+                                ))}
+                            </div>
+                        </div>
+                    </motion.div>
+                    )}
+                </AnimatePresence>
               </div>
 
-              <Link className="text-lg font-medium" to={`${basePath}/projects`} onClick={() => setMobileOpen(false)}>Projects</Link>
-              <Link className="text-lg font-medium" to={`${basePath}/gallery`} onClick={() => setMobileOpen(false)}>Gallery</Link>
-              <Link className="text-lg font-medium" to={`${basePath}/blogs`} onClick={() => setMobileOpen(false)}>Blogs</Link>
-
-              <Link to={`${basePath}/contact-us`} onClick={() => setMobileOpen(false)} className="pt-4">
-                <Button className="w-full py-4 rounded-xl text-lg">Contact Us</Button>
+              <Link to={`${basePath}/contact-us`} onClick={() => setMobileOpen(false)} className="mt-auto">
+                <Button className="w-full py-5 rounded-2xl text-xl font-bold">Contact Expert</Button>
               </Link>
             </motion.div>
           )}
