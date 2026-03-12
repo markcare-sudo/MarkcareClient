@@ -40,7 +40,7 @@ const Header = ({ cities = CITIES }) => {
     { name: "Refrigerator Service", slug: "refrigerator-service" },
     { name: "Washing Machine Service", slug: "washing-machine-service" },
     { name: "Geyser Installation & Service", slug: "geyser-installation-service" },
-    { name: "UPS Systems", slug: "ups-systems" },
+    // { name: "UPS Systems", slug: "ups-systems" },
     // { name: "Water Heater Systems", slug: "water-heater-systems" },
     // { name: "Kitchen Chimney Service", slug: "kitchen-chimney-service" },
   ];
