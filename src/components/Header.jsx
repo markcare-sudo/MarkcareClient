@@ -129,7 +129,7 @@ const Header = ({ cities = [] }) => {
               onMouseLeave={() => setDesktopServicesOpen(false)}
             >
               <button className="flex items-center gap-1.5 group py-2 hover:text-red-500 transition-colors">
-                SERVICES <ChevronDown size={14} className={`transition-transform duration-300 ${desktopServicesOpen ? "rotate-180" : ""}`} />
+                PRODUCTS & SERVICES <ChevronDown size={14} className={`transition-transform duration-300 ${desktopServicesOpen ? "rotate-180" : ""}`} />
               </button>
 
               <AnimatePresence>
@@ -138,11 +138,11 @@ const Header = ({ cities = [] }) => {
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 15 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[600px] bg-neutral-950 border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex"
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[600px] bg-neutral-950 border border-white/10 rounded shadow-2xl overflow-hidden flex"
                   >
                     <div className="flex-1 p-6">
                       <div className="flex items-center gap-2 text-red-500 font-bold text-[10px] mb-4 tracking-widest uppercase">
-                        <Home size={14} /> Domestic
+                        <Home size={14} /> DOMESTIC
                       </div>
                       <div className="space-y-1">
                         {domesticServices.map((item) => (
@@ -154,7 +154,7 @@ const Header = ({ cities = [] }) => {
                     </div>
                     <div className="flex-1 p-6 border-l border-white/10">
                       <div className="flex items-center gap-2 text-blue-500 font-bold text-[10px] mb-4 tracking-widest uppercase">
-                        <Building2 size={14} /> Industrial
+                        <Building2 size={14} /> INDUSTRIAL
                       </div>
                       <div className="space-y-1">
                         {commercialServices.map((item) => (
@@ -215,7 +215,7 @@ const Header = ({ cities = [] }) => {
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                   className="flex justify-between items-center w-full text-2xl font-bold text-red-500"
                 >
-                  Products & Services
+                  PRODUCTS & SERVICES
                   <ChevronDown className={`transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`} />
                 </button>
 
