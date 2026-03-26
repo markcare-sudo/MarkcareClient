@@ -49,9 +49,9 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
-  const fetchBlogs = async () => {
+  const fetchBlogs = async (query) => {
     try {
-      const res = await getBlogs()
+      const res = await getBlogs(query)
       setBlogs(res.data.data)
     } catch (error) {
       console.log(error)
@@ -139,6 +139,7 @@ export const GlobalProvider = ({ children }) => {
         tags,
         keywords,
         requestCallback,
+        fetchBlogs,
         fetchBlog,
         uploadBlog,
         updateBlog,

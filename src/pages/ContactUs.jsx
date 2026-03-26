@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { CONTACT_IMAGES } from "@/constants/branding";
 import { useGlobalContext } from "@/context/GlobalContext";
+import SEO from "@/components/SEO";
 
 export default function EnquireSection() {
   const { requestCallback } = useGlobalContext();
@@ -36,39 +37,44 @@ export default function EnquireSection() {
   };
 
   return (
-    <section className="relative min-h-screen text-white overflow-hidden flex items-center justify-center">
+    <>
+      <SEO 
+        title="Contact MarkCare | Get in Touch for Engineering & Facility Services"
+        description="Contact MarkCare for comprehensive RO, WTP, STP, ETP, solar power systems, AC services, generators and lift solutions in India."
+      />
+      <section className="relative min-h-screen text-white overflow-hidden flex items-center justify-center">
 
-      {/* Red Gradient Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,0,0,0.35),transparent_40%)]" />
+        {/* Red Gradient Glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,0,0,0.35),transparent_40%)]" />
 
-      <div className="relative max-w-6xl mx-auto px-4 py-6 w-full grid lg:grid-cols-2 gap-12 items-center justify-center">
+        <div className="relative max-w-6xl mx-auto px-4 py-6 w-full grid lg:grid-cols-2 gap-12 items-center justify-center">
 
-        {/* LEFT CONTENT */}
-        <div>
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex items-center gap-3 mb-4"
-          >
-            <ArrowLeft className="text-gray-400" />
-            <h2 className="text-2xl md:text-3xl font-medium tracking-wide">
-              Enquire with us
-            </h2>
-          </motion.div>
+          {/* LEFT CONTENT */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex items-center gap-3 mb-4"
+            >
+              <ArrowLeft className="text-gray-400" />
+              <h2 className="text-2xl md:text-3xl font-medium tracking-wide">
+                Enquire with us
+              </h2>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
-            className="relative flex justify-center items-center"
-          >
-            <img
-              src={CONTACT_IMAGES.CONTACT_US}
-              alt="Contact Illustration"
-              className=" max-w-md w-full object-contain"
-            />
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9 }}
+              className="relative flex justify-center items-center"
+            >
+              <img
+                src={CONTACT_IMAGES.CONTACT_US}
+                alt="Contact Illustration"
+                className="max-w-md w-full object-contain"
+              />
+            </motion.div>
         </div>
 
         {/* RIGHT FORM */}
@@ -140,5 +146,6 @@ export default function EnquireSection() {
         </div>
       </a>
     </section>
+    </>
   );
 }

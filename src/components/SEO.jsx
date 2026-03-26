@@ -4,6 +4,9 @@ import { useLocation } from "react-router-dom";
 const SEO = ({
   title,
   description,
+  keywords = "Mark Care, Specialized Services",
+  author = "Mark Care",
+  image = "/assets/Markcare Logo2.png",
   noIndex = false,
 }) => {
   const location = useLocation();
@@ -22,6 +25,8 @@ const SEO = ({
       <link rel="canonical" href={canonicalUrl} />
 
       <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      <meta name="author" content={author} />
 
       <meta
         name="robots"
@@ -31,11 +36,15 @@ const SEO = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:site_name" content={author} />
+      <meta property="og:image" content={image} />
       <meta property="og:type" content="website" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
+      <meta name="twitter:site" content="@MarkCare" />
     </Helmet>
   );
 };
