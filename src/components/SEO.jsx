@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 const SEO = ({
   title,
   description,
-  keywords = "Mark Care, Specialized Services",
+  keywords = "Mark Care, markCare.in, Specialized Services, best home services near me, expert ac service, ro installation, elevator maintenance, solar installation, dg maintenance, tv installation, maintenance services in bangalore, maintenance services in chennai, markcare near me in delhi",
   author = "Mark Care",
   image = "/assets/Markcare Logo2.png",
   noIndex = false,

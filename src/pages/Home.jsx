@@ -24,7 +24,7 @@ export default function MarkCareSite() {
       <SEO 
         title="MarkCare | RO, WTP, STP, ETP, Solar, AC & Facility Engineering Services"
         description="MarkCare provides Elevators, Lift, Residencial Elevators, Commercial Elevators, Hospital Lift, Dumpt Lift, Kitchen Lift,RO plants, Water Treatment Plants (WTP), Sewage Treatment Plants (STP), Effluent Treatment Plants (ETP), solar power systems, AC services, DG power backup, lifts & escalator AMC across India."
-        keywords="MarkCare, Elevators, Lift, Residencial Elevators, Commercial Elevators, Hospital Lift, Dumpt Lift, Kitchen Lift, RO Plants, WTP Services, STP O&M, ETP Services, Solar Power Systems, AC AMC, DG Power Backup, Lift AMC, Facility Engineering Services India"
+        keywords="MarkCare, markCare.in, Elevators, Lift, Residencial Elevators, Commercial Elevators, Hospital Lift, Dumpt Lift, Kitchen Lift, RO Plants, WTP Services, STP O&M, ETP Services, Solar Power Systems, AC AMC, DG Power Backup, Lift AMC, Facility Engineering Services India, best home services near me, expert ac service, ro installation, elevator maintenance, solar installation, dg maintenance, tv installation, maintenance services in bangalore, maintenance services in chennai, markcare near me in delhi"
       />
 
       <div className="min-h-screen">
