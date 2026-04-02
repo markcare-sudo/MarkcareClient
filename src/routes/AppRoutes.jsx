@@ -23,7 +23,9 @@ import UPS from "@/pages/UPS";
 import ErrorBoundary from "@/components/ErrorBoundory";
 import WaterTreatmentPlant from "@/pages/WaterTratementPlant";
 import Gallery from "@/pages/Gallery";
-
+import TVInstallation from "@/pages/TVInstallation";
+import KitchenChimney from "@/pages/KitchenChimney";
+import IndustrialRO from "@/pages/IndustrialRO";
 // Lazy-loaded page
 const Home = lazy(() => import("../pages/Home"));
 
@@ -43,6 +45,9 @@ const AppRoutes = () => {
       <Route path="ac-systems" element={<ErrorBoundary><AC /></ErrorBoundary>} />
       <Route path="refrigerator-service" element={<ErrorBoundary><Refrigerators /></ErrorBoundary>} />
       <Route path="ups-systems" element={<ErrorBoundary><UPS /></ErrorBoundary>} />
+      <Route path="tv-installation-service" element={<ErrorBoundary><TVInstallation /></ErrorBoundary>} />
+      <Route path="kitchen-chimney-service" element={<ErrorBoundary><KitchenChimney /></ErrorBoundary>} />
+      <Route path="industrial-ro-systems" element={<ErrorBoundary><IndustrialRO /></ErrorBoundary>} />
     </>
   );
 
