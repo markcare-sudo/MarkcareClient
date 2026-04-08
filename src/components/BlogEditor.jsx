@@ -8,7 +8,7 @@ const BLOG_CATEGORIES = [
   "Water Treatment Plants", "RO Water Purifier", "Reverse Osmosis Plant",
   "Residential Elevator", "Sewage Treatment Plant", "Diesel Generator",
   "Water Softening Plant", "AC Service", "Solar Power System",
-  "Refrigerators", "UPS System", "Geysers", "Solar walls",
+  "Refrigerators", "UPS System", "Geysers", "Solar walls", "Centralized HVAC",
   "Washing Machine", "TV", "Effluent Treatment Plant"
 ];
 
