@@ -20,22 +20,24 @@ const SEO = ({
   const canonicalUrl = `${baseUrl}${canonicalPath}`;
 
   const currentPath = location.pathname;
-  let dynamicKeywordsList = seoKeywordMappings[currentPath];
-  if (!dynamicKeywordsList && currentPath.endsWith('/') && currentPath.length > 1) {
-    dynamicKeywordsList = seoKeywordMappings[currentPath.slice(0, -1)];
+  let dynamicSeoData = seoKeywordMappings[currentPath];
+  if (!dynamicSeoData && currentPath.endsWith('/') && currentPath.length > 1) {
+    dynamicSeoData = seoKeywordMappings[currentPath.slice(0, -1)];
   }
 
-  const finalKeywords = dynamicKeywordsList
-    ? `${keywords}, ${dynamicKeywordsList.join(", ")}`
+  const finalTitle = dynamicSeoData?.title || title || "Mark Care - Specialized Services";
+  const finalDescription = dynamicSeoData?.description || description || "Mark Care offers specialized services for elevators, water treatment plants, sewage treatment plants, RO purifiers, and generators.";
+  const finalKeywords = dynamicSeoData?.keywords
+    ? `${keywords}, ${dynamicSeoData.keywords.join(", ")}`
     : keywords;
 
   return (
     <Helmet>
-      <title>{title}</title>
+      <title>{finalTitle}</title>
 
       <link rel="canonical" href={canonicalUrl} />
 
-      <meta name="description" content={description} />
+      <meta name="description" content={finalDescription} />
       <meta name="keywords" content={finalKeywords} />
       <meta name="author" content={author} />
 
@@ -44,16 +46,16 @@ const SEO = ({
         content={noIndex ? "noindex, follow" : "index, follow"}
       />
 
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
+      <meta property="og:title" content={finalTitle} />
+      <meta property="og:description" content={finalDescription} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content={author} />
       <meta property="og:image" content={image} />
       <meta property="og:type" content="website" />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:title" content={finalTitle} />
+      <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:site" content="@MarkCare" />
     </Helmet>
