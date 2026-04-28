@@ -50,10 +50,9 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex gap-4 mt-6">
             {[
-              { icon: <Instagram size={18} />, link: "#" },
-              { icon: <Facebook size={18} />, link: "#" },
-              { icon: <Twitter size={18} />, link: "#" },
-              { icon: <Linkedin size={18} />, link: "#" },
+              { icon: <Instagram size={18} />, link: "https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fmarkcare_official%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExclg5VzM5NmJUSXN3U0NnRnNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR404paEsQ8sUbm9Z4NE7xCA120xYYd_wQXsu37SPOznre5NmeCXYw-dgRSxdQ_aem_2TFYRmlyY7btrCQ7v8z83g&h=AT4Yi3o1deaZTJ4Ej8pmBf_xdU51PC_mgHNJtjLZRZgoAcQyttDU1lCItyg5WJtwUFQUBk5pjhlH198TExMeRUTiELFcHw7_nJ_jKh_a8lLUTCOh6ALcXDLirGf0FQWdPjnQtThHiINN2TseFqzqOQ" },
+              { icon: <Facebook size={18} />, link: "https://www.facebook.com/profile.php?id=100091296894011#" },
+              { icon: <Linkedin size={18} />, link: "https://in.linkedin.com/company/markcare" },
             ].map((item, i) => (
               <a
                 key={i}
@@ -132,27 +131,45 @@ export default function Footer() {
         </div>
 
         {/* ADDRESS + CTA */}
+        {/* ADDRESS + CTA */}
         <div>
           <h4 className="font-semibold text-lg mb-4">Office Address</h4>
 
-          <p className="text-sm text-gray-400 leading-relaxed flex gap-2">
-            <MapPin size={16} className="mt-1 shrink-0" />
-            100, 2nd floor, 5th Block, 5th Cross Rd, KHB Colony,
-            5th Block, Koramangala, Bengaluru, Karnataka 560095
-          </p>
+          <div className="space-y-4 text-sm text-gray-400">
+
+            {/* Head Office */}
+            <div className="flex gap-2">
+              <MapPin size={16} className="mt-1 shrink-0 text-red-500" />
+              <div>
+                <p className="font-medium text-white">Head Office – Bengaluru</p>
+                <p>
+                  100, 2nd Floor, 5th Block, 5th Cross Rd, KHB Colony,
+                  Koramangala, Bengaluru, Karnataka 560095
+                </p>
+              </div>
+            </div>
+
+            {/* Branch Cities */}
+            {["Chennai", "Delhi", "Hyderabad", "Mumbai"].map((city, i) => (
+              <div key={i} className="flex gap-2">
+                <MapPin size={16} className="mt-1 shrink-0" />
+                <p>{city}</p>
+              </div>
+            ))}
+
+          </div>
 
           <Link
             to="/contact-us"
             className="mt-6 inline-flex bg-red-600 px-6 py-3 rounded-full
-             items-center gap-2
-             transition-all duration-300
-             hover:bg-red-700 hover:scale-105
-             active:scale-95 active:bg-red-800"
+     items-center gap-2
+     transition-all duration-300
+     hover:bg-red-700 hover:scale-105
+     active:scale-95 active:bg-red-800"
           >
             Contact Us
             <ArrowUpRight size={16} />
           </Link>
-
         </div>
       </div>
 
