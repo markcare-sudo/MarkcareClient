@@ -164,10 +164,10 @@ export default function Footer() {
           <Link
             to="/contact-us"
             className="mt-6 inline-flex bg-red-600 px-6 py-3 rounded-full
-     items-center gap-2
-     transition-all duration-300
-     hover:bg-red-700 hover:scale-105
-     active:scale-95 active:bg-red-800"
+            items-center gap-2
+            transition-all duration-300
+            hover:bg-red-700 hover:scale-105
+            active:scale-95 active:bg-red-800"
           >
             Contact Us
             <ArrowUpRight size={16} />

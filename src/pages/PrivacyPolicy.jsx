@@ -539,7 +539,6 @@ export default function PrivacyPolicy() {
                                 </p>
                             </div>
                         </section>
-
                     </main>
                 </div>
             </div>
