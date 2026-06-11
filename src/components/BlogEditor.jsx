@@ -123,41 +123,12 @@ export default function BlogForm({ open, onClose, initialData }) {
     });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsSubmitting(true);
-  //   try {
-  //     const formData = new FormData();
-
-  //     Object.entries(form).forEach(([key, value]) => {
-  //       if (key === "tags" || key === "keywords") {
-  //         formData.append(key, JSON.stringify(value));
-  //       } else if (key === "featured_media") {
-  //         if (value instanceof File) formData.append("featured_media", value);
-  //       } else {
-  //         formData.append(key, value || "");
-  //       }
-  //     });
-
-  //     if (initialData?.id) {
-  //       await updateBlog(formData, initialData.id);
-  //     } else {
-  //       await uploadBlog(formData);
-  //     }
-  //     onClose();
-  //   } catch (error) {
-  //     console.error("Submission failed:", error);
-  //   } finally {
-  //     setIsSubmitting(false);
-  //   }
-  // };
-
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return; // Prevent double clicks
-    
+
     setIsSubmitting(true);
-    
+
     try {
       const formData = new FormData();
 
@@ -175,12 +146,12 @@ const handleSubmit = async (e) => {
       if (initialData?.id) {
         // Force await and capture the result
         result = await updateBlog(formData, initialData.id);
-        onClose(); 
+        onClose();
       } else {
         result = await uploadBlog(formData);
-        onClose(); 
+        onClose();
       }
-      
+
     } catch (error) {
       // This block runs if the API returns a 400/500 and the context THROWS the error
       console.error("Submission blocked close due to error:", error);
@@ -360,119 +331,6 @@ const handleSubmit = async (e) => {
 }
 
 
-
-
-
-// function MetaInput({ label, input, setInput, items, addItem, removeItem, color, allSuggestions = [] }) {
-//   const [showSuggestions, setShowSuggestions] = useState(false);
-//   const suggestionRef = useRef(null);
-
-//   const colorClasses = color === "red"
-//     ? "bg-red-600/20 text-red-400 border-red-600/30"
-//     : "bg-blue-600/20 text-blue-400 border-blue-600/30";
-
-//   // Process strings with commas into multiple items
-//   const handleCommaSeparatedAdd = (value) => {
-//     if (!value.includes(',')) {
-//       addItem(value);
-//       return;
-//     }
-
-//     // Split by comma, remove empty strings, and trim whitespace
-//     const parts = value.split(',').map(p => p.trim()).filter(p => p.length > 0);
-//     parts.forEach(part => addItem(part));
-//     setInput(""); // Clear input after processing all parts
-//   };
-
-//   const filteredSuggestions = useMemo(() => {
-//     if (!input.trim()) return [];
-//     const search = input.toLowerCase();
-
-//     return allSuggestions.filter(s => {
-//       const suggestionText = s.name || s.keyword;
-//       if (!suggestionText) return false;
-//       const normalizedText = suggestionText.toLowerCase();
-//       return (
-//         normalizedText.includes(search) &&
-//         !items.some(alreadySelected => alreadySelected.toLowerCase() === normalizedText)
-//       );
-//     }).slice(0, 5); 
-//   }, [input, allSuggestions, items]);
-
-//   useEffect(() => {
-//     const handleClickOutside = (e) => {
-//       if (suggestionRef.current && !suggestionRef.current.contains(e.target)) {
-//         setShowSuggestions(false);
-//       }
-//     };
-//     document.addEventListener("mousedown", handleClickOutside);
-//     return () => document.removeEventListener("mousedown", handleClickOutside);
-//   }, []);
-
-//   return (
-//     <div className="space-y-2 relative" ref={suggestionRef}>
-//       <label className="block text-sm text-gray-400 font-medium">{label}</label>
-//       <div className="w-full bg-white/5 border border-white/10 rounded-xl p-3 flex flex-wrap gap-2 focus-within:ring-2 focus-within:ring-white/10">
-//         {items.map((item) => (
-//           <div key={item} className={`flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium border ${colorClasses}`}>
-//             {item}
-//             <button type="button" onClick={() => removeItem(item)} className="hover:text-white transition">
-//               <X size={12} />
-//             </button>
-//           </div>
-//         ))}
-//         <input
-//           value={input}
-//           onFocus={() => setShowSuggestions(true)}
-//           onChange={(e) => {
-//             const val = e.target.value;
-//             // If the user typed a comma, process it immediately
-//             if (val.includes(',')) {
-//               handleCommaSeparatedAdd(val);
-//               setShowSuggestions(false);
-//             } else {
-//               setInput(val);
-//               setShowSuggestions(true);
-//             }
-//           }}
-//           onKeyDown={(e) => {
-//             if (e.key === "Enter") {
-//               e.preventDefault();
-//               handleCommaSeparatedAdd(input); // Use the logic here too
-//               setShowSuggestions(false);
-//             }
-//           }}
-//           placeholder={`Add ${label.toLowerCase()} (separate by comma)...`}
-//           className="flex-1 bg-transparent outline-none min-w-[150px] text-sm text-white"
-//         />
-//       </div>
-
-//       {/* Suggestion Dropdown */}
-//       {showSuggestions && filteredSuggestions.length > 0 && (
-//         <div className="absolute z-[60] w-full mt-1 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-xl overflow-hidden">
-//           {filteredSuggestions.map((s) => {
-//             const displayName = s.name || s.keyword;
-//             return (
-//               <button
-//                 key={s.id}
-//                 type="button"
-//                 className="w-full px-4 py-3 text-left text-sm text-white hover:bg-white/5 transition flex items-center justify-between group"
-//                 onClick={() => {
-//                   addItem(displayName);
-//                   setShowSuggestions(false);
-//                   setInput(""); // Ensure input is cleared on selection
-//                 }}
-//               >
-//                 <span>{displayName}</span>
-//                 <span className="text-[10px] text-gray-500 group-hover:text-gray-300">Use existing</span>
-//               </button>
-//             );
-//           })}
-//         </div>
-//       )}
-//     </div>
-//   );
-// }
 
 function MetaInput({ label, input, setInput, items = [], addItem, removeItem, color, allSuggestions = [] }) {
   const [showSuggestions, setShowSuggestions] = useState(false);

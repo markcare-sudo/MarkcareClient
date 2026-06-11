@@ -26,6 +26,8 @@ import Gallery from "@/pages/Gallery";
 import TVInstallation from "@/pages/TVInstallation";
 import KitchenChimney from "@/pages/KitchenChimney";
 import IndustrialRO from "@/pages/IndustrialRO";
+import TermsAndConditions from "@/pages/TermsAndConditions";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
 // Lazy-loaded page
 const Home = lazy(() => import("../pages/Home"));
 
@@ -93,15 +95,21 @@ const AppRoutes = () => {
             <Route path="projects" element={<ErrorBoundary><ProjectsSection /></ErrorBoundary>} />
             <Route path="about-us" element={<ErrorBoundary><AboutUs /></ErrorBoundary>} />
             <Route path="contact-us" element={<ErrorBoundary><Contact /></ErrorBoundary>} />
-              <Route path="gallery" element={<ErrorBoundary><Gallery /></ErrorBoundary>} />
+            <Route path="gallery" element={<ErrorBoundary><Gallery /></ErrorBoundary>} />
             <Route path="blogs" element={<ErrorBoundary><PublicBlogs /></ErrorBoundary>} />
             <Route path="blogs/:slug" element={<ErrorBoundary><BlogDetails /></ErrorBoundary>} />
+
 
             <Route path="services">
               {ServiceRoutes()}
             </Route>
 
+
+
           </Route>
+
+          <Route path="terms-&-conditions" element={<ErrorBoundary><TermsAndConditions /></ErrorBoundary>} />
+          <Route path="privacy-policy" element={<ErrorBoundary><PrivacyPolicy /></ErrorBoundary>} />
 
           {/* 404 */}
           <Route

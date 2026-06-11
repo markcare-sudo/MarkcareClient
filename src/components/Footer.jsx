@@ -20,6 +20,8 @@ const QUICK_LINKS = [
   { label: "Our Projects", path: "/projects" },
   { label: "Blogs", path: "/blogs" },
   { label: "Contact Us", path: "/contact-us" },
+  { label: "Terms & Conditions", path: "/terms-&-conditions" },
+  { label: "Privacy Policy", path: "/privacy-policy" },
 ];
 
 export default function Footer() {
@@ -174,8 +176,11 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t border-gray-800 py-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Markcare. All Rights Reserved.
+      <div className="border-t border-slate-800 bg-slate-900 py-8 px-6 text-center text-xs text-slate-500">
+        <div className="max-w-7xl mx-auto">
+          <p>© {new Date().getFullYear()} MarkCare. All legal rights reserved.</p>
+          <p className="mt-2 text-slate-600">This legal document outlines standard operational privacy practices for residential and industrial facility utility management.</p>
+        </div>
       </div>
 
       {/* Scroll To Top Button */}
