@@ -117,10 +117,10 @@ export default function Footer() {
             </a>
 
             <a
-              href="mailto:santhosh@markcare.in"
+              href="mailto:director@markcare.in"
               className="flex items-center gap-2 hover:text-red-500 transition"
             >
-              <Mail size={16} /> santhosh@markcare.in
+              <Mail size={16} /> director@markcare.in
             </a>
 
             <a
