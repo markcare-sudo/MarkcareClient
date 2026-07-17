@@ -522,7 +522,7 @@ export default function PrivacyPolicy() {
                                     <p><strong className="text-white">Brand / Platform:</strong> MarkCare (markcare.in)</p>
                                     <p><strong className="text-white">Email Communications:</strong> support@markcare.in</p>
                                     <p><strong className="text-white">Operational Hubs:</strong> Headquartered in Bengaluru, with key regional centers across India (including Pallikaranai, Chennai).</p>
-                                    <p><strong className="text-white">Customer Support Contact:</strong> +91 98849 27676 / +91 70104 21860</p>
+                                    <p><strong className="text-white">Customer Support Contact:</strong> +91 70104 21860</p>
                                 </div>
                             </div>
                         </section>

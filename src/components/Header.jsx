@@ -67,18 +67,18 @@ const Header = ({ cities = [] }) => {
       <div className="bg-red-600 text-white text-[10px] md:text-[11px] font-medium border-b border-red-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center px-4 py-2 gap-2">
           <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
-            <a href="tel:+919884927676" className="flex items-center gap-1.5 whitespace-nowrap">
+            <a href="tel:+917010421860" className="flex items-center gap-1.5 whitespace-nowrap">
               <Phone size={11} fill="currentColor" />
-              <span>+91 98849 27676</span>
+              <span>+91 70104 21860</span>
             </a>
             <span className="hidden sm:inline opacity-30">|</span>
             <div className="flex items-center gap-2">
               <MapPin size={11} className="shrink-0" />
               <div className="flex flex-wrap justify-center gap-x-2">
                 {cities.map((c) => (
-                  <Link 
-                    key={c} 
-                    to={getCityPath(c.toLowerCase())} 
+                  <Link
+                    key={c}
+                    to={getCityPath(c.toLowerCase())}
                     className={`transition-all ${cityFromPath === c.toLowerCase() ? "font-bold underline underline-offset-4" : "opacity-70"}`}
                   >
                     {c}
@@ -94,15 +94,14 @@ const Header = ({ cities = [] }) => {
         </div>
       </div>
 
-      <header 
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled 
-          ? "bg-black/95 backdrop-blur-md border-b border-white/10 py-2 md:py-3" 
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
+          ? "bg-black/95 backdrop-blur-md border-b border-white/10 py-2 md:py-3"
           : "bg-black/80 py-4 md:py-6"
-        }`}
+          }`}
       >
         <nav className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center text-white">
-          
+
           <Link to={basePath || "/"} className="flex items-center gap-2 md:gap-3 group shrink-0">
             <img src={LOGOS.Mark_Care_Logo} alt="Logo" className="w-9 md:w-11 h-auto" />
             <div className="flex flex-col">
@@ -171,9 +170,9 @@ const Header = ({ cities = [] }) => {
               {/* Scrollable Content */}
               <div className="flex-1 overflow-y-auto px-6 py-8 space-y-6">
                 {["Home", "About Us", "Projects", "Gallery", "Blogs"].map((item) => (
-                  <Link 
-                    key={item} 
-                    to={item === "Home" ? (basePath || "/") : `${basePath}/${item.toLowerCase().replace(" ", "-")}`} 
+                  <Link
+                    key={item}
+                    to={item === "Home" ? (basePath || "/") : `${basePath}/${item.toLowerCase().replace(" ", "-")}`}
                     onClick={() => setMobileOpen(false)}
                     className="block text-3xl font-bold tracking-tighter"
                   >
@@ -182,7 +181,7 @@ const Header = ({ cities = [] }) => {
                 ))}
 
                 <div className="space-y-4">
-                  <button 
+                  <button
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                     className="flex items-center justify-between w-full text-2xl font-bold text-red-600 uppercase"
                   >

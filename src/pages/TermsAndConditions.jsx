@@ -217,7 +217,7 @@ const sections = [
             <div className="space-y-2">
                 <p className="font-semibold text-white">MarkCare Private Limited</p>
                 <p>Bengaluru, Karnataka, India</p>
-                <p>Phone: +91 98849 27676</p>
+                <p>Phone: +91 70104 21860</p>
                 <p>Email: director@markcare.in</p>
                 <p>Website: www.markcare.in</p>
             </div>
