@@ -67,9 +67,9 @@ const Header = ({ cities = [] }) => {
       <div className="bg-red-600 text-white text-[10px] md:text-[11px] font-medium border-b border-red-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center px-4 py-2 gap-2">
           <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
-            <a href="tel:+917010421860" className="flex items-center gap-1.5 whitespace-nowrap">
+            <a href="tel:+917204974477" className="flex items-center gap-1.5 whitespace-nowrap">
               <Phone size={11} fill="currentColor" />
-              <span>+91 70104 21860</span>
+              <span>+91 72049 74477</span>
             </a>
             <span className="hidden sm:inline opacity-30">|</span>
             <div className="flex items-center gap-2">

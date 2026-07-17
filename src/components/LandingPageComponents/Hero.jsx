@@ -18,7 +18,7 @@ const Hero = ({ services, classNames }) => {
                         delivered by certified professionals at your convenience.
                     </p>
                     <div className="mt-6 flex flex-wrap gap-3">
-                        <a href="tel:+917010421860"><Button className="rounded-2xl">Call Now</Button></a>
+                        <a href="tel:+917204974477"><Button className="rounded-2xl">Call Now</Button></a>
                         <Link to="/services"><Button variant="outline" className="rounded-2xl">Explore Services</Button></Link>
                     </div>
                     <div className="mt-6 flex items-center gap-4 text-sm text-slate-600">

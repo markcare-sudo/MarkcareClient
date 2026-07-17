@@ -2,7 +2,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const Whatsapp = () => {
   // wa.me requires full number without '+' or spaces
-  const whatsappNumber = "917010421860";
+  const whatsappNumber = "917204974477";
   const customerMessage =
     "Hi! I'm interested in Revisit's Freelance services parter. Please share more details.";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(customerMessage)}`;

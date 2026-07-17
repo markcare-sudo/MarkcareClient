@@ -131,7 +131,7 @@ export default function EnquireSection() {
 
         {/* WhatsApp Button */}
         <a
-          href="https://wa.me/917010421860"
+          href="https://wa.me/917204974477"
           target="_blank"
           rel="noreferrer"
           className="fixed bottom-6 right-6"
