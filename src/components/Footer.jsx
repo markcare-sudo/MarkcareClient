@@ -110,13 +110,6 @@ export default function Footer() {
             </a>
 
             <a
-              href="tel:+917204974477"
-              className="flex items-center gap-2 hover:text-red-500 transition"
-            >
-              <Phone size={16} /> +91 72049 74477
-            </a>
-
-            <a
               href="mailto:director@markcare.in"
               className="flex items-center gap-2 hover:text-red-500 transition"
             >
